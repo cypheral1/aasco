@@ -19,7 +19,9 @@ export function ProjectSection() {
         </div>
         <div className={styles.portfolio} data-framecoded-motion={"r140"}>
           <h2 className={styles.h213} dir={"auto"}>
-            Find Your Property
+            Find Your
+            <br />
+            Property
           </h2>
         </div>
       </div>

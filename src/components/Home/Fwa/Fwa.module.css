@@ -64,8 +64,8 @@
   padding-right: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
-  caret-color: rgb(122, 122, 122);
-  color: rgb(122, 122, 122);
+  caret-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
   font-size: calc(
     var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
@@ -77,18 +77,18 @@
   --framer-line-height: 44px;
   letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
   --framer-letter-spacing: -0.72px;
-  text-decoration-color: rgb(122, 122, 122);
+  text-decoration-color: rgb(255, 255, 255);
   text-underline-offset: var(
     --framer-blockquote-text-decoration-offset,
     var(--framer-text-decoration-offset, initial)
   );
-  -webkit-text-fill-color: rgb(122, 122, 122);
-  -webkit-text-stroke-color: rgb(122, 122, 122);
-  border-top-color: rgb(122, 122, 122);
-  border-right-color: rgb(122, 122, 122);
-  border-bottom-color: rgb(122, 122, 122);
-  border-left-color: rgb(122, 122, 122);
-  outline-color: rgb(122, 122, 122);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  border-top-color: rgb(255, 255, 255);
+  border-right-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(255, 255, 255);
+  border-left-color: rgb(255, 255, 255);
+  outline-color: rgb(255, 255, 255);
   text-decoration-thickness: var(
     --framer-blockquote-text-decoration-thickness,
     var(--framer-text-decoration-thickness, initial)

@@ -986,6 +986,43 @@
   background-color: rgb(4, 4, 4);
 }
 
+.propertySearch {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 2.3fr);
+  align-items: end;
+  gap: 32px;
+  width: min(100% - 48px, 1360px);
+  margin: 0 auto;
+  padding: 46px 0 34px;
+  color: rgb(255, 255, 255);
+}
+
+.searchIntro p, .searchIntro h2 { margin: 0; }
+.searchEyebrow { color: rgb(145, 145, 145); font-size: 10px; letter-spacing: 1.8px; }
+.searchIntro h2 { margin-top: 10px; font-family: "Inter Display", "Inter", sans-serif; font-size: clamp(28px, 3.4vw, 52px); font-weight: 500; line-height: 0.95; }
+.searchIntro em { font-family: Georgia, serif; font-weight: 400; }
+.searchBar { display: grid; grid-template-columns: minmax(220px, 1.7fr) minmax(145px, 1fr) minmax(145px, 1fr) auto; align-items: stretch; min-height: 68px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; background: rgba(10, 10, 10, 0.7); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18); animation: searchBarReveal 1s ease both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
+@keyframes searchBarReveal { from { opacity: 0.35; transform: translateY(34px); } to { opacity: 1; transform: translateY(0); } }
+.searchField, .searchSelect { display: flex; flex-direction: column; justify-content: center; gap: 5px; min-width: 0; padding: 12px 18px; border-right: 1px solid rgba(255, 255, 255, 0.16); }
+.searchField span, .searchSelect span { color: rgb(135, 135, 135); font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; }
+.searchField input, .searchSelect select { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: rgb(245, 245, 245); font: inherit; font-size: 13px; }
+.searchField input::placeholder { color: rgb(135, 135, 135); }
+.searchSelect select { appearance: none; padding-right: 18px; background: linear-gradient(45deg, transparent 50%, rgb(150, 150, 150) 50%) calc(100% - 8px) 55% / 5px 5px no-repeat, linear-gradient(135deg, rgb(150, 150, 150) 50%, transparent 50%) 100% 55% / 5px 5px no-repeat; }
+.searchSelect option { background: rgb(20, 20, 20); color: rgb(255, 255, 255); }
+.searchButton { min-width: 128px; border: 0; background: rgb(255, 255, 255); color: rgb(12, 12, 12); cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; transition: background 180ms ease; }
+.searchButton:hover { background: rgb(220, 220, 220); }
+@media (max-width: 900px) { .propertySearch { grid-template-columns: 1fr; gap: 20px; padding: 36px 0 28px; } }
+@media (max-width: 640px) { .propertySearch { width: calc(100% - 32px); } .searchBar { grid-template-columns: 1fr 1fr; } .searchField { grid-column: 1 / -1; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.16); } .searchSelect { border-bottom: 0; } .searchSelect:nth-of-type(2) { border-right: 0; } .searchButton { grid-column: 1 / -1; min-height: 52px; } }
+
+.postHero {
+  position: relative;
+  width: 100%;
+  background:
+    linear-gradient(rgba(4, 4, 4, 0.86), rgba(4, 4, 4, 0.86)),
+    url("/assets/realty-city-night.jpg") center top / cover;
+  background-attachment: fixed;
+}
+
 .top {
   position: absolute;
   top: 0px;
@@ -1475,7 +1512,7 @@
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  flex-grow: 1;
+  flex-grow: 0;
   background-size: initial;
   background-position: 0px 0px;
 }

@@ -285,6 +285,7 @@
   letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
   --framer-letter-spacing: -4.8px;
   text-align: center;
+  white-space: nowrap;
   text-decoration-color: rgb(255, 255, 255);
   text-underline-offset: var(
     --framer-blockquote-text-decoration-offset,

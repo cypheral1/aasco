@@ -41,6 +41,7 @@ export function ProcessSection() {
         <div className={styles.research2}>
           <div className={styles.research3} data-framecoded-motion={"r8e"}>
             <div className={styles.primary18} data-border={"true"}>
+              <img className={styles.serviceImage} src="/assets/service-residence.jpg" alt="Modern residential property" />
               <div className={styles.icon18}>
                 <span
                   className={styles.icon17}
@@ -114,6 +115,7 @@ export function ProcessSection() {
           <div className={styles.buildExecute}>
             <div className={styles.buildExecute2} data-framecoded-motion={"r8z"}>
               <div className={styles.primary19} data-border={"true"}>
+                <img className={styles.serviceImage} src="/assets/service-penthouse.jpg" alt="Contemporary property interior" />
                 <div className={styles.icon22}>
                   <span
                     className={styles.icon21}
@@ -188,6 +190,7 @@ export function ProcessSection() {
           <div className={styles.testHandoff}>
             <div className={styles.testHandoff2} data-framecoded-motion={"r9l"}>
               <div className={styles.primary20} data-border={"true"}>
+                <img className={styles.serviceImage} src="/assets/realty-city-night.jpg" alt="City skyline at night" />
                 <div className={styles.icon26}>
                   <span
                     className={styles.icon25}

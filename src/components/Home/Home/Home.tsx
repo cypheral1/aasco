@@ -2,24 +2,38 @@
 
 import styles from "./Home.module.css";
 import { useState } from "react";
+import type { FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AboutSection } from "../AboutSection";
 import { AwardSection } from "../AwardSection";
 import { CertificationsService } from "../CertificationsService";
-import { FaqsSection } from "../FaqsSection";
-import { FlexiblePricingSection } from "../FlexiblePricingSection";
 import { HeroSection } from "../HeroSection";
 import { HireUsSection } from "../HireUsSection";
 import { ImageSection } from "../ImageSection";
-import { PartnerSection } from "../PartnerSection";
-import { PricingPlanSection } from "../PricingPlanSection";
 import { ProcessSection } from "../ProcessSection";
 import { ProjectSection } from "../ProjectSection";
-import { TestimonialSection } from "../TestimonialSection";
-import { TopNotchExpertsSection } from "../TopNotchExpertsSection";
 
 export function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+
+  function navigateFromMenu(path: string) {
+    setMenuOpen(false);
+    router.push(path);
+  }
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchType, setSearchType] = useState("All Types / BHK");
+  const [searchBudget, setSearchBudget] = useState("All Budgets");
+
+  function handleSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const params = new URLSearchParams();
+    if (searchQuery) params.set("search", searchQuery);
+    if (searchType !== "All Types / BHK") params.set("type", searchType);
+    if (searchBudget !== "All Budgets") params.set("budget", searchBudget);
+    window.location.href = `/works#top${params.toString() ? `?${params}` : ""}`;
+  }
 
   return (
     <div className={styles.norvin2} id={"main"} data-framecoded-state={"t0s1"}>
@@ -136,53 +150,50 @@ export function Home() {
               <button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">Close <span>×</span></button>
             </div>
             <p className={styles.menuOverlayIntro}>Find your place<br /><em>in the city.</em></p>
-            <Link href="/#top" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link href="/about#top" onClick={() => setMenuOpen(false)}>About us</Link>
-            <Link href="/works#top" onClick={() => setMenuOpen(false)}>Properties</Link>
-            <Link href="/contact#top" onClick={() => setMenuOpen(false)}>Contact us</Link>
+            <a href="/#top" onClick={(event) => { event.preventDefault(); navigateFromMenu("/#top"); }}>Home</a>
+            <a href="/about#top" onClick={(event) => { event.preventDefault(); navigateFromMenu("/about#top"); }}>About us</a>
+            <a href="/works#top" onClick={(event) => { event.preventDefault(); navigateFromMenu("/works#top"); }}>Properties</a>
+            <a href="/contact#top" onClick={(event) => { event.preventDefault(); navigateFromMenu("/contact#top"); }}>Contact us</a>
           </nav>
         )}
         <div className={styles.norvin3}>
           <div className={styles.top} id={"top"} data-framecoded-state={"t0s31"}></div>
           <HeroSection />
-          <AboutSection />
-          <ProcessSection />
-          <CertificationsService />
-          <ProjectSection />
-          <AwardSection />
-          <div className={styles.div363}>
-            <div className={styles.div362} data-framecoded-motion={"r1i6"}>
-              <div className={styles.primary157}>
-                <div className={styles.container6}>
-                  <div className={styles.ticker1} data-framecoded-motion={"r1en"}>
-                    <div className={styles.div360}>
-                      <FlexiblePricingSection />
-                    </div>
-                  </div>
-                  <div className={styles.ticker2} data-framecoded-motion={"r1i3"}>
-                    <div className={styles.div361}>
-                      <TopNotchExpertsSection />
-                    </div>
-                  </div>
-                </div>
+          <section className={styles.propertySearch} aria-label="Property search">
+            <div className={styles.searchIntro}>
+              <p className={styles.searchEyebrow}>FIND YOUR NEXT ADDRESS</p>
+              <h2>Search <em>properties</em></h2>
+            </div>
+            <form className={styles.searchBar} onSubmit={handleSearch}>
+              <label className={styles.searchField}>
+                <span>Search</span>
+                <input type="search" placeholder="Locality, project or developer" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
+              </label>
+              <label className={styles.searchSelect}>
+                <span>Type</span>
+                <select value={searchType} onChange={(event) => setSearchType(event.target.value)}>
+                  <option>All Types / BHK</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option>
+                </select>
+              </label>
+              <label className={styles.searchSelect}>
+                <span>Budget</span>
+                <select value={searchBudget} onChange={(event) => setSearchBudget(event.target.value)}>
+                  <option>All Budgets</option><option>Under 50 Lacs</option><option>50 Lacs - 1 Cr</option><option>Above 1 Cr</option>
+                </select>
+              </label>
+              <button className={styles.searchButton} type="submit">Search <span aria-hidden="true">-&gt;</span></button>
+            </form>
+          </section>
+          <div className={styles.postHero}>
+            <AboutSection />
+            <ProcessSection />
+            <CertificationsService />
+            <ProjectSection />
+            <AwardSection />
+            <div className={styles.image221}>
+              <div className={styles.image222}>
+                <HireUsSection />
               </div>
-            </div>
-          </div>
-          <TestimonialSection />
-          <div className={styles.pricingPlan}>
-            <div className={styles.pricingPlan2} id={"pricing"}>
-              <PricingPlanSection />
-            </div>
-          </div>
-          <div className={styles.faqs}>
-            <div className={styles.faqs2} data-framecoded-state={"t10s33838"}>
-              <FaqsSection />
-            </div>
-          </div>
-          <PartnerSection />
-          <div className={styles.image221}>
-            <div className={styles.image222}>
-              <HireUsSection />
             </div>
           </div>
         </div>

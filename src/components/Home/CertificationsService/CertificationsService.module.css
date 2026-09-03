@@ -7674,6 +7674,7 @@
   letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
   --framer-letter-spacing: -4.8px;
   text-align: left;
+  white-space: nowrap;
   text-decoration-color: rgb(255, 255, 255);
   text-underline-offset: var(
     --framer-blockquote-text-decoration-offset,
@@ -9999,6 +10000,7 @@
   letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
   --framer-letter-spacing: -4.8px;
   text-align: center;
+  white-space: nowrap;
   text-decoration-color: rgb(255, 255, 255);
   text-underline-offset: var(
     --framer-blockquote-text-decoration-offset,
@@ -29204,6 +29206,41 @@
   }
   .bottom34 {
     display: none;
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1000px) {
+  .heading4 {
+    width: 100%;
+    max-width: none;
+  }
+
+  .marketing {
+    width: 100%;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  .h211 {
+    --framer-font-size: 56px;
+    --framer-line-height: 56px;
+    --framer-letter-spacing: -2px;
+    font-size: var(--framer-font-size, 56px);
+    line-height: var(--framer-line-height, 56px);
+    letter-spacing: var(--framer-letter-spacing, -2px);
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1439px) {
+  .h211,
+  .h212 {
+    --framer-font-size: clamp(56px, 6vw, 90px);
+    --framer-line-height: clamp(56px, 6vw, 90px);
+    --framer-letter-spacing: -3px;
+    font-size: var(--framer-font-size);
+    line-height: var(--framer-line-height);
+    letter-spacing: var(--framer-letter-spacing);
   }
 }
 

@@ -1,5 +1,9 @@
+.serviceImage { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; opacity: .58; filter: saturate(.9); transition: transform .8s ease, opacity .4s ease; pointer-events: none; }
+.primary18:hover .serviceImage, .primary19:hover .serviceImage, .primary20:hover .serviceImage { transform: scale(1.06); opacity: .68; }
+.primary18 > *, .primary19 > *, .primary20 > * { position: relative; z-index: 1; }
+
 .processSection {
-  padding: 0px 72px 200px;
+  padding: 0px 72px 140px;
   display: flex;
   position: relative;
   width: 100%;
@@ -7,7 +11,7 @@
   max-width: 1920px;
   padding-top: 0px;
   padding-right: 72px;
-  padding-bottom: 200px;
+  padding-bottom: 140px;
   padding-left: 72px;
   flex-direction: column;
   flex-grow: 0;
@@ -520,23 +524,23 @@
 }
 
 .primary18 {
-  padding: 32px;
+  padding: 24px;
   border-radius: 20px;
   display: flex;
   position: relative;
   width: 100%;
   height: min-content;
-  padding-top: 32px;
-  padding-right: 32px;
-  padding-bottom: 32px;
-  padding-left: 32px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 124px;
-  row-gap: 124px;
-  column-gap: 124px;
+  gap: 80px;
+  row-gap: 80px;
+  column-gap: 80px;
   place-content: flex-start;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -1078,23 +1082,23 @@
 }
 
 .primary19 {
-  padding: 32px;
+  padding: 24px;
   border-radius: 20px;
   display: flex;
   position: relative;
   width: 100%;
   height: min-content;
-  padding-top: 32px;
-  padding-right: 32px;
-  padding-bottom: 32px;
-  padding-left: 32px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 124px;
-  row-gap: 124px;
-  column-gap: 124px;
+  gap: 80px;
+  row-gap: 80px;
+  column-gap: 80px;
   place-content: flex-start;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -1636,23 +1640,23 @@
 }
 
 .primary20 {
-  padding: 32px;
+  padding: 24px;
   border-radius: 20px;
   display: flex;
   position: relative;
   width: 100%;
   height: min-content;
-  padding-top: 32px;
-  padding-right: 32px;
-  padding-bottom: 32px;
-  padding-left: 32px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 124px;
-  row-gap: 124px;
-  column-gap: 124px;
+  gap: 80px;
+  row-gap: 80px;
+  column-gap: 80px;
   place-content: flex-start;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

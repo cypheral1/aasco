@@ -1,7 +1,6 @@
 import styles from "./AwardSection.module.css";
 import { Image } from "../../../ui/Image";
 import Link from "next/link";
-import { Fwa } from "../Fwa";
 import { SiteInspire } from "../SiteInspire";
 
 export function AwardSection() {
@@ -105,7 +104,7 @@ export function AwardSection() {
               aria-hidden="true"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<svg viewBox="0 0 1317 300" style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><foreignObject width="100%" height="100%" transform="scale(1)" style="overflow: visible; transform-origin: 658.5px 150px; fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform: matrix(1, 0, 0, 1, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><h2 dir="auto" style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 658.5px 150px; font-family: Inter, &quot;Inter Placeholder&quot;, sans-serif; font-size: 300px; font-weight: 600;">Awwward</h2></foreignObject></svg>',
+                  '<svg viewBox="0 0 1317 300" style="fill: rgb(255, 255, 255); stroke-width: 1px; stop-color: rgb(255, 255, 255); flood-color: rgb(255, 255, 255); font-family: sans-serif; font-size: 12px; font-weight: 400;"><foreignObject width="100%" height="100%" transform="scale(1)" style="overflow: visible; transform-origin: 658.5px 150px; fill: rgb(255, 255, 255); stroke-width: 1px; stop-color: rgb(255, 255, 255); flood-color: rgb(255, 255, 255); transform: matrix(1, 0, 0, 1, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><h2 dir="auto" style="color: rgb(255, 255, 255); fill: rgb(255, 255, 255); stroke-width: 1px; stop-color: rgb(255, 255, 255); flood-color: rgb(255, 255, 255); transform-origin: 658.5px 150px; font-family: Inter, &quot;Inter Placeholder&quot;, sans-serif; font-size: 300px; font-weight: 600;">Awards</h2></foreignObject></svg>',
               }}
             />
             <div className={styles.div347}>
@@ -281,11 +280,6 @@ export function AwardSection() {
             </div>
           </div>
           <div className={styles.awards}>
-            <div className={styles.top41}>
-              <Fwa text1={"Property Search"} text2={"01"} />
-              <Fwa text1={"Legal Support"} text2={"02"} />
-              <Fwa text1={"After Sales"} text2={"03"} />
-            </div>
             <div className={styles.bottom36}>
               <SiteInspire text1={"SiteInspire"} text2={"04"} />
               <SiteInspire text1={"Navi Mumbai"} text2={"05"} />

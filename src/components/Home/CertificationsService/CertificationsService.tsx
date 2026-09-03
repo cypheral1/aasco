@@ -885,9 +885,6 @@ export function CertificationsService() {
               styles.redefiningDigitalStandardsThroughAwardWinningDesignAndStrategicInnovationAcross
             }
           >
-            <p className={styles.redefiningDigitalStandards3} dir={"auto"}>
-              Complete assistance on property legal matters, RERA compliance, title search, and transparent sale/purchase documentation.
-            </p>
           </div>
           <div className={styles.startProject62}>
             <div className={styles.startProject72}>

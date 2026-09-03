@@ -96,7 +96,7 @@ export function TestimonialSection() {
                     className={styles.left28}
                     data-highlight={"true"}
                     data-reset={"button"}
-                    tabIndex={"0"}
+                    tabIndex={0}
                     data-framecoded-trigger={"t9"}
                     aria-expanded={"false"}
                     data-framecoded-state={"hhvt1xzs30966"}
@@ -125,7 +125,7 @@ export function TestimonialSection() {
                     className={styles.right27}
                     data-highlight={"true"}
                     data-reset={"button"}
-                    tabIndex={"0"}
+                    tabIndex={0}
                     data-framecoded-trigger={"hhvt1xz"}
                     aria-expanded={"false"}
                   >

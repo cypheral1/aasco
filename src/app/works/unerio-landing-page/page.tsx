@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksUnerioLandingPage/WorksUnerioLandingPage/WorksUnerioLandingPage.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Unerio Landing page - My Framer Site",

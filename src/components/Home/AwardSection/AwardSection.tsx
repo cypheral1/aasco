@@ -67,7 +67,7 @@ export function AwardSection() {
                     href={"/contact#top"}
                     className={styles.default_2}
                     data-highlight={"true"}
-                    tabIndex={"0"}
+                    tabIndex={0}
                     data-framecoded-trigger={"ht10nw7"}
                   >
                     <div className={styles.startProject12}>
@@ -113,11 +113,11 @@ export function AwardSection() {
                 <div className={styles.desktopCard3} data-highlight={"true"}>
                   <div
                     className={styles.card1}
-                    name={"Card 1"}
+                    data-name={"Card 1"}
                     data-framecoded-state={"t0s1654"}
                     data-framecoded-motion={"r192"}
                   >
-                    <div className={styles.active2} name={"Card 1"}>
+                    <div className={styles.active2} data-name={"Card 1"}>
                       <div className={styles.bG4} data-border={"true"}></div>
                       <div className={styles.image185}>
                         <div className={styles.top37}>
@@ -165,11 +165,11 @@ export function AwardSection() {
                   </div>
                   <div
                     className={styles.card22}
-                    name={"Card 2"}
+                    data-name={"Card 2"}
                     data-framecoded-state={"t0s1670"}
                     data-framecoded-motion={"r19i"}
                   >
-                    <div className={styles.active3} name={"Card 2"}>
+                    <div className={styles.active3} data-name={"Card 2"}>
                       <div className={styles.bG5} data-border={"true"}></div>
                       <div className={styles.image189}>
                         <div className={styles.top38}>
@@ -217,11 +217,11 @@ export function AwardSection() {
                   </div>
                   <div
                     className={styles.card32}
-                    name={"Card 3"}
+                    data-name={"Card 3"}
                     data-framecoded-state={"t0s1686"}
                     data-framecoded-motion={"r19y"}
                   >
-                    <div className={styles.active4} name={"Card 3"}>
+                    <div className={styles.active4} data-name={"Card 3"}>
                       <div className={styles.bG6} data-border={"true"}></div>
                       <div className={styles.image193}>
                         <div className={styles.top39}>

@@ -4,7 +4,7 @@ import { siteAssetUrl, siteJsonLd, siteUrl } from "@/config/site";
 import { MotionRuntime } from "@/ui/MotionRuntime";
 import { motionDefinitions, interactionDefinitions } from "@/components/Works/Works/Works.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Aasco Realty - Real Estate",

@@ -47,7 +47,7 @@ export function PricingPlanSection() {
               </p>
             </div>
             <div className={styles.div374}>
-              <div className={styles.on} data-highlight={"true"} tabIndex={"0"}>
+              <div className={styles.on} data-highlight={"true"} tabIndex={0}>
                 <div
                   className={styles.toggle}
                   data-framecoded-trigger={"t3"}

@@ -48,7 +48,7 @@ export function Home() {
                     <div
                       className={styles.hamMenu}
                       data-highlight={"true"}
-                      tabIndex={"0"}
+                      tabIndex={0}
                       data-framecoded-trigger={"hycgpg9"}
                     >
                       <div className={styles.container}>

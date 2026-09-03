@@ -17,9 +17,9 @@ export interface InteractionDefinition {
   type: "toggle" | "hover";
   targets: Array<{
     id: string;
-    closed: Record<string, string>;
-    open: Record<string, string>;
-    timings?: Record<string, { duration: number; delay: number; easing: string }>;
+    closed: Record<string, string | undefined>;
+    open: Record<string, string | undefined>;
+    timings?: Record<string, unknown>;
     openKeyframes?: Array<Record<string, string | number>>;
     closeKeyframes?: Array<Record<string, string | number>>;
     openDuration?: number;
@@ -31,9 +31,9 @@ export interface InteractionDefinition {
     media: string;
     targets: Array<{
       id: string;
-      closed: Record<string, string>;
-      open: Record<string, string>;
-      timings?: Record<string, { duration: number; delay: number; easing: string }>;
+      closed: Record<string, string | undefined>;
+      open: Record<string, string | undefined>;
+      timings?: Record<string, unknown>;
       openKeyframes?: Array<Record<string, string | number>>;
       closeKeyframes?: Array<Record<string, string | number>>;
       openDuration?: number;
@@ -169,7 +169,7 @@ function createFrozenAnimation(
 ): Animation | null {
   try {
     const frame = normalizedFrame(stableFrame(definition, preferFirst));
-    const animation = element.animate([frame, frame], { duration: 1, fill: "both" });
+    const animation = element.animate([frame, frame] as Keyframe[], { duration: 1, fill: "both" });
     animation.pause();
     animation.currentTime = 1;
     return animation;
@@ -220,7 +220,7 @@ export function MotionRuntime({
   interactions = {},
 }: {
   definitions: MotionDefinitionMap;
-  interactions?: InteractionDefinitionMap;
+  interactions?: Record<string, any>;
 }) {
   const [responsiveRevision, refreshResponsiveRuntime] = useReducer(
     (revision: number) => revision + 1,
@@ -674,7 +674,9 @@ export function MotionRuntime({
                 >();
                 for (const property of Object.keys(target.closed)) {
                   if (sampledProperties.has(property)) continue;
-                  const timing = target.timings?.[property];
+                  const timing = target.timings?.[property] as
+                    | { duration: number; delay: number; easing: string }
+                    | undefined;
                   const duration = reduced ? 0 : (timing?.duration ?? interaction.duration);
                   const delay = reduced ? 0 : (timing?.delay ?? 0);
                   const easing = timing?.easing ?? interaction.easing;
@@ -686,8 +688,11 @@ export function MotionRuntime({
                     delay,
                     easing,
                   };
-                  group.closed[property] = target.closed[property];
-                  group.open[property] = target.open[property];
+                  const closedValue = target.closed[property];
+                  const openValue = target.open[property];
+                  if (closedValue === undefined || openValue === undefined) continue;
+                  group.closed[property] = closedValue;
+                  group.open[property] = openValue;
                   groups.set(key, group);
                 }
                 for (const group of groups.values()) {

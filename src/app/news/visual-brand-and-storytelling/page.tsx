@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/NewsVisualBrandAndStorytelling/NewsVisualBrandAndStorytelling/NewsVisualBrandAndStorytelling.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Aasco Realty - Real Estate",

@@ -130,7 +130,7 @@ export function ContactSection() {
                     className={styles.input}
                     type={"text"}
                     required
-                    name={"Name"}
+                    data-name={"Name"}
                     placeholder={"Marcus Kane"}
                     value={""}
                   />
@@ -147,7 +147,7 @@ export function ContactSection() {
                     className={styles.input2}
                     type={"email"}
                     required
-                    name={"Email"}
+                    data-name={"Email"}
                     placeholder={"marcus@example.com"}
                     value={""}
                   />
@@ -162,7 +162,7 @@ export function ContactSection() {
                   </p>
                 </div>
                 <div className={styles.dropdown}>
-                  <select className={styles.select} name={"Dropdown"}>
+                  <select className={styles.select} data-name={"Dropdown"}>
                     <option className={styles.option} value={""} disabled selected>
                       Select an option
                     </option>
@@ -179,7 +179,7 @@ export function ContactSection() {
                   </p>
                 </div>
                 <div className={styles.dropdown2}>
-                  <select className={styles.select2} name={"Dropdown"}>
+                  <select className={styles.select2} data-name={"Dropdown"}>
                     <option className={styles.option3} value={""} disabled selected>
                       Select an option
                     </option>
@@ -201,7 +201,7 @@ export function ContactSection() {
                   <textarea
                     className={styles.textarea}
                     required
-                    name={"Text Area"}
+                    data-name={"Text Area"}
                     placeholder={"Write your request"}
                   ></textarea>
                 </div>
@@ -227,8 +227,8 @@ export function ContactSection() {
             <input
               className={styles.input3}
               type={"text"}
-              name={"website"}
-              tabIndex={"-1"}
+              data-name={"website"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -240,8 +240,8 @@ export function ContactSection() {
             <input
               className={styles.input4}
               type={"text"}
-              name={"company"}
-              tabIndex={"-1"}
+              data-name={"company"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -253,8 +253,8 @@ export function ContactSection() {
             <input
               className={styles.input5}
               type={"text"}
-              name={"message"}
-              tabIndex={"-1"}
+              data-name={"message"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -266,8 +266,8 @@ export function ContactSection() {
             <input
               className={styles.input6}
               type={"text"}
-              name={"subject"}
-              tabIndex={"-1"}
+              data-name={"subject"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -279,8 +279,8 @@ export function ContactSection() {
             <input
               className={styles.input7}
               type={"text"}
-              name={"title"}
-              tabIndex={"-1"}
+              data-name={"title"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -292,8 +292,8 @@ export function ContactSection() {
             <input
               className={styles.input8}
               type={"text"}
-              name={"description"}
-              tabIndex={"-1"}
+              data-name={"description"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -305,8 +305,8 @@ export function ContactSection() {
             <input
               className={styles.input9}
               type={"text"}
-              name={"feedback"}
-              tabIndex={"-1"}
+              data-name={"feedback"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -318,8 +318,8 @@ export function ContactSection() {
             <input
               className={styles.input10}
               type={"text"}
-              name={"notes"}
-              tabIndex={"-1"}
+              data-name={"notes"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -331,8 +331,8 @@ export function ContactSection() {
             <input
               className={styles.input11}
               type={"text"}
-              name={"details"}
-              tabIndex={"-1"}
+              data-name={"details"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -344,8 +344,8 @@ export function ContactSection() {
             <input
               className={styles.input12}
               type={"text"}
-              name={"remarks"}
-              tabIndex={"-1"}
+              data-name={"remarks"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -357,8 +357,8 @@ export function ContactSection() {
             <input
               className={styles.input13}
               type={"text"}
-              name={"comments"}
-              tabIndex={"-1"}
+              data-name={"comments"}
+              tabIndex={-1}
               autoComplete={"one-time-code"}
               aria-hidden={"true"}
               data-1p-ignore={"true"}
@@ -375,16 +375,16 @@ export function ContactSection() {
               <li
                 className={styles.item}
                 aria-hidden={"false"}
-                aria-posinset={"1"}
-                aria-setsize={"7"}
+                aria-posinset={1}
+                aria-setsize={7}
               >
                 <div className={styles.mask}></div>
               </li>
               <li
                 className={styles.logoImageItem}
                 aria-hidden={"false"}
-                aria-posinset={"2"}
-                aria-setsize={"7"}
+                aria-posinset={2}
+                aria-setsize={7}
               >
                 <div className={styles.logoImage3}>
                   <div className={styles.primary4}>
@@ -407,8 +407,8 @@ export function ContactSection() {
               <li
                 className={styles.logoImageItem2}
                 aria-hidden={"false"}
-                aria-posinset={"3"}
-                aria-setsize={"7"}
+                aria-posinset={3}
+                aria-setsize={7}
                 data-framecoded-motion={"r5p7"}
               >
                 <div className={styles.logoImage6}>
@@ -434,8 +434,8 @@ export function ContactSection() {
               <li
                 className={styles.logoImageItem3}
                 aria-hidden={"false"}
-                aria-posinset={"4"}
-                aria-setsize={"7"}
+                aria-posinset={4}
+                aria-setsize={7}
               >
                 <div className={styles.logoImage9}>
                   <div className={styles.primary6}>
@@ -458,8 +458,8 @@ export function ContactSection() {
               <li
                 className={styles.logoImageItem4}
                 aria-hidden={"false"}
-                aria-posinset={"5"}
-                aria-setsize={"7"}
+                aria-posinset={5}
+                aria-setsize={7}
               >
                 <div className={styles.logoImage12}>
                   <div className={styles.primary7}>
@@ -482,8 +482,8 @@ export function ContactSection() {
               <li
                 className={styles.logoImageItem5}
                 aria-hidden={"false"}
-                aria-posinset={"6"}
-                aria-setsize={"7"}
+                aria-posinset={6}
+                aria-setsize={7}
               >
                 <div className={styles.logoImage15}>
                   <div className={styles.primary8}>
@@ -506,8 +506,8 @@ export function ContactSection() {
               <li
                 className={styles.logoImageItem6}
                 aria-hidden={"false"}
-                aria-posinset={"7"}
-                aria-setsize={"7"}
+                aria-posinset={7}
+                aria-setsize={7}
               >
                 <div className={styles.logoImage18}>
                   <div className={styles.primary9}>

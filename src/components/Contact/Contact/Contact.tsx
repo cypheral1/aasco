@@ -22,12 +22,12 @@ export function Contact() {
                     className={styles.primary}
                     data-border={"true"}
                     data-highlight={"true"}
-                    tabIndex={"0"}
+                    tabIndex={0}
                   >
                     <div
                       className={styles.hamMenu}
                       data-highlight={"true"}
-                      tabIndex={"0"}
+                      tabIndex={0}
                       data-framecoded-trigger={"hycgpg9"}
                     >
                       <div className={styles.container}>

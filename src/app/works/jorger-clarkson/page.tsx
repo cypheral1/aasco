@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksJorgerClarkson/WorksJorgerClarkson/WorksJorgerClarkson.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Jorger Clarkson - My Framer Site",

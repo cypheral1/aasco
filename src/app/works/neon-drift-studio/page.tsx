@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksNeonDriftStudio/WorksNeonDriftStudio/WorksNeonDriftStudio.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Neon Drift Studio - My Framer Site",

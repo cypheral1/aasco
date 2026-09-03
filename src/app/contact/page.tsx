@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/Contact/Contact/Contact.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Aasco Realty - Real Estate",

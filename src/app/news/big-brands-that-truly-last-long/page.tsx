@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/NewsBigBrandsThatTrulyLastLong/NewsBigBrandsThatTrulyLastLong/NewsBigBrandsThatTrulyLastLong.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Aasco Realty - Real Estate",

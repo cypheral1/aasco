@@ -521,15 +521,15 @@ export function HeroSection() {
                     >
                       <div
                         className={styles.dot01}
-                        name={"Dot 01"}
+                        data-name={"Dot 01"}
                         data-framecoded-state={"t0s176"}
                         data-framecoded-motion={"r4l"}
                       >
                         <div
                           className={styles.active}
-                          name={"Dot 01"}
+                          data-name={"Dot 01"}
                           data-highlight={"true"}
-                          tabIndex={"0"}
+                          tabIndex={0}
                           data-framecoded-state={"t0s177"}
                           data-framecoded-motion={"r4k"}
                         >
@@ -542,15 +542,15 @@ export function HeroSection() {
                       </div>
                       <div
                         className={styles.dot02}
-                        name={"Dot 02"}
+                        data-name={"Dot 02"}
                         data-framecoded-state={"t1s3257"}
                         data-framecoded-motion={"r4o"}
                       >
                         <div
                           className={styles.primary11}
-                          name={"Dot 02"}
+                          data-name={"Dot 02"}
                           data-highlight={"true"}
-                          tabIndex={"0"}
+                          tabIndex={0}
                           data-framecoded-state={"t1s3258"}
                           data-framecoded-motion={"r4n"}
                         >
@@ -563,15 +563,15 @@ export function HeroSection() {
                       </div>
                       <div
                         className={styles.dot03}
-                        name={"Dot 03"}
+                        data-name={"Dot 03"}
                         data-framecoded-state={"t2s6305"}
                         data-framecoded-motion={"r4r"}
                       >
                         <div
                           className={styles.primary12}
-                          name={"Dot 03"}
+                          data-name={"Dot 03"}
                           data-highlight={"true"}
-                          tabIndex={"0"}
+                          tabIndex={0}
                           data-framecoded-trigger={"hem74ov"}
                           data-framecoded-state={"hem74ovsroot"}
                           data-framecoded-motion={"r4q"}
@@ -585,15 +585,15 @@ export function HeroSection() {
                       </div>
                       <div
                         className={styles.dot04}
-                        name={"Dot 04"}
+                        data-name={"Dot 04"}
                         data-framecoded-state={"t0s183"}
                         data-framecoded-motion={"r4u"}
                       >
                         <div
                           className={styles.primary13}
-                          name={"Dot 04"}
+                          data-name={"Dot 04"}
                           data-highlight={"true"}
-                          tabIndex={"0"}
+                          tabIndex={0}
                           data-framecoded-state={"t0s184"}
                           data-framecoded-motion={"r4t"}
                         >

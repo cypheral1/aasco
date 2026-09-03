@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksArchitectureStudio/WorksArchitectureStudio/WorksArchitectureStudio.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Architecture Studio - My Framer Site",

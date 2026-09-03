@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksDsFreelanceDeveloper/WorksDsFreelanceDeveloper/WorksDsFreelanceDeveloper.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "DS Freelance Developer - My Framer Site",

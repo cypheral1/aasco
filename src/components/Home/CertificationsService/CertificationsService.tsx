@@ -65,8 +65,8 @@ export function CertificationsService() {
             <li
               className={styles.item}
               aria-hidden={"false"}
-              aria-posinset={"1"}
-              aria-setsize={"7"}
+              aria-posinset={1}
+              aria-setsize={7}
               data-framecoded-state={"t8s24211"}
             >
               <div className={styles.novacoreStudio}>
@@ -110,8 +110,8 @@ export function CertificationsService() {
             <li
               className={styles.item2}
               aria-hidden={"false"}
-              aria-posinset={"2"}
-              aria-setsize={"7"}
+              aria-posinset={2}
+              aria-setsize={7}
               data-framecoded-state={"t8s24224"}
             >
               <div className={styles.logoCompany}>
@@ -155,8 +155,8 @@ export function CertificationsService() {
             <li
               className={styles.item3}
               aria-hidden={"false"}
-              aria-posinset={"3"}
-              aria-setsize={"7"}
+              aria-posinset={3}
+              aria-setsize={7}
               data-framecoded-state={"t8s24237"}
             >
               <div className={styles.fluorescent}>
@@ -200,8 +200,8 @@ export function CertificationsService() {
             <li
               className={styles.item4}
               aria-hidden={"false"}
-              aria-posinset={"4"}
-              aria-setsize={"7"}
+              aria-posinset={4}
+              aria-setsize={7}
               data-framecoded-state={"t0s415"}
             >
               <div className={styles.fwaHighlight}>
@@ -243,8 +243,8 @@ export function CertificationsService() {
             <li
               className={styles.item5}
               aria-hidden={"false"}
-              aria-posinset={"5"}
-              aria-setsize={"7"}
+              aria-posinset={5}
+              aria-setsize={7}
               data-framecoded-state={"t3s9576"}
             >
               <div className={styles.awwwards2}>
@@ -288,8 +288,8 @@ export function CertificationsService() {
             <li
               className={styles.item6}
               aria-hidden={"false"}
-              aria-posinset={"6"}
-              aria-setsize={"7"}
+              aria-posinset={6}
+              aria-setsize={7}
               data-framecoded-state={"t5s15579"}
             >
               <div className={styles.ftFeatured}>
@@ -331,8 +331,8 @@ export function CertificationsService() {
             <li
               className={styles.item7}
               aria-hidden={"false"}
-              aria-posinset={"7"}
-              aria-setsize={"7"}
+              aria-posinset={7}
+              aria-setsize={7}
               data-framecoded-state={"t8s24286"}
             >
               <div className={styles.futureVisionary}>
@@ -895,7 +895,7 @@ export function CertificationsService() {
                 href={"/contact#top"}
                 className={styles.default_}
                 data-highlight={"true"}
-                tabIndex={"0"}
+                tabIndex={0}
                 data-framecoded-trigger={"htb09l6"}
               >
                 <div className={styles.startProject82}>
@@ -931,7 +931,7 @@ export function CertificationsService() {
               <div
                 className={styles.desktopOpen}
                 data-highlight={"true"}
-                tabIndex={"0"}
+                tabIndex={0}
                 data-framecoded-state={"t0s642"}
               >
                 <div className={styles.div135} data-framecoded-state={"t0s643"}></div>
@@ -1016,7 +1016,7 @@ export function CertificationsService() {
               <div
                 className={styles.desktopClose}
                 data-highlight={"true"}
-                tabIndex={"0"}
+                tabIndex={0}
                 data-framecoded-state={"t1s3725"}
               >
                 <div className={styles.div141} data-framecoded-state={"t1s3726"}></div>
@@ -1105,7 +1105,7 @@ export function CertificationsService() {
               <div
                 className={styles.desktopClose2}
                 data-highlight={"true"}
-                tabIndex={"0"}
+                tabIndex={0}
                 data-framecoded-state={"t2s6787"}
               >
                 <div className={styles.div147} data-framecoded-state={"t2s6788"}></div>

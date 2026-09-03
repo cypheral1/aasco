@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/PrivacyPolicy/PrivacyPolicy/PrivacyPolicy.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "Aasco Realty - Real Estate",

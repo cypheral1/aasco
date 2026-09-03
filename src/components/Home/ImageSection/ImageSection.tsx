@@ -289,7 +289,7 @@ export function ImageSection() {
                       className={styles.input14}
                       type={"email"}
                       required
-                      name={"Email"}
+                      data-name={"Email"}
                       placeholder={"Your email"}
                     />
                   </div>
@@ -314,8 +314,8 @@ export function ImageSection() {
                 <input
                   className={styles.input15}
                   type={"text"}
-                  name={"website"}
-                  tabIndex={"-1"}
+                  data-name={"website"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -326,8 +326,8 @@ export function ImageSection() {
                 <input
                   className={styles.input16}
                   type={"text"}
-                  name={"company"}
-                  tabIndex={"-1"}
+                  data-name={"company"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -338,8 +338,8 @@ export function ImageSection() {
                 <input
                   className={styles.input17}
                   type={"text"}
-                  name={"message"}
-                  tabIndex={"-1"}
+                  data-name={"message"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -350,8 +350,8 @@ export function ImageSection() {
                 <input
                   className={styles.input18}
                   type={"text"}
-                  name={"subject"}
-                  tabIndex={"-1"}
+                  data-name={"subject"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -362,8 +362,8 @@ export function ImageSection() {
                 <input
                   className={styles.input19}
                   type={"text"}
-                  name={"title"}
-                  tabIndex={"-1"}
+                  data-name={"title"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -374,8 +374,8 @@ export function ImageSection() {
                 <input
                   className={styles.input20}
                   type={"text"}
-                  name={"description"}
-                  tabIndex={"-1"}
+                  data-name={"description"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -386,8 +386,8 @@ export function ImageSection() {
                 <input
                   className={styles.input21}
                   type={"text"}
-                  name={"feedback"}
-                  tabIndex={"-1"}
+                  data-name={"feedback"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -398,8 +398,8 @@ export function ImageSection() {
                 <input
                   className={styles.input22}
                   type={"text"}
-                  name={"notes"}
-                  tabIndex={"-1"}
+                  data-name={"notes"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -410,8 +410,8 @@ export function ImageSection() {
                 <input
                   className={styles.input23}
                   type={"text"}
-                  name={"details"}
-                  tabIndex={"-1"}
+                  data-name={"details"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -422,8 +422,8 @@ export function ImageSection() {
                 <input
                   className={styles.input24}
                   type={"text"}
-                  name={"remarks"}
-                  tabIndex={"-1"}
+                  data-name={"remarks"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}
@@ -434,8 +434,8 @@ export function ImageSection() {
                 <input
                   className={styles.input25}
                   type={"text"}
-                  name={"comments"}
-                  tabIndex={"-1"}
+                  data-name={"comments"}
+                  tabIndex={-1}
                   autoComplete={"one-time-code"}
                   aria-hidden={"true"}
                   data-1p-ignore={"true"}

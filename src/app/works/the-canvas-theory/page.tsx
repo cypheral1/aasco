@@ -7,7 +7,7 @@ import {
   interactionDefinitions,
 } from "@/components/WorksTheCanvasTheory/WorksTheCanvasTheory/WorksTheCanvasTheory.motion";
 
-const structuredData = [];
+const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
   title: "The Canvas Theory - My Framer Site",

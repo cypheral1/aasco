@@ -58,7 +58,7 @@ export function FaqsSection() {
             className={styles.desktopClosed}
             data-border={"true"}
             data-highlight={"true"}
-            tabIndex={"0"}
+            tabIndex={0}
             data-framecoded-trigger={"t10"}
             aria-expanded={"false"}
             role={"button"}
@@ -109,7 +109,7 @@ export function FaqsSection() {
             className={styles.desktopOpen2}
             data-border={"true"}
             data-highlight={"true"}
-            tabIndex={"0"}
+            tabIndex={0}
             data-framecoded-trigger={"t14"}
             aria-expanded={"false"}
             role={"button"}
@@ -167,7 +167,7 @@ export function FaqsSection() {
             className={styles.desktopClosed2}
             data-border={"true"}
             data-highlight={"true"}
-            tabIndex={"0"}
+            tabIndex={0}
             data-framecoded-trigger={"t11"}
             aria-expanded={"false"}
             role={"button"}
@@ -221,7 +221,7 @@ export function FaqsSection() {
             className={styles.desktopClosed3}
             data-border={"true"}
             data-highlight={"true"}
-            tabIndex={"0"}
+            tabIndex={0}
             data-framecoded-trigger={"t12"}
             aria-expanded={"false"}
             role={"button"}
@@ -273,7 +273,7 @@ export function FaqsSection() {
             className={styles.desktopClosed4}
             data-border={"true"}
             data-highlight={"true"}
-            tabIndex={"0"}
+            tabIndex={0}
             data-framecoded-trigger={"t13"}
             aria-expanded={"false"}
             role={"button"}

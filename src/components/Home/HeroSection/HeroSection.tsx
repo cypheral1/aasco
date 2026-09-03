@@ -4,21 +4,19 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.notch} data-framecoded-motion={"r10"}>
-        <div className={styles.vector} aria-hidden={"true"}>
-          <div className={styles.div7}>
-            <span
-              className={styles.icon2}
-              data-framecoded-svg="true"
-              aria-hidden="true"
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<svg style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><use href="#svg12650997620" style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px; font-family: sans-serif; font-size: 12px; font-weight: 400;"></use></svg>',
-              }}
-            />
-          </div>
-        </div>
-      </div>
+      <header className={styles.headerPanel} data-framecoded-motion={"r10"}>
+        <Link href={"/#top"} className={styles.brandLink}>
+          <Image
+            src="/assets/aasco-logo-a.png"
+            alt="AASCO Logo"
+            className={styles.brandIcon}
+            width={40}
+            height={40}
+            priority
+          />
+          <span className={styles.brandWordmark}>AASCO</span>
+        </Link>
+      </header>
       <div className={styles.bgImage2}>
         <div className={styles.bGImage} data-framecoded-motion={"r13"}>
           <div className={styles.bgImage3}>
@@ -36,21 +34,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-      <Link href={"/#top"} className={styles.logo} data-framecoded-motion={"r17"}>
-        <div className={styles.logo2}>
-          <Image
-            className={styles.logo3}
-            src={"/assets/cccRnqGEwbQnTaD4HQVasE90KzU-cc1146e4e3.svg"}
-            alt={"logo"}
-            width={93}
-            height={24}
-            srcSet={
-              "/assets/cccRnqGEwbQnTaD4HQVasE90KzU-c504b6e83e.svg 93w, /assets/cccRnqGEwbQnTaD4HQVasE90KzU-318f9e01f8.svg 186w"
-            }
-            sizes={"(max-width: 93px) 100vw, 93px"}
-          />
-        </div>
-      </Link>
       <div className={styles.heading}>
         <div className={styles.norvin} data-framecoded-motion={"r19"}>
           <h1 className={styles.h1} dir={"auto"}>

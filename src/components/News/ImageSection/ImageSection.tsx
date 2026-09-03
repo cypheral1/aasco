@@ -193,12 +193,12 @@ export function ImageSection() {
                     className={styles.image39}
                     src={"/assets/cccRnqGEwbQnTaD4HQVasE90KzU-cc1146e4e3.svg"}
                     alt={"image"}
-                    width={93}
+                    width={71}
                     height={24}
                     srcSet={
-                      "/assets/cccRnqGEwbQnTaD4HQVasE90KzU-c504b6e83e.svg 93w, /assets/cccRnqGEwbQnTaD4HQVasE90KzU-318f9e01f8.svg 186w"
+                      "/assets/cccRnqGEwbQnTaD4HQVasE90KzU-c504b6e83e.svg 71w, /assets/cccRnqGEwbQnTaD4HQVasE90KzU-318f9e01f8.svg 142w"
                     }
-                    sizes={"(max-width: 93px) 100vw, 93px"}
+                    sizes={"(max-width: 71px) 100vw, 71px"}
                   />
                 </div>
               </Link>

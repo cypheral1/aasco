@@ -17,12 +17,12 @@ type Property = {
 };
 
 const properties: Property[] = [
-  { slug: "meghna-star-walk-kharghar", title: "Meghna Star Walk At Kharghar NX.", location: "Kharghar", type: "2 BHK", status: "New Launch", budget: "Under 50 Lacs", price: "23.99 Lacs* - 32.99 Lacs*", details: "360 - 600 sq. ft. · 1, 2 BHK", image: "/assets/rR3iz1wvsX1fxQ49fxhGNehO8r0-b34da70cbc.png" },
-  { slug: "arihant-avanti-palace", title: "Arihant Avanti Palace", location: "Dombivli", type: "2 BHK", status: "Ready to Move", budget: "50 Lacs - 1 Cr", price: "42 Lacs* - 65 Lacs*", details: "400 - 600 sq. ft. · 1, 2 BHK", image: "/assets/cMgOK9Ll5ZGWnUhkP6BKLP58Bmc-f6efb2ec93.png" },
-  { slug: "mumbai-homes", title: "Mumbai Homes", location: "Mumbai", type: "3 BHK", status: "Featured", budget: "Above 1 Cr", price: "Explore available properties", details: "Residential homes and investments", image: "/assets/service-residence.jpg" },
-  { slug: "navi-mumbai-homes", title: "Navi Mumbai Properties", location: "Navi Mumbai", type: "2 BHK", status: "Featured", budget: "50 Lacs - 1 Cr", price: "Explore available properties", details: "Connected homes and investments", image: "/assets/realty-city-night.jpg" },
-  { slug: "thane-residences", title: "Thane Residences", location: "Thane", type: "2 BHK", status: "New Launch", budget: "Above 1 Cr", price: "Explore available properties", details: "Residential homes and investments", image: "/assets/service-penthouse.jpg" },
-  { slug: "taloja-new-homes", title: "Taloja New Homes", location: "Taloja", type: "1 BHK", status: "Ready to Move", budget: "Under 50 Lacs", price: "Explore available properties", details: "New homes and investments", image: "/assets/service-residence.jpg" },
+  { slug: "meghna-star-walk-kharghar", title: "Meghna Star Walk At Kharghar NX.", location: "Kharghar", type: "2 BHK", status: "New Launch", budget: "Under 50 Lacs", price: "23.99 Lacs* - 32.99 Lacs*", details: "360 - 600 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-1.jpg" },
+  { slug: "arihant-avanti-palace", title: "Arihant Avanti Palace", location: "Dombivli", type: "2 BHK", status: "Ready to Move", budget: "50 Lacs - 1 Cr", price: "42 Lacs* - 65 Lacs*", details: "400 - 650 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-2.jpg" },
+  { slug: "navi-mumbai-homes", title: "Sai World City & Towers", location: "Navi Mumbai", type: "2 BHK", status: "Featured", budget: "50 Lacs - 1 Cr", price: "65 Lacs* - 1.25 Cr*", details: "720 - 1250 sq. ft. · 2, 3 BHK", image: "/assets/properties/property-3.jpg" },
+  { slug: "mumbai-homes", title: "Mumbai Luxury Residences", location: "Mumbai", type: "3 BHK", status: "Featured", budget: "Above 1 Cr", price: "1.50 Cr* - 3.20 Cr*", details: "1100 - 1850 sq. ft. · 3, 4 BHK", image: "/assets/properties/property-1.jpg" },
+  { slug: "thane-residences", title: "Thane Sky Terraces", location: "Thane", type: "2 BHK", status: "New Launch", budget: "Above 1 Cr", price: "85 Lacs* - 1.60 Cr*", details: "650 - 1100 sq. ft. · 2, 3 BHK", image: "/assets/properties/property-2.jpg" },
+  { slug: "taloja-new-homes", title: "Taloja Greens & Heights", location: "Taloja", type: "1 BHK", status: "Ready to Move", budget: "Under 50 Lacs", price: "28 Lacs* - 45 Lacs*", details: "380 - 590 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-3.jpg" },
 ];
 
 const readFilter = (key: string) => new URLSearchParams(window.location.search).get(key) ?? "";

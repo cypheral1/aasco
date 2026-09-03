@@ -24,15 +24,10 @@ export function HeroSection() {
           <div className={styles.bgImage3}>
             <Image
               className={styles.bgImage4}
-              src={
-                "https://framerusercontent.com/images/XkJ75tLSHENEUXcXqPKdm6jo9HQ.png?width=2832&height=1752"
-              }
+              src={"/assets/hong-kong-city-skyline-city-lights.jpg"}
               alt={"bg image"}
-              width={2832}
-              height={1752}
-              srcSet={
-                "/assets/XkJ75tLSHENEUXcXqPKdm6jo9HQ-c0b7e296df.png 512w,/assets/XkJ75tLSHENEUXcXqPKdm6jo9HQ-e7d0733b28.png 1024w,/assets/XkJ75tLSHENEUXcXqPKdm6jo9HQ-18cfbe4405.png 2048w,https://framerusercontent.com/images/XkJ75tLSHENEUXcXqPKdm6jo9HQ.png?width=2832&height=1752 2832w"
-              }
+              width={3840}
+              height={2160}
               sizes={
                 "(min-width: 1440px) calc(min(100vw, 1920px) - 24px), (max-width: 809.98px) calc(min(100vw, 1920px) - 24px), (min-width: 810px) and (max-width: 1439.98px) calc(min(100vw, 1920px) - 24px)"
               }

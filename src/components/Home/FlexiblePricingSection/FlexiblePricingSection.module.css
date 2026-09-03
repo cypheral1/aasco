@@ -1,0 +1,2169 @@
+.flexiblePricingSection {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  align-items: center;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 12.5%,
+    rgb(0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 12.5%,
+    rgb(0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingList {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  align-items: center;
+  gap: 32px;
+  row-gap: 32px;
+  column-gap: 32px;
+  transform: translateX(0px);
+  list-style-type: none;
+}
+
+.flexiblePricingItem {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard3 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary139 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot70 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h311 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard1 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary140 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot71 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts2 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h312 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard2 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary141 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot72 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts3 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h313 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingItem2 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard32 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary142 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot73 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts4 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h314 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem2 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard12 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary143 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot74 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts5 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h315 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item2 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard22 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary144 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot75 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts6 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h316 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingItem3 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard33 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary145 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot76 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts7 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h317 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem3 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard13 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary146 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot77 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts8 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h318 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item3 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard23 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary147 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot78 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts9 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h319 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingItem4 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard34 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary148 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot79 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts10 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h320 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem4 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard14 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary149 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot80 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts11 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h321 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item4 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard24 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary150 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot81 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts12 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h322 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingItem5 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard35 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary151 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot82 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts13 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h323 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem5 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard15 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary152 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot83 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts14 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h324 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item5 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard25 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary153 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot84 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts15 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h325 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.flexiblePricingItem6 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard36 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary154 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot85 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts16 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h326 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.topNotchExpertsItem6 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard16 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary155 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot86 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts17 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h327 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+.dedicatedSupport24Item6 {
+  height: 94px;
+  list-style-type: none;
+}
+
+.sliderCard26 {
+  position: relative;
+  width: auto;
+  height: 94px;
+  flex-shrink: 0;
+  list-style-type: none;
+}
+
+.primary156 {
+  padding: 25px 0px;
+  display: flex;
+  position: relative;
+  width: min-content;
+  height: min-content;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-bottom: 25px;
+  padding-left: 0px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 46px;
+  row-gap: 46px;
+  column-gap: 46px;
+  place-content: center;
+  list-style-type: none;
+}
+
+.dot87 {
+  border-radius: 4px;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: rgb(4, 4, 4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: rotate(-45deg);
+  list-style-type: none;
+}
+
+.topNotchExperts18 {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  justify-content: center;
+  place-content: normal center;
+  white-space: pre;
+  outline-width: initial;
+  transform: none;
+  list-style-type: none;
+}
+
+.h328 {
+  margin: 0px;
+  padding: var(
+    --framer-blockquote-text-background-padding,
+    var(--framer-text-background-padding, initial)
+  );
+  border-radius: var(
+    --framer-blockquote-text-background-radius,
+    var(--framer-text-background-radius, initial)
+  );
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  caret-color: rgb(4, 4, 4);
+  color: rgb(4, 4, 4);
+  font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+  font-size: calc(
+    var(--framer-blockquote-font-size, var(--framer-font-size, 16px)) *
+      var(--framer-font-size-scale, 1)
+  );
+  --framer-font-size: 36px;
+  line-height: var(--framer-blockquote-line-height, var(--framer-line-height, 1.2em));
+  --framer-line-height: 44px;
+  letter-spacing: var(--framer-blockquote-letter-spacing, var(--framer-letter-spacing, 0));
+  --framer-letter-spacing: -0.72px;
+  text-decoration-color: rgb(4, 4, 4);
+  text-underline-offset: var(
+    --framer-blockquote-text-decoration-offset,
+    var(--framer-text-decoration-offset, initial)
+  );
+  -webkit-text-fill-color: rgb(4, 4, 4);
+  -webkit-text-stroke-color: rgb(4, 4, 4);
+  border-top-color: rgb(4, 4, 4);
+  border-right-color: rgb(4, 4, 4);
+  border-bottom-color: rgb(4, 4, 4);
+  border-left-color: rgb(4, 4, 4);
+  outline-color: rgb(4, 4, 4);
+  text-decoration-thickness: var(
+    --framer-blockquote-text-decoration-thickness,
+    var(--framer-text-decoration-thickness, initial)
+  );
+  list-style-type: none;
+}
+
+@media (max-width: 809px) {
+  .flexiblePricingItem5 {
+    display: none;
+  }
+  .topNotchExpertsItem5 {
+    display: none;
+  }
+  .dedicatedSupport24Item5 {
+    display: none;
+  }
+  .flexiblePricingItem6 {
+    display: none;
+  }
+  .topNotchExpertsItem6 {
+    display: none;
+  }
+  .dedicatedSupport24Item6 {
+    display: none;
+  }
+}

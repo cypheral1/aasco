@@ -1,0 +1,1 @@
+export { NewsTrendsShapingTheFuture } from "./NewsTrendsShapingTheFuture";

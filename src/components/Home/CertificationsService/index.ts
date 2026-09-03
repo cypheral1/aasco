@@ -1,0 +1,1 @@
+export { CertificationsService } from "./CertificationsService";

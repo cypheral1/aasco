@@ -1,0 +1,16 @@
+export { About } from "./About";
+export { FlexiblePricingItem } from "./FlexiblePricingItem";
+export { TopNotchExpertsItem } from "./TopNotchExpertsItem";
+export { DedicatedSupport24Item } from "./DedicatedSupport24Item";
+export { TopNotchExpertsItem2 } from "./TopNotchExpertsItem2";
+export { DedicatedSupport24Item2 } from "./DedicatedSupport24Item2";
+export { HeroSection } from "./HeroSection";
+export { AboutSection } from "./AboutSection";
+export { ServiceSection } from "./ServiceSection";
+export { PricingPlanSection } from "./PricingPlanSection";
+export { FlexiblePricingSection } from "./FlexiblePricingSection";
+export { TopNotchExpertsSection } from "./TopNotchExpertsSection";
+export { TeamSection } from "./TeamSection";
+export { FaqsSection } from "./FaqsSection";
+export { HireUsSection } from "./HireUsSection";
+export { ImageSection2 } from "./ImageSection2";

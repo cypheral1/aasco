@@ -32,7 +32,7 @@ export function Home() {
     if (searchQuery) params.set("search", searchQuery);
     if (searchType !== "All Types / BHK") params.set("type", searchType);
     if (searchBudget !== "All Budgets") params.set("budget", searchBudget);
-    window.location.href = `/works#top${params.toString() ? `?${params}` : ""}`;
+    window.location.href = `/works${params.toString() ? `?${params}` : ""}#top`;
   }
 
   return (

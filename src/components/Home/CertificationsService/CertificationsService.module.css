@@ -29245,11 +29245,11 @@
 }
 
 .service {
-  animation: serviceReveal 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: serviceReveal 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .desktopCard1 {
-  animation: serviceCardsReveal 900ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: serviceCardsReveal 550ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .open,
@@ -29268,7 +29268,7 @@
 }
 
 .viewMore {
-  animation: serviceButtonReveal 700ms 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: serviceButtonReveal 450ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes serviceReveal {

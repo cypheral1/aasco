@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HeroSection } from "../HeroSection";
 import { HireUsSection } from "../HireUsSection";
 import { ImageSection } from "../ImageSection";
-import { WorkCardSection } from "../WorkCardSection";
+import { PropertyDirectory } from "../PropertyDirectory";
 
 export function Works() {
   return (
@@ -105,7 +105,7 @@ export function Works() {
         <div className={styles.works3}>
           <div className={styles.top} id={"top"}></div>
           <HeroSection />
-          <WorkCardSection />
+          <PropertyDirectory />
           <div className={styles.image19}>
             <div className={styles.image20}>
               <HireUsSection />

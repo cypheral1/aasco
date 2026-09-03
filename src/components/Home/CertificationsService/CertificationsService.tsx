@@ -99,7 +99,7 @@ export function CertificationsService() {
                       </div>
                       <div className={styles.brandAdvisory}>
                         <p className={styles.brandAdvisory2} dir={"auto"}>
-                          Brand Advisory
+                          Property Advisory
                         </p>
                       </div>
                     </div>
@@ -144,7 +144,7 @@ export function CertificationsService() {
                       </div>
                       <div className={styles.brandAdvisory22}>
                         <p className={styles.envatoAuthor} dir={"auto"}>
-                          Envato Author
+                          RERA Verified
                         </p>
                       </div>
                     </div>
@@ -189,7 +189,7 @@ export function CertificationsService() {
                       </div>
                       <div className={styles.brandAdvisory3}>
                         <p className={styles.bestSellingAuthor} dir={"auto"}>
-                          Best Selling Author
+                          Trusted Developers
                         </p>
                       </div>
                     </div>
@@ -227,12 +227,12 @@ export function CertificationsService() {
                     <div className={styles.fwaHighlight2}>
                       <div className={styles.nOVACORESTUDIO4}>
                         <p className={styles.fwaHighlight3} dir={"auto"}>
-                          FWA HIGHLIGHT
+                          PROPERTY HIGHLIGHT
                         </p>
                       </div>
                       <div className={styles.brandAdvisory4}>
                         <p className={styles.cuttingEdgeWeb} dir={"auto"}>
-                          Cutting-edge Web
+                          Curated Homes
                         </p>
                       </div>
                     </div>
@@ -320,7 +320,7 @@ export function CertificationsService() {
                       </div>
                       <div className={styles.brandAdvisory6}>
                         <p className={styles.innovativeDigitalLayout} dir={"auto"}>
-                          Innovative Digital Layout
+                          Investment Ready
                         </p>
                       </div>
                     </div>
@@ -365,7 +365,7 @@ export function CertificationsService() {
                       </div>
                       <div className={styles.brandAdvisory7}>
                         <p className={styles.scalableDigitalSystems} dir={"auto"}>
-                          Scalable Digital Systems
+                          Connected Locations
                         </p>
                       </div>
                     </div>
@@ -403,7 +403,7 @@ export function CertificationsService() {
                     </div>
                     <div className={styles.brandAdvisory8}>
                       <p className={styles.brandAdvisory32} dir={"auto"}>
-                        Brand Advisory
+                        Property Advisory
                       </p>
                     </div>
                   </div>
@@ -440,7 +440,7 @@ export function CertificationsService() {
                     </div>
                     <div className={styles.brandAdvisory9}>
                       <p className={styles.envatoAuthor2} dir={"auto"}>
-                        Envato Author
+                        RERA Verified
                       </p>
                     </div>
                   </div>
@@ -477,7 +477,7 @@ export function CertificationsService() {
                     </div>
                     <div className={styles.brandAdvisory10}>
                       <p className={styles.bestSellingAuthor2} dir={"auto"}>
-                        Best Selling Author
+                        Trusted Developers
                       </p>
                     </div>
                   </div>
@@ -507,12 +507,12 @@ export function CertificationsService() {
                   <div className={styles.fwaHighlight4}>
                     <div className={styles.nOVACORESTUDIO11}>
                       <p className={styles.fwaHighlight5} dir={"auto"}>
-                        FWA HIGHLIGHT
+                          PROPERTY HIGHLIGHT
                       </p>
                     </div>
                     <div className={styles.brandAdvisory11}>
                       <p className={styles.cuttingEdgeWeb2} dir={"auto"}>
-                        Cutting-edge Web
+                          Curated Homes
                       </p>
                     </div>
                   </div>
@@ -584,7 +584,7 @@ export function CertificationsService() {
                     </div>
                     <div className={styles.brandAdvisory13}>
                       <p className={styles.innovativeDigitalLayout2} dir={"auto"}>
-                        Innovative Digital Layout
+                          Investment Ready
                       </p>
                     </div>
                   </div>
@@ -621,7 +621,7 @@ export function CertificationsService() {
                     </div>
                     <div className={styles.brandAdvisory14}>
                       <p className={styles.scalableDigitalSystems2} dir={"auto"}>
-                        Scalable Digital Systems
+                          Connected Locations
                       </p>
                     </div>
                   </div>
@@ -1352,7 +1352,7 @@ export function CertificationsService() {
                           <div className={styles.top17}>
                             <div className={styles.uIUXStrategy22}>
                               <h5 className={styles.h55} dir={"auto"}>
-                                SASS Product MVP
+                                Verified Property Match
                               </h5>
                             </div>
                             <div className={styles.points2}>
@@ -1365,7 +1365,7 @@ export function CertificationsService() {
                                     }
                                   >
                                     <p className={styles.mVPRapidPrototyping2} dir={"auto"}>
-                                      MVP rapid prototyping
+                                      Budget and locality guidance
                                     </p>
                                   </div>
                                 </div>
@@ -1470,7 +1470,7 @@ export function CertificationsService() {
                                 dir={"auto"}
                                 data-framecoded-state={"t7s21789"}
                               >
-                                No-Code Developer
+                                Home Buying Specialist
                               </h5>
                             </div>
                             <div className={styles.points3} data-framecoded-state={"t7s21790"}>
@@ -2157,7 +2157,7 @@ export function CertificationsService() {
                           <div className={styles.top22}>
                             <div className={styles.uIUXStrategy7}>
                               <h5 className={styles.h510} dir={"auto"}>
-                                SASS Product MVP
+                                Verified Property Match
                               </h5>
                             </div>
                             <div className={styles.points7}>
@@ -2170,7 +2170,7 @@ export function CertificationsService() {
                                     }
                                   >
                                     <p className={styles.mVPRapidPrototyping4} dir={"auto"}>
-                                      MVP rapid prototyping
+                                      Budget and locality guidance
                                     </p>
                                   </div>
                                 </div>
@@ -2264,7 +2264,7 @@ export function CertificationsService() {
                           <div className={styles.top23}>
                             <div className={styles.uIUXStrategy8}>
                               <h5 className={styles.h511} dir={"auto"}>
-                                No-Code Developer
+                                Home Buying Specialist
                               </h5>
                             </div>
                             <div className={styles.points8}>
@@ -2837,7 +2837,7 @@ export function CertificationsService() {
                                 dir={"auto"}
                                 data-framecoded-state={"t6s19144"}
                               >
-                                SASS Product MVP
+                                Verified Property Match
                               </h5>
                             </div>
                             <div className={styles.points12} data-framecoded-state={"t6s19145"}>
@@ -2864,7 +2864,7 @@ export function CertificationsService() {
                                       dir={"auto"}
                                       data-framecoded-state={"t6s19150"}
                                     >
-                                      MVP rapid prototyping
+                                      Budget and locality guidance
                                     </p>
                                   </div>
                                 </div>
@@ -3012,7 +3012,7 @@ export function CertificationsService() {
                                 dir={"auto"}
                                 data-framecoded-state={"t8s24760"}
                               >
-                                No-Code Developer
+                                Home Buying Specialist
                               </h5>
                             </div>
                             <div className={styles.points13} data-framecoded-state={"t8s24761"}>
@@ -3479,7 +3479,7 @@ export function CertificationsService() {
                           <div className={styles.top32}>
                             <div className={styles.uIUXStrategy17}>
                               <h5 className={styles.h520} dir={"auto"}>
-                                SASS Product MVP
+                                Verified Property Match
                               </h5>
                             </div>
                             <div className={styles.points17}>
@@ -3492,7 +3492,7 @@ export function CertificationsService() {
                                     }
                                   >
                                     <p className={styles.mVPRapidPrototyping8} dir={"auto"}>
-                                      MVP rapid prototyping
+                                      Budget and locality guidance
                                     </p>
                                   </div>
                                 </div>
@@ -3582,7 +3582,7 @@ export function CertificationsService() {
                           <div className={styles.top33}>
                             <div className={styles.uIUXStrategy18}>
                               <h5 className={styles.h521} dir={"auto"}>
-                                No-Code Developer
+                                Home Buying Specialist
                               </h5>
                             </div>
                             <div className={styles.points18}>

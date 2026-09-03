@@ -19,12 +19,12 @@ export function generateStaticParams() { return Object.keys(properties).map((slu
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const property = properties[slug as PropertySlug];
-  return property ? { title: `${property.title} | Aasco Realty`, description: property.description } : { title: "Property | Aasco Realty" };
+  return property ? { title: `${property.title} | Aasco`, description: property.description } : { title: "Property | Aasco" };
 }
 
 export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const property = properties[slug as PropertySlug];
   if (!property) notFound();
-  return <main className={styles.page}><header className={styles.header}><Link href="/works#top">← All properties</Link><Link className={styles.brand} href="/#top">Aasco Realty</Link><Link href="/contact#top">Enquire ↗</Link></header><section className={styles.hero}><div className={styles.imageWrap}><img src={property.image} alt={property.title} /></div><div className={styles.content}><p className={styles.eyebrow}>{property.location} · AASCO REALTY</p><h1>{property.title}</h1><p className={styles.description}>{property.description}</p><div className={styles.meta}><div><span>PRICE</span><strong>{property.price}</strong></div><div><span>DETAILS</span><strong>{property.details}</strong></div></div><Link className={styles.button} href="/contact#top">Schedule a visit <span>↗</span></Link></div></section><section className={styles.bottom}><p>From dream to reality.</p><p>Our advisors can help with site visits, legal consultation, and after-sales assistance.</p></section></main>;
+  return <main className={styles.page}><header className={styles.header}><Link href="/works#top">← All properties</Link><Link className={styles.brand} href="/#top">Aasco</Link><Link href="/contact#top">Enquire ↗</Link></header><section className={styles.hero}><div className={styles.imageWrap}><img src={property.image} alt={property.title} /></div><div className={styles.content}><p className={styles.eyebrow}>{property.location} · AASCO</p><h1>{property.title}</h1><p className={styles.description}>{property.description}</p><div className={styles.meta}><div><span>PRICE</span><strong>{property.price}</strong></div><div><span>DETAILS</span><strong>{property.details}</strong></div></div><Link className={styles.button} href="/contact#top">Schedule a visit <span>↗</span></Link></div></section><section className={styles.bottom}><p>From dream to reality.</p><p>Our advisors can help with site visits, legal consultation, and after-sales assistance.</p></section></main>;
 }

@@ -224,7 +224,7 @@ export function FaqsSection() {
                     dir={"auto"}
                     data-framecoded-state={"t2s1248"}
                   >
-                    Why Aasco Realty instead of a traditional real estate agency?
+                    Why Aasco instead of a traditional real estate agency?
                   </p>
                 </div>
                 <div className={styles.div50} data-framecoded-state={"t2s1249"}>
@@ -244,7 +244,7 @@ export function FaqsSection() {
               <div className={styles.answer4} data-framecoded-state={"t2s1254"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline8}>
                   <p className={styles.norvinGivesYou} dir={"auto"}>
-                    Aasco Realty gives you expert guidance without the pressure. You get thoughtful, high-quality real estate service
+                    Aasco gives you expert guidance without the pressure. You get thoughtful, high-quality real estate service
                     work on demand, without hiring, training, or long-term commitments.
                   </p>
                 </div>

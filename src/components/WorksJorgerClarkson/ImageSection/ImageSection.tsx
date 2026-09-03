@@ -508,7 +508,7 @@ export function ImageSection() {
         <div className={styles.p2026NorvinAgencyAllRightsReserved}>
           <p className={styles.p2026NorvinAgency} dir={"auto"}>
             <span className={styles.p2026NorvinAgency2}>
-              © 2026 Aasco Realty. All Rights Reserved
+              © 2026 Aasco. All Rights Reserved
             </span>
           </p>
         </div>

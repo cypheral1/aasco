@@ -132,7 +132,7 @@ export function Home() {
         {menuOpen && (
           <nav className={styles.menuOverlay} aria-label="Main menu">
             <div className={styles.menuOverlayHeader}>
-              <span>AASCO REALTY</span>
+              <span>AASCO</span>
               <button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">Close <span>×</span></button>
             </div>
             <p className={styles.menuOverlayIntro}>Find your place<br /><em>in the city.</em></p>

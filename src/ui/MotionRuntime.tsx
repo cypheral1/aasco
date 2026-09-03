@@ -273,7 +273,7 @@ export function MotionRuntime({
         nextOverlay.className = "framecoded-menu-overlay";
         nextOverlay.setAttribute("aria-label", "Main menu");
         nextOverlay.innerHTML =
-          '<div class="framecoded-menu-header"><span>AASCO REALTY</span><button type="button" aria-label="Close menu">Close <span>×</span></button></div>' +
+          '<div class="framecoded-menu-header"><span>AASCO</span><button type="button" aria-label="Close menu">Close <span>×</span></button></div>' +
           '<p class="framecoded-menu-intro">Find your place<br><em>in the city.</em></p>' +
           '<a href="/#top">Home</a><a href="/about#top">About us</a><a href="/works#top">Properties</a><a href="/contact#top">Contact us</a>';
         nextOverlay.querySelector("button")?.addEventListener("click", closeMenus);

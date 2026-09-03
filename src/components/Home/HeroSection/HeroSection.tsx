@@ -54,15 +54,20 @@ export function HeroSection() {
       <div className={styles.heading}>
         <div className={styles.norvin} data-framecoded-motion={"r19"}>
           <h1 className={styles.h1} dir={"auto"}>
-            Aasco Realty
+            <Image
+              src="/assets/aasco-logo-a.png"
+              alt="A"
+              className={styles.brandA}
+              width={240}
+              height={240}
+              priority
+            />
+            <span className={styles.ascoSpan}>asco</span>
           </h1>
         </div>
         <div className={styles.subTitle} data-framecoded-motion={"r1c"}>
           <h5 className={styles.h5} dir={"auto"}>
-            From Dream
-          </h5>
-          <h5 className={styles.h52} dir={"auto"}>
-            To Reality
+            Realty - From Dream to Reality
           </h5>
         </div>
       </div>
@@ -488,7 +493,7 @@ export function HeroSection() {
                       data-framecoded-motion={"r4e"}
                     >
                       <p className={styles.dribbbleSelected20262} dir={"auto"}>
-                        Premium Properties  in Panvel.
+                        Premium Propertiesin Panvel.
                       </p>
                     </div>
                     <div
@@ -497,7 +502,7 @@ export function HeroSection() {
                       data-framecoded-motion={"r4g"}
                     >
                       <p className={styles.fWAAwardsUI} dir={"auto"}>
-                        Affordable Homes  in Taloja & Beyond
+                        Affordable Homesin Taloja & Beyond
                       </p>
                     </div>
                     <div
@@ -506,7 +511,7 @@ export function HeroSection() {
                       data-framecoded-motion={"r4i"}
                     >
                       <p className={styles.awwwardsWinner20252} dir={"auto"}>
-                        Luxury Living  in Dombivli.
+                        Luxury Livingin Dombivli.
                       </p>
                     </div>
                     <div

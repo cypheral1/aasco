@@ -7,9 +7,9 @@ import { motionDefinitions, interactionDefinitions } from "@/components/Works/Wo
 const structuredData: unknown[] = [];
 
 export const metadata: Metadata = {
-  title: "Aasco Realty - Real Estate",
+  title: "Aasco - Real Estate",
   description:
-    "Aasco Realty helps you find exceptional properties and make confident real estate decisions with trusted local expertise.",
+    "Aasco helps you find exceptional properties and make confident real estate decisions with trusted local expertise.",
   alternates: { canonical: siteUrl("/works") },
   openGraph: {
     title: "Norvin - Premium Agency & Portfolio Template",

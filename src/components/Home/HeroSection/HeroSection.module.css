@@ -245,6 +245,10 @@
 
 .h1 {
   margin: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
   padding: var(
     --framer-blockquote-text-background-padding,
     var(--framer-text-background-padding, initial)
@@ -290,6 +294,21 @@
     --framer-blockquote-text-decoration-thickness,
     var(--framer-text-decoration-thickness, initial)
   );
+}
+
+.brandA {
+  height: 0.8em;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  display: inline-block;
+  object-fit: contain;
+  margin-right: -0.04em;
+  margin-bottom: 0.05em;
+  flex-shrink: 0;
+}
+
+.ascoSpan {
+  display: inline-block;
 }
 
 .subTitle {

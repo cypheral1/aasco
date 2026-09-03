@@ -633,7 +633,7 @@ export function PricingPlanSection() {
                               }
                             >
                               <p className={styles.unlimitedRevisions2} dir={"auto"}>
-                                Dedicated Realty Advisor
+                                Dedicated Advisor
                               </p>
                             </div>
                           </div>

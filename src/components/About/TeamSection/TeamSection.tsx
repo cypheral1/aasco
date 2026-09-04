@@ -11,7 +11,7 @@ export function TeamSection() {
               <div className={styles.dot55}></div>
               <div className={styles.process3}>
                 <p className={styles.teamMembers3} dir={"auto"}>
-                  Team Members
+                  Leadership &amp; Advisors
                 </p>
               </div>
             </div>
@@ -19,7 +19,7 @@ export function TeamSection() {
         </div>
         <div className={styles.ourApproach2} data-framecoded-motion={"r6yh"}>
           <h2 className={styles.h29} dir={"auto"}>
-            Our Experts
+            Property Advisors
           </h2>
         </div>
       </div>
@@ -50,7 +50,7 @@ export function TeamSection() {
                 <div className={styles.top13}>
                   <div className={styles.jamesAnderson}>
                     <h3 className={styles.h349} dir={"auto"}>
-                      James Anderson
+                      Aashish Sharma
                     </h3>
                   </div>
                   <div
@@ -59,8 +59,7 @@ export function TeamSection() {
                     }
                   >
                     <p className={styles.jamesIsSeasoned} dir={"auto"}>
-                      James is a seasoned Design Lead who bridges the gap between creative technical
-                      &amp; execution. He specializes in building scalable design systems.
+                      Aashish leads luxury acquisitions with 12+ years of expertise in Kharghar, Panvel &amp; Navi Mumbai master developments.
                     </p>
                   </div>
                 </div>
@@ -77,7 +76,7 @@ export function TeamSection() {
                     />
                     <div className={styles.p6Years}>
                       <p className={styles.p6Years2} dir={"auto"}>
-                        6 years
+                        12 years
                       </p>
                     </div>
                   </div>
@@ -96,7 +95,7 @@ export function TeamSection() {
                   </div>
                   <div className={styles.dESIGNLEAD}>
                     <p className={styles.designLead} dir={"auto"}>
-                      DESIGN LEAD
+                      MANAGING DIRECTOR
                     </p>
                   </div>
                 </div>
@@ -131,7 +130,7 @@ export function TeamSection() {
                   <div className={styles.top14}>
                     <div className={styles.jamesAnderson22}>
                       <h3 className={styles.h350} dir={"auto"}>
-                        Oliver Bennett
+                        Vikramaditya Patil
                       </h3>
                     </div>
                     <div
@@ -140,8 +139,7 @@ export function TeamSection() {
                       }
                     >
                       <p className={styles.oliverIsLogic} dir={"auto"}>
-                        Oliver is a logic-driven Full-Stack Developer who thrives in the space where
-                        clean code meets seamless performance.
+                        Specializes in developer relations, RERA due diligence, and capital growth modeling for investors and families.
                       </p>
                     </div>
                   </div>
@@ -158,7 +156,7 @@ export function TeamSection() {
                       />
                       <div className={styles.p6Years22}>
                         <p className={styles.p3Years} dir={"auto"}>
-                          3 years
+                          8 years
                         </p>
                       </div>
                     </div>
@@ -177,7 +175,7 @@ export function TeamSection() {
                     </div>
                     <div className={styles.dESIGNLEAD2}>
                       <p className={styles.developer} dir={"auto"}>
-                        DEVELOPER
+                        INVESTMENT HEAD
                       </p>
                     </div>
                   </div>
@@ -211,7 +209,7 @@ export function TeamSection() {
                   <div className={styles.top15}>
                     <div className={styles.jamesAnderson32}>
                       <h3 className={styles.h351} dir={"auto"}>
-                        William Carter
+                        Rohan Mehta
                       </h3>
                     </div>
                     <div
@@ -220,8 +218,7 @@ export function TeamSection() {
                       }
                     >
                       <p className={styles.williamIsHigh} dir={"auto"}>
-                        William is a high-level Market Strategist known for turning raw data into
-                        growth roadmaps. He specializes in competitive positioning.
+                        Dedicated residential specialist known for client-first advisory, luxury home tours, and hassle-free closures.
                       </p>
                     </div>
                   </div>
@@ -238,7 +235,7 @@ export function TeamSection() {
                       />
                       <div className={styles.p6Years3}>
                         <p className={styles.p4Years} dir={"auto"}>
-                          4 years
+                          6 years
                         </p>
                       </div>
                     </div>
@@ -257,7 +254,7 @@ export function TeamSection() {
                     </div>
                     <div className={styles.dESIGNLEAD3}>
                       <p className={styles.marketStrategist} dir={"auto"}>
-                        MARKET STRATEGIST
+                        LUXURY CONSULTANT
                       </p>
                     </div>
                   </div>

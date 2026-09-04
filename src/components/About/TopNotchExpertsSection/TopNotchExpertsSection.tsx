@@ -14,7 +14,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot37}></div>
               <div className={styles.topNotchExperts21}>
                 <h3 className={styles.h331} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -30,7 +30,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot42}></div>
               <div className={styles.topNotchExperts26}>
                 <h3 className={styles.h336} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -44,7 +44,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot45}></div>
               <div className={styles.topNotchExperts29}>
                 <h3 className={styles.h339} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -56,7 +56,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot46}></div>
               <div className={styles.topNotchExperts30}>
                 <h3 className={styles.h340} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>
@@ -68,7 +68,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot47}></div>
               <div className={styles.topNotchExperts31}>
                 <h3 className={styles.h341} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -80,7 +80,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot48}></div>
               <div className={styles.topNotchExperts32}>
                 <h3 className={styles.h342} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -92,7 +92,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot49}></div>
               <div className={styles.topNotchExperts33}>
                 <h3 className={styles.h343} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>
@@ -104,7 +104,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot50}></div>
               <div className={styles.topNotchExperts34}>
                 <h3 className={styles.h344} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -116,7 +116,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot51}></div>
               <div className={styles.topNotchExperts35}>
                 <h3 className={styles.h345} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>
@@ -128,7 +128,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot52}></div>
               <div className={styles.topNotchExperts36}>
                 <h3 className={styles.h346} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -140,7 +140,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot53}></div>
               <div className={styles.topNotchExperts37}>
                 <h3 className={styles.h347} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -152,7 +152,7 @@ export function TopNotchExpertsSection() {
               <div className={styles.dot54}></div>
               <div className={styles.topNotchExperts38}>
                 <h3 className={styles.h348} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>

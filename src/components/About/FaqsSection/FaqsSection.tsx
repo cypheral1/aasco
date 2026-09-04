@@ -51,7 +51,7 @@ export function FaqsSection() {
       <div className={styles.right2} data-framecoded-state={"t1s1976"}>
         <div
           className={styles.howToRequest}
-          data-framecoded-state={"t1s1977"}
+          data-framecoded-state={"t1s1976"}
           data-framecoded-motion={"r71e"}
         >
           <div
@@ -72,7 +72,7 @@ export function FaqsSection() {
                     dir={"auto"}
                     data-framecoded-state={"t1s1982"}
                   >
-                    How to request a design?
+                    How do I schedule a private property tour?
                   </p>
                 </div>
                 <div className={styles.div100} data-framecoded-state={"t1s1983"}>
@@ -92,8 +92,7 @@ export function FaqsSection() {
               <div className={styles.answer} data-framecoded-state={"t1s1988"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline2}>
                   <p className={styles.simpleAndStraightforward} dir={"auto"}>
-                    Simple and straightforward. Just submit your request through our platform with
-                    all the details you have.
+                    Simply connect with us via our contact form or phone. Our relationship managers coordinate VIP site visits and transportation tailored to your schedule.
                   </p>
                 </div>
               </div>
@@ -124,7 +123,7 @@ export function FaqsSection() {
                     dir={"auto"}
                     data-framecoded-state={"t5s6790"}
                   >
-                    Speed of design delivery?
+                    Are all listed properties RERA registered?
                   </p>
                 </div>
                 <div className={styles.div104} data-framecoded-state={"t5s6791"}>
@@ -144,8 +143,7 @@ export function FaqsSection() {
               <div className={styles.answer2} data-framecoded-state={"t5s6796"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline4}>
                   <p className={styles.howQuickIs} dir={"auto"}>
-                    How quick is quick? For most design, we’re talking 2-3 business days. We balance
-                    speed with quality, ensuring you get top-north design swiftly.
+                    Yes, 100%. Every development represented by Aasco is verified with MahaRERA registration, clear title certificates, and strict regulatory compliance.
                   </p>
                 </div>
               </div>
@@ -176,7 +174,7 @@ export function FaqsSection() {
                     dir={"auto"}
                     data-framecoded-state={"t2s3219"}
                   >
-                    In which program do you create designs?
+                    Which Navi Mumbai locations do you cover?
                   </p>
                 </div>
                 <div className={styles.div108} data-framecoded-state={"t2s3220"}>
@@ -196,8 +194,7 @@ export function FaqsSection() {
               <div className={styles.answer3} data-framecoded-state={"t2s3225"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline6}>
                   <p className={styles.wePrimarilyDesign} dir={"auto"}>
-                    We primarily design using industry-standard tools like Figma. This ensures
-                    flexibility, easy collaboration, and clean handoffs for development.
+                    We specialize in high-demand nodes including Kharghar, Panvel, Ulwe, Taloja, Dronagiri, Seawoods, and the upcoming Navi Mumbai International Airport zone.
                   </p>
                 </div>
               </div>
@@ -228,7 +225,7 @@ export function FaqsSection() {
                     dir={"auto"}
                     data-framecoded-state={"t3s4431"}
                   >
-                    Why Aasco instead of a traditional real estate agency?
+                    Why choose Aasco instead of a traditional property broker?
                   </p>
                 </div>
                 <div className={styles.div112} data-framecoded-state={"t3s4432"}>
@@ -251,8 +248,7 @@ export function FaqsSection() {
                   data-framecoded-state={"t3s4438"}
                 >
                   <p className={styles.norvinGivesYou} dir={"auto"}>
-                    Aasco gives you expert guidance without the pressure. You get thoughtful, high-quality real estate service
-                    work on demand, without hiring, training, or long-term commitments.
+                    Aasco provides transparent, zero-bias advisory with zero brokerage on developer sales, complete loan paperwork support, and dedicated post-possession assistance.
                   </p>
                 </div>
               </div>
@@ -279,7 +275,7 @@ export function FaqsSection() {
               <div className={styles.question5} data-framecoded-state={"t4s5631"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline9}>
                   <p className={styles.whatIfDon3} dir={"auto"} data-framecoded-state={"t4s5633"}>
-                    What if i don’t like design?
+                    Do you assist with bank home loans?
                   </p>
                 </div>
                 <div className={styles.div116} data-framecoded-state={"t4s5634"}>
@@ -299,8 +295,7 @@ export function FaqsSection() {
               <div className={styles.answer5} data-framecoded-state={"t4s5639"}>
                 <div className={styles.whatIsYourTypicalProjectTimeline10}>
                   <p className={styles.noWorriesAt} dir={"auto"}>
-                    No worries at all. We work iteratively and welcome feedback at every step. If
-                    something doesn’t feel right, we refine it until it does.
+                    Yes. We partner with top leading institutions like SBI, HDFC, ICICI, and Axis Bank to provide pre-approved home loans with the best competitive interest rates.
                   </p>
                 </div>
               </div>

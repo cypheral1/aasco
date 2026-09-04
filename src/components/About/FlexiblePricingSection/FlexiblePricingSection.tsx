@@ -25,7 +25,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot29}></div>
               <div className={styles.topNotchExperts13}>
                 <h3 className={styles.h323} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -37,7 +37,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot30}></div>
               <div className={styles.topNotchExperts14}>
                 <h3 className={styles.h324} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -49,7 +49,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot31}></div>
               <div className={styles.topNotchExperts15}>
                 <h3 className={styles.h325} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>
@@ -61,7 +61,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot32}></div>
               <div className={styles.topNotchExperts16}>
                 <h3 className={styles.h326} dir={"auto"}>
-                  Flexible Pricing
+                  RERA Approved Projects
                 </h3>
               </div>
             </div>
@@ -73,7 +73,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot33}></div>
               <div className={styles.topNotchExperts17}>
                 <h3 className={styles.h327} dir={"auto"}>
-                  Top-notch Experts
+                  Verified Navi Mumbai Homes
                 </h3>
               </div>
             </div>
@@ -85,7 +85,7 @@ export function FlexiblePricingSection() {
               <div className={styles.dot34}></div>
               <div className={styles.topNotchExperts18}>
                 <h3 className={styles.h328} dir={"auto"}>
-                  Dedicated Support 24/7
+                  Zero Brokerage Advisory
                 </h3>
               </div>
             </div>

@@ -20,35 +20,35 @@ export function AboutSection() {
           <div className={styles.definingTheFuture} data-code-component-plugin-id={"84d4c1"}>
             <div className={styles.definingTheFuture2} aria-hidden={"true"}>
               {" "}
-              Defining the future of brands through design, digital excellence and human-centric
-              storytelling, crafting meaningful experiences that inspire connection and lasting
-              impact.
+              Defining modern living across Navi Mumbai through architectural brilliance, prime
+              locations, and transparent real estate advisory, crafting dream lifestyles that inspire
+              lasting value and comfort.
             </div>
             <div className={styles.definingTheFuture3}>
               <span className={styles.definingTheFuture4}>
                 <span className={styles.definingTheFuture5} data-framecoded-motion={"r6hz"}>
                   {" "}
-                  Defining the future of{" "}
+                  Defining modern living{" "}
                 </span>
               </span>
               <span className={styles.brandsThroughDesign}>
                 <span className={styles.brandsThroughDesign2} data-framecoded-motion={"r6i1"}>
-                  brands through design, digital excellence{" "}
+                  across Navi Mumbai through architectural brilliance,{" "}
                 </span>
               </span>
               <span className={styles.andHumanCentric}>
                 <span className={styles.andHumanCentric2} data-framecoded-motion={"r6i3"}>
-                  and human-centric storytelling, crafting{" "}
+                  prime locations, and transparent real estate advisory,{" "}
                 </span>
               </span>
               <span className={styles.meaningfulExperiencesThat}>
                 <span className={styles.meaningfulExperiencesThat2} data-framecoded-motion={"r6i5"}>
-                  meaningful experiences that inspire{" "}
+                  crafting dream lifestyles that inspire{" "}
                 </span>
               </span>
               <span className={styles.connectionAndLasting}>
                 <span className={styles.connectionAndLasting2} data-framecoded-motion={"r6i7"}>
-                  connection and lasting impact.
+                  lasting value and comfort.
                 </span>
               </span>
               <span className={styles.span2}>
@@ -58,22 +58,22 @@ export function AboutSection() {
               </span>
               <span className={styles.futureOfBrands}>
                 <span className={styles.futureOfBrands2} data-framecoded-motion={"r83b"}>
-                  future of brands{" "}
+                  modern living{" "}
                 </span>
               </span>
               <span className={styles.digitalExcellence}>
                 <span className={styles.digitalExcellence2} data-framecoded-motion={"r83f"}>
-                  digital excellence{" "}
+                  prime locations{" "}
                 </span>
               </span>
               <span className={styles.centric}>
                 <span className={styles.centric2} data-framecoded-motion={"r83j"}>
-                  centric{" "}
+                  trusted{" "}
                 </span>
               </span>
               <span className={styles.storytelling}>
                 <span className={styles.storytelling2} data-framecoded-motion={"r83l"}>
-                  storytelling,{" "}
+                  advisory,{" "}
                 </span>
               </span>
               <span className={styles.crafting}>
@@ -83,17 +83,17 @@ export function AboutSection() {
               </span>
               <span className={styles.experiencesThat}>
                 <span className={styles.experiencesThat2} data-framecoded-motion={"r83r"}>
-                  experiences that{" "}
+                  dream homes that{" "}
                 </span>
               </span>
               <span className={styles.inspire}>
                 <span className={styles.inspire2} data-framecoded-motion={"r83t"}>
-                  inspire{" "}
+                  deliver{" "}
                 </span>
               </span>
               <span className={styles.lastingImpact}>
                 <span className={styles.lastingImpact2} data-framecoded-motion={"r83x"}>
-                  lasting impact.
+                  lasting value.
                 </span>
               </span>
             </div>
@@ -123,15 +123,15 @@ export function AboutSection() {
             <div className={styles.primary3}>
               <div className={styles.p353}>
                 <h2 className={styles.h2}>
-                  <span>35+</span>
+                  <span>15+</span>
                 </h2>
                 <h2 className={styles.h22}>
-                  <span>35+</span>
+                  <span>15+</span>
                 </h2>
               </div>
               <div className={styles.awardsRecognizations}>
                 <p className={styles.awardsRecognizations2} dir={"auto"}>
-                  Awards &amp; Recognizations
+                  Years of Real Estate Excellence
                 </p>
               </div>
             </div>
@@ -141,12 +141,12 @@ export function AboutSection() {
           <div className={styles.p652}>
             <div className={styles.primary4}>
               <div className={styles.p653}>
-                <h2 className={styles.h23}>65</h2>
-                <h2 className={styles.h24}>65</h2>
+                <h2 className={styles.h23}>500+</h2>
+                <h2 className={styles.h24}>500+</h2>
               </div>
               <div className={styles.awardsRecognizations22}>
                 <p className={styles.satisfiedClientsPartners} dir={"auto"}>
-                  Satisfied Clients&amp; Partners
+                  Happy Families &amp; Homeowners
                 </p>
               </div>
             </div>
@@ -157,15 +157,15 @@ export function AboutSection() {
             <div className={styles.primary5}>
               <div className={styles.p983}>
                 <h2 className={styles.h25}>
-                  <span>98+</span>
+                  <span>25+</span>
                 </h2>
                 <h2 className={styles.h26}>
-                  <span>98+</span>
+                  <span>25+</span>
                 </h2>
               </div>
               <div className={styles.awardsRecognizations3}>
                 <p className={styles.projectsCompletedWorldwide} dir={"auto"}>
-                  Projects CompletedWorldwide
+                  Curated Navi Mumbai Projects
                 </p>
               </div>
             </div>

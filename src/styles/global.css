@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
 
 /* Base reset (framecoded) */
 *,
@@ -10,13 +15,20 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-primary) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  margin: 0;
+  font-family: var(--font-heading) !important;
+  letter-spacing: -0.02em;
+}
 p,
 figure,
 blockquote,
@@ -48,8 +60,13 @@ button,
 input,
 select,
 textarea {
-  font: inherit;
+  font-family: var(--font-primary) !important;
   color: inherit;
+  text-align: start;
+}
+em {
+  font-family: inherit !important;
+  font-style: italic;
 }
 @media (pointer: coarse) {
   [data-framecoded-cursor] {
@@ -63,14 +80,7 @@ a[data-framer-page-link-current] {
   color: var(--framer-link-current-text-color, var(--framer-link-text-color, inherit));
 }
 body {
-  font-family: "Inter", system-ui, sans-serif;
-  text-align: start;
-}
-
-button,
-input,
-select,
-textarea {
+  font-family: var(--font-primary) !important;
   text-align: start;
 }
 
@@ -103,7 +113,7 @@ li {
 .framecoded-menu-header button { border: 0; background: transparent; color: #fff; cursor: pointer; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
 .framecoded-menu-header button span { margin-left: 12px; font-size: 22px; vertical-align: -2px; }
 .framecoded-menu-intro { margin: 70px 0 25px; font-size: 48px; line-height: .98; letter-spacing: -1px; }
-.framecoded-menu-intro em { font-family: Georgia, serif; font-weight: 400; }
+.framecoded-menu-intro em { font-family: inherit; font-style: italic; font-weight: 400; }
 .framecoded-menu-overlay a { width: 100%; border-bottom: 1px solid rgb(62,62,62); padding-bottom: 16px; font-size: 22px; line-height: 1.2; }
 .framecoded-menu-overlay a:hover { color: rgb(154,154,154); }
 @keyframes framecoded-menu-slide-in { from { transform: translateX(100%); opacity: .6; } to { transform: translateX(0); opacity: 1; } }
@@ -1104,3 +1114,351 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* ==========================================================================
+   MASTERCLASS BUTTON & REDIRECT LINK ANIMATION SYSTEM
+   ========================================================================== */
+
+/* Shimmer Light Ray Sweep Animation */
+@keyframes buttonShimmerSweep {
+  0% {
+    transform: translateX(-160%) skewX(-22deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateX(260%) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
+/* Back To Top Floating Levitation */
+@keyframes backToTopLevitate {
+  0%, 100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-5px) translateZ(0);
+  }
+}
+
+/* Floating Menu Ambient Aura */
+@keyframes floatingMenuPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 12px 28px -2px rgba(0, 0, 0, 0.75), 0 0 18px 2px rgba(255, 255, 255, 0.16);
+  }
+}
+
+/* 1. All Interactive Buttons, Pills, and Action Badges */
+button,
+[role="button"],
+[data-reset="button"],
+[data-border="true"],
+a[data-border="true"],
+.backToTop,
+[class*="backToTop"] {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              filter 0.3s ease !important;
+}
+
+/* Shimmer light-ray on pill buttons and action links */
+[data-border="true"]::before,
+button::before,
+[role="button"]::before,
+[data-reset="button"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: translateX(-160%) skewX(-22deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+[data-border="true"]:hover::before,
+button:hover::before,
+[role="button"]:hover::before,
+[data-reset="button"]:hover::before {
+  animation: buttonShimmerSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Button & Pill Hover Lifts */
+[data-border="true"]:hover,
+button:hover,
+[role="button"]:hover,
+[data-reset="button"]:hover {
+  transform: translateY(-3.5px) scale(1.025) translateZ(0);
+  box-shadow: 0 14px 32px -4px rgba(0, 0, 0, 0.65), 0 0 18px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Button & Pill Active / Click Feedback */
+[data-border="true"]:active,
+button:active,
+[role="button"]:active,
+[data-reset="button"]:active {
+  transform: translateY(1.5px) scale(0.965) translateZ(0) !important;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5) !important;
+  transition-duration: 0.1s !important;
+}
+
+/* 2. Universal Arrow Icon Micro-Launch on Hover */
+button svg,
+a svg,
+[data-border="true"] svg,
+[class*="arrow"] svg,
+[class*="Arrow"] svg,
+.cardArrow,
+[class*="cardArrow"] {
+  will-change: transform, filter;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s ease !important;
+}
+
+button:hover svg,
+a:hover svg,
+[data-border="true"]:hover svg,
+[class*="arrow"]:hover svg,
+[class*="Arrow"]:hover svg,
+a:hover [class*="arrow"] svg,
+a:hover [class*="Arrow"] svg,
+button:hover [class*="arrow"] svg,
+[data-border="true"]:hover [class*="arrow"] svg,
+.propertyCard:hover .cardArrow,
+[class*="card"]:hover .cardArrow,
+[class*="card"]:hover [class*="arrow"] svg {
+  transform: translate3d(4px, -4px, 0) scale(1.15) !important;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.65)) !important;
+}
+
+/* 3. Text Redirect Links (Navigation, Footer, Editorial & Inline Links) */
+a {
+  transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 0.28s ease,
+              border-color 0.28s ease;
+}
+
+/* Nav & Menu Links */
+.menuLinks a,
+[class*="menuLinks"] a,
+[class*="primary196"],
+[class*="primary197"],
+[class*="primary198"],
+[class*="primary199"],
+[class*="primary200"],
+[class*="primary201"],
+[class*="primary202"],
+[class*="primary203"],
+[class*="primary204"] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s ease,
+              text-shadow 0.3s ease !important;
+}
+
+.menuLinks a:hover,
+[class*="menuLinks"] a:hover,
+[class*="primary196"]:hover,
+[class*="primary197"]:hover,
+[class*="primary198"]:hover,
+[class*="primary199"]:hover,
+[class*="primary200"]:hover,
+[class*="primary201"]:hover,
+[class*="primary202"]:hover,
+[class*="primary203"]:hover,
+[class*="primary204"]:hover {
+  transform: translateX(4px) scale(1.025);
+  color: #ffffff !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* 4. Back To Top Floating Action Button */
+.backToTop,
+[class*="backToTop"] {
+  animation: backToTopLevitate 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.backToTop:hover,
+[class*="backToTop"]:hover {
+  animation-play-state: paused;
+  transform: translateY(-7px) scale(1.08) translateZ(0) !important;
+  box-shadow: 0 20px 42px -4px rgba(0, 0, 0, 0.8), 0 0 26px rgba(255, 255, 255, 0.28) !important;
+}
+
+.backToTop:hover svg,
+[class*="backToTop"]:hover svg {
+  transform: translateY(-5px) scale(1.22) !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) !important;
+}
+
+.backToTop:active,
+[class*="backToTop"]:active {
+  transform: translateY(1px) scale(0.95) !important;
+}
+
+/* 5. Floating Navigation & Hamburger Button */
+.hamMenu,
+[class*="hamMenu"] {
+  animation: floatingMenuPulse 3.5s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease !important;
+}
+
+.hamMenu:hover,
+[class*="hamMenu"]:hover {
+  transform: scale(1.12) rotate(4deg) !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 255, 255, 0.25) !important;
+}
+
+.hamMenu:active,
+[class*="hamMenu"]:active {
+  transform: scale(0.92) rotate(-4deg) !important;
+}
+
+/* 6. Form Submit Buttons */
+button[type="submit"],
+[class*="submit"],
+[class*="default_3"],
+[class*="default_4"] {
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.3s ease,
+              background 0.3s ease !important;
+}
+
+button[type="submit"]:hover,
+[class*="submit"]:hover,
+[class*="default_3"]:hover,
+[class*="default_4"]:hover {
+  transform: translateY(-3px) scale(1.04) !important;
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 255, 255, 0.15) !important;
+}
+
+button[type="submit"]:active,
+[class*="submit"]:active,
+[class*="default_3"]:active,
+[class*="default_4"]:active {
+  transform: translateY(1.5px) scale(0.96) !important;
+}
+
+/* 7. Brand Logo Redirect Home Link */
+a[class*="logo"],
+a[class*="logoImage"] {
+  display: inline-flex;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s ease,
+              opacity 0.3s ease !important;
+}
+
+a[class*="logo"]:hover,
+a[class*="logoImage"]:hover {
+  transform: scale(1.06) !important;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.35)) !important;
+  opacity: 0.95;
+}
+
+a[class*="logo"]:active,
+a[class*="logoImage"]:active {
+  transform: scale(0.96) !important;
+}
+
+/* 8. Editorial & Article Card Redirect Links */
+[class*="NewsCardSection"] a,
+[class*="newsCard"] a,
+[class*="card"] a {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease !important;
+}
+
+/* 9. Header Center Logo Notch */
+.headerNotch,
+[class*="headerNotch"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 24px;
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(14, 18, 28, 0.85) 60%,
+    rgba(6, 8, 14, 0.94) 100%
+  );
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 14px 32px -4px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  z-index: 15;
+}
+
+.headerNotch:hover,
+[class*="headerNotch"]:hover {
+  transform: translateX(-50%) translateY(-2px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 20px 44px -4px rgba(0, 0, 0, 0.85),
+    0 0 22px rgba(255, 255, 255, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.headerNotch:active,
+[class*="headerNotch"]:active {
+  transform: translateX(-50%) translateY(1px) scale(0.97);
+}
+
+.notchBrandLink,
+[class*="notchBrandLink"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.notchLogo,
+[class*="notchLogo"] {
+  height: 28px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+

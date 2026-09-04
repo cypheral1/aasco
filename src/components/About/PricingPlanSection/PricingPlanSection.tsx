@@ -27,14 +27,14 @@ export function PricingPlanSection() {
             <div className={styles.dot2}></div>
             <div className={styles.process2}>
               <p className={styles.ourPackage2} dir={"auto"}>
-                Our Package
+                Consultation Packages
               </p>
             </div>
           </div>
         </div>
         <div className={styles.ourApproach} data-framecoded-motion={"r6l9"}>
           <h2 className={styles.h28} dir={"auto"}>
-            Pricing Plan
+            Advisory Plans
           </h2>
         </div>
       </div>
@@ -43,7 +43,7 @@ export function PricingPlanSection() {
           <div className={styles.switch}>
             <div className={styles.yearly20Off}>
               <p className={styles.yearly20Off3} dir={"auto"}>
-                <span className={styles.yearly20Off4}>Yearly 20% off</span>
+                <span className={styles.yearly20Off4}>Annual Retainer</span>
               </p>
             </div>
             <div className={styles.div49}>
@@ -64,7 +64,7 @@ export function PricingPlanSection() {
             </div>
             <div className={styles.monthly}>
               <p className={styles.monthly2} dir={"auto"}>
-                Monthly
+                Standard
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export function PricingPlanSection() {
                         <div className={styles.left2}>
                           <div className={styles.starterPlan}>
                             <p className={styles.starterPlan2} dir={"auto"}>
-                              Starter Plan
+                              Homebuyer Advisory
                             </p>
                           </div>
                         </div>
@@ -94,7 +94,7 @@ export function PricingPlanSection() {
                       </div>
                       <div className={styles.exclusiveQualityForGrowingBrands}>
                         <p className={styles.exclusiveQualityFor2} dir={"auto"}>
-                          Exclusive quality for growing brands.
+                          Tailored consultation for first-time buyers &amp; families.
                         </p>
                       </div>
                     </div>
@@ -105,7 +105,7 @@ export function PricingPlanSection() {
                             <div className={styles.p35002} data-framecoded-state={"t0s220"}>
                               <div className={styles.page2} data-framecoded-state={"t0s221"}>
                                 <p className={styles.page3} dir={"auto"}>
-                                  $
+                                  ₹
                                 </p>
                               </div>
                               <div className={styles.price} data-framecoded-state={"t0s223"}>
@@ -115,12 +115,12 @@ export function PricingPlanSection() {
                                     dir={"auto"}
                                     data-framecoded-state={"t0s225"}
                                   >
-                                    3,500
+                                    0
                                   </h3>
                                 </div>
                                 <div className={styles.mo} data-framecoded-state={"t0s226"}>
                                   <p className={styles.mo2} dir={"auto"}>
-                                    /mo
+                                    /Free
                                   </p>
                                 </div>
                               </div>
@@ -128,7 +128,7 @@ export function PricingPlanSection() {
                             <div className={styles.p35004} data-framecoded-state={"t0s228"}>
                               <div className={styles.page4} data-framecoded-state={"t0s229"}>
                                 <p className={styles.page5} dir={"auto"}>
-                                  $
+                                  ₹
                                 </p>
                               </div>
                               <div className={styles.price2} data-framecoded-state={"t0s231"}>
@@ -138,12 +138,12 @@ export function PricingPlanSection() {
                                     dir={"auto"}
                                     data-framecoded-state={"t0s233"}
                                   >
-                                    3,500
+                                    0
                                   </h3>
                                 </div>
                                 <div className={styles.yr} data-framecoded-state={"t0s234"}>
                                   <p className={styles.yr2} dir={"auto"}>
-                                    /yr
+                                    /Free
                                   </p>
                                 </div>
                               </div>
@@ -170,7 +170,7 @@ export function PricingPlanSection() {
                                 data-framecoded-state={"h1pi8mbhs1_0"}
                               >
                                 <p className={styles.getStarted3} dir={"auto"}>
-                                  Get Started
+                                  Book Consultation
                                 </p>
                               </div>
                               <div
@@ -178,7 +178,7 @@ export function PricingPlanSection() {
                                 data-framecoded-state={"h1pi8mbhs1_1"}
                               >
                                 <p className={styles.getStarted4} dir={"auto"}>
-                                  Get Started
+                                  Book Consultation
                                 </p>
                               </div>
                             </div>
@@ -211,7 +211,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.everythingInEssential2} dir={"auto"}>
-                                  Everything in Essential
+                                  Verified Property Shortlisting
                                 </p>
                               </div>
                             </div>
@@ -225,7 +225,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.responsiveWebflowDev2} dir={"auto"}>
-                                  Responsive Webflow Dev
+                                  Metro &amp; Connectivity Audit
                                 </p>
                               </div>
                             </div>
@@ -239,7 +239,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.basicGSAPAnimations2} dir={"auto"}>
-                                  Basic GSAP Animations
+                                  Builder &amp; RERA Check
                                 </p>
                               </div>
                             </div>
@@ -253,7 +253,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.standardSEOSetup2} dir={"auto"}>
-                                  Standard SEO Setup
+                                  Dedicated Advisor
                                 </p>
                               </div>
                             </div>
@@ -270,7 +270,7 @@ export function PricingPlanSection() {
                         <div className={styles.left4}>
                           <div className={styles.starterPlan22}>
                             <p className={styles.enterprisePlan} dir={"auto"}>
-                              Enterprise Plan
+                              Investment Portfolio
                             </p>
                           </div>
                         </div>
@@ -286,7 +286,7 @@ export function PricingPlanSection() {
                       </div>
                       <div className={styles.exclusiveQualityForGrowingBrands2}>
                         <p className={styles.comprehensiveDigitalTransformation2} dir={"auto"}>
-                          Comprehensive digital transformation.
+                          High-yield residential &amp; commercial strategy.
                         </p>
                       </div>
                     </div>
@@ -297,7 +297,7 @@ export function PricingPlanSection() {
                             <div className={styles.p50002} data-framecoded-state={"t0s282"}>
                               <div className={styles.page6} data-framecoded-state={"t0s283"}>
                                 <p className={styles.page7} dir={"auto"}>
-                                  $
+                                  ₹
                                 </p>
                               </div>
                               <div className={styles.price3} data-framecoded-state={"t0s285"}>
@@ -307,12 +307,12 @@ export function PricingPlanSection() {
                                     dir={"auto"}
                                     data-framecoded-state={"t0s287"}
                                   >
-                                    5,000
+                                    0
                                   </h3>
                                 </div>
                                 <div className={styles.mo22} data-framecoded-state={"t0s288"}>
                                   <p className={styles.mo3} dir={"auto"}>
-                                    /mo
+                                    /Zero Brokerage
                                   </p>
                                 </div>
                               </div>
@@ -320,7 +320,7 @@ export function PricingPlanSection() {
                             <div className={styles.p50004} data-framecoded-state={"t0s290"}>
                               <div className={styles.page8} data-framecoded-state={"t0s291"}>
                                 <p className={styles.page9} dir={"auto"}>
-                                  $
+                                  ₹
                                 </p>
                               </div>
                               <div className={styles.price4} data-framecoded-state={"t0s293"}>
@@ -330,12 +330,12 @@ export function PricingPlanSection() {
                                     dir={"auto"}
                                     data-framecoded-state={"t0s295"}
                                   >
-                                    5,000
+                                    0
                                   </h3>
                                 </div>
                                 <div className={styles.yr22} data-framecoded-state={"t0s296"}>
                                   <p className={styles.yr3} dir={"auto"}>
-                                    /yr
+                                    /Zero Brokerage
                                   </p>
                                 </div>
                               </div>
@@ -362,7 +362,7 @@ export function PricingPlanSection() {
                                 data-framecoded-state={"h1p890mis1_0"}
                               >
                                 <p className={styles.getStarted7} dir={"auto"}>
-                                  Get Started
+                                  Explore Assets
                                 </p>
                               </div>
                               <div
@@ -370,7 +370,7 @@ export function PricingPlanSection() {
                                 data-framecoded-state={"h1p890mis1_1"}
                               >
                                 <p className={styles.getStarted8} dir={"auto"}>
-                                  Get Started
+                                  Explore Assets
                                 </p>
                               </div>
                             </div>
@@ -403,7 +403,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.everythingInEssential4} dir={"auto"}>
-                                  Everything in Essential
+                                  Pre-Launch Access
                                 </p>
                               </div>
                             </div>
@@ -417,7 +417,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.advancedMotionDesign2} dir={"auto"}>
-                                  Advanced Motion Design
+                                  Rental Yield Modeling
                                 </p>
                               </div>
                             </div>
@@ -431,7 +431,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.commerceIntegration2} dir={"auto"}>
-                                  E-commerce Integration
+                                  Commercial Retail Suites
                                 </p>
                               </div>
                             </div>
@@ -445,7 +445,7 @@ export function PricingPlanSection() {
                                 }
                               >
                                 <p className={styles.advancedSEOAudit2} dir={"auto"}>
-                                  Advanced SEO Audit
+                                  Direct Developer Pricing
                                 </p>
                               </div>
                             </div>
@@ -463,14 +463,14 @@ export function PricingPlanSection() {
                       <div className={styles.left7}>
                         <div className={styles.starterPlan3}>
                           <p className={styles.proPlan} dir={"auto"}>
-                            Pro Plan
+                            NRI &amp; Luxury Concierge
                           </p>
                         </div>
                         <div className={styles.recomended}>
                           <div className={styles.secondary3} data-border={"true"}>
                             <div className={styles.branding}>
                               <p className={styles.recomended2} dir={"auto"}>
-                                Recomended
+                                Premium
                               </p>
                             </div>
                           </div>
@@ -488,7 +488,7 @@ export function PricingPlanSection() {
                     </div>
                     <div className={styles.exclusiveQualityForGrowingBrands3}>
                       <p className={styles.tailorMadeFollow2} dir={"auto"}>
-                        Tailor-made follow your business and Partner with our senior creative team.
+                        End-to-end bespoke property management and acquisition concierge for NRIs &amp; luxury investors.
                       </p>
                     </div>
                   </div>
@@ -499,7 +499,7 @@ export function PricingPlanSection() {
                           <div className={styles.p80002} data-framecoded-state={"t0s348"}>
                             <div className={styles.page10} data-framecoded-state={"t0s349"}>
                               <p className={styles.page11} dir={"auto"}>
-                                $
+                                ₹
                               </p>
                             </div>
                             <div className={styles.price5} data-framecoded-state={"t0s351"}>
@@ -509,12 +509,12 @@ export function PricingPlanSection() {
                                   dir={"auto"}
                                   data-framecoded-state={"t0s353"}
                                 >
-                                  8,000
+                                  0
                                 </h3>
                               </div>
                               <div className={styles.mo32} data-framecoded-state={"t0s354"}>
                                 <p className={styles.mo4} dir={"auto"}>
-                                  /mo
+                                  /VIP Service
                                 </p>
                               </div>
                             </div>
@@ -522,7 +522,7 @@ export function PricingPlanSection() {
                           <div className={styles.p80004} data-framecoded-state={"t0s356"}>
                             <div className={styles.page12} data-framecoded-state={"t0s357"}>
                               <p className={styles.page13} dir={"auto"}>
-                                $
+                                ₹
                               </p>
                             </div>
                             <div className={styles.price6} data-framecoded-state={"t0s359"}>
@@ -532,12 +532,12 @@ export function PricingPlanSection() {
                                   dir={"auto"}
                                   data-framecoded-state={"t0s361"}
                                 >
-                                  8,000
+                                  0
                                 </h3>
                               </div>
                               <div className={styles.yr32} data-framecoded-state={"t0s362"}>
                                 <p className={styles.yr4} dir={"auto"}>
-                                  /yr
+                                  /VIP Service
                                 </p>
                               </div>
                             </div>
@@ -561,7 +561,7 @@ export function PricingPlanSection() {
                               data-framecoded-state={"h1oy9exjs1_0"}
                             >
                               <p className={styles.getStarted11} dir={"auto"}>
-                                Get Started
+                                Connect with VIP Desk
                               </p>
                             </div>
                             <div
@@ -569,7 +569,7 @@ export function PricingPlanSection() {
                               data-framecoded-state={"h1oy9exjs1_1"}
                             >
                               <p className={styles.getStarted12} dir={"auto"}>
-                                Get Started
+                                Connect with VIP Desk
                               </p>
                             </div>
                           </div>
@@ -602,7 +602,7 @@ export function PricingPlanSection() {
                               }
                             >
                               <p className={styles.fullBrandStrategy2} dir={"auto"}>
-                                Full Brand Strategy
+                                3D Virtual Walkthroughs
                               </p>
                             </div>
                           </div>
@@ -616,7 +616,7 @@ export function PricingPlanSection() {
                               }
                             >
                               <p className={styles.highEndDigital2} dir={"auto"}>
-                                High-End Digital Identity
+                                Complete Legal &amp; POA Handling
                               </p>
                             </div>
                           </div>
@@ -630,7 +630,7 @@ export function PricingPlanSection() {
                               }
                             >
                               <p className={styles.complexWebflowCMS2} dir={"auto"}>
-                                Complex Webflow CMS
+                                Tenant &amp; Rental Management
                               </p>
                             </div>
                           </div>
@@ -644,7 +644,7 @@ export function PricingPlanSection() {
                               }
                             >
                               <p className={styles.dedicatedProjectLead2} dir={"auto"}>
-                                Dedicated Project Lead
+                                Dedicated Senior Concierge
                               </p>
                             </div>
                           </div>

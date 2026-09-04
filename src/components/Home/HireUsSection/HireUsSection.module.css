@@ -724,6 +724,17 @@
   outline-color: rgb(0, 0, 238);
   cursor: pointer;
   text-decoration-thickness: initial;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.secondary26:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.6), 0 0 14px rgba(255, 255, 255, 0.1);
+}
+
+.secondary26:hover [class*="arrow"] svg {
+  transform: translate(2px, -2px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .secondary26::after {
@@ -1120,6 +1131,12 @@
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
   backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.form:hover {
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 255, 255, 0.05);
 }
 
 .form::after {

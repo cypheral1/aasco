@@ -39,16 +39,11 @@ export function ImageSection() {
                 <div className={styles.image230}>
                   <Image
                     className={styles.image231}
-                    src={
-                      "https://framerusercontent.com/images/NSqBiZflGM1mU52XlH45nRshyas.svg?width=81&height=82"
-                    }
-                    alt={"image"}
-                    width={81}
-                    height={82}
-                    srcSet={
-                      "/assets/NSqBiZflGM1mU52XlH45nRshyas-68c8fbae3a.svg 81w, /assets/NSqBiZflGM1mU52XlH45nRshyas-14271cb44d.svg 162w"
-                    }
-                    sizes={"(max-width: 81px) 100vw, 81px"}
+                    src={"/assets/aasco-logo-a.png"}
+                    alt={"AASCO Logo"}
+                    width={80}
+                    height={80}
+                    priority
                   />
                 </div>
               </div>
@@ -61,7 +56,7 @@ export function ImageSection() {
                     aria-hidden="true"
                     dangerouslySetInnerHTML={{
                       __html:
-                        '<svg viewBox="0 0 100 100" overflow="visible" style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><path id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50" stroke-width="none" fill="transparent" style="fill: rgba(0, 0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px; font-family: sans-serif; font-size: 12px; font-weight: 400;"></path><text style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px; font-family: sans-serif; font-size: 12px; font-weight: 400;"><textPath href="#curve-wnxkz4" startOffset="0" dominant-baseline="Central" style="font-family: &quot;Inter Display&quot;, &quot;Inter Display Placeholder&quot;, sans-serif; font-size: 11px; font-style: normal; font-weight: 400; letter-spacing: 1.5px; line-height: 16px; word-spacing: 3px; fill: rgb(255, 255, 255); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px;">AASCO REALITY - REAL ESTATE ADVISORY -</textPath></text></svg>',
+                        '<svg viewBox="0 0 100 100" overflow="visible" style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); font-family: sans-serif; font-size: 12px; font-weight: 400;"><path id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50" stroke-width="none" fill="transparent" style="fill: rgba(0, 0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px; font-family: sans-serif; font-size: 12px; font-weight: 400;"></path><text style="fill: rgb(0, 0, 0); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px; font-family: sans-serif; font-size: 12px; font-weight: 400;"><textPath href="#curve-wnxkz4" startOffset="0" dominant-baseline="Central" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; font-style: normal; font-weight: 600; letter-spacing: 1.5px; line-height: 16px; word-spacing: 3px; fill: rgb(255, 255, 255); stroke-width: 1px; stop-color: rgb(0, 0, 0); flood-color: rgb(0, 0, 0); transform-origin: 0px 0px;">AASCO REALTY - REAL ESTATE ADVISORY -</textPath></text></svg>',
                     }}
                   />
                 </div>

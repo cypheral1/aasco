@@ -24,7 +24,7 @@ export function HireUsSection() {
               </div>
               <div className={styles.ourApproach4} data-framecoded-motion={"r735"}>
                 <h2 className={styles.h211} dir={"auto"}>
-                  Hire us!!
+                  Contact Us
                 </h2>
               </div>
             </div>
@@ -70,12 +70,12 @@ export function HireUsSection() {
                   <div className={styles.startProject72} data-framecoded-state={"htb09l6s1"}>
                     <div className={styles.startProject9} data-framecoded-state={"htb09l6s1_0"}>
                       <p className={styles.startProject82} dir={"auto"}>
-                        Start Project
+                        Explore Properties
                       </p>
                     </div>
                     <div className={styles.startProject10} data-framecoded-state={"htb09l6s1_1"}>
                       <p className={styles.startProject92} dir={"auto"}>
-                        Start Project
+                        Explore Properties
                       </p>
                     </div>
                   </div>
@@ -112,8 +112,8 @@ export function HireUsSection() {
                     type={"text"}
                     required
                     data-name={"Name"}
-                    placeholder={"Marcus Kane"}
-                    value={""}
+                    placeholder={"Rahul Sharma"}
+                    defaultValue={""}
                   />
                 </div>
               </label>
@@ -129,8 +129,8 @@ export function HireUsSection() {
                     type={"email"}
                     required
                     data-name={"Email"}
-                    placeholder={"marcus@example.com"}
-                    value={""}
+                    placeholder={"rahul@example.com"}
+                    defaultValue={""}
                   />
                 </div>
               </label>
@@ -139,16 +139,22 @@ export function HireUsSection() {
               <label className={styles.label3}>
                 <div className={styles.service}>
                   <p className={styles.service2} dir={"auto"}>
-                    Service
+                    Property Type
                   </p>
                 </div>
                 <div className={styles.dropdown}>
-                  <select className={styles.select} data-name={"Dropdown"}>
-                    <option className={styles.option} value={""} disabled selected>
-                      Select an option
+                  <select className={styles.select} data-name={"Dropdown"} defaultValue={""}>
+                    <option className={styles.option} value={""} disabled>
+                      Select property type
                     </option>
-                    <option className={styles.option2} value={"Branding"}>
-                      BrandingDevelopment
+                    <option className={styles.option2} value={"2-3-BHK"}>
+                      2 &amp; 3 BHK Luxury Residences
+                    </option>
+                    <option className={styles.option2} value={"Commercial"}>
+                      Commercial &amp; Retail Suites
+                    </option>
+                    <option className={styles.option2} value={"Investment"}>
+                      Investment &amp; Pre-Launch
                     </option>
                   </select>
                 </div>
@@ -160,12 +166,18 @@ export function HireUsSection() {
                   </p>
                 </div>
                 <div className={styles.dropdown2}>
-                  <select className={styles.select2} data-name={"Dropdown"}>
-                    <option className={styles.option3} value={""} disabled selected>
-                      Select an option
+                  <select className={styles.select2} data-name={"Dropdown"} defaultValue={""}>
+                    <option className={styles.option3} value={""} disabled>
+                      Select budget range
                     </option>
-                    <option className={styles.option4} value={"1000$"}>
-                      1000$2000$
+                    <option className={styles.option4} value={"50L-1Cr"}>
+                      ₹50 Lakhs - ₹1 Crore
+                    </option>
+                    <option className={styles.option4} value={"1Cr-2.5Cr"}>
+                      ₹1 Crore - ₹2.5 Crores
+                    </option>
+                    <option className={styles.option4} value={"2.5Cr+"}>
+                      ₹2.5 Crores+
                     </option>
                   </select>
                 </div>

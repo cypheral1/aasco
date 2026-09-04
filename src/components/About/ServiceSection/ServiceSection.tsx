@@ -42,7 +42,7 @@ export function ServiceSection() {
             </div>
             <div className={styles.whatWeDo} data-framecoded-motion={"r6jk"}>
               <h2 className={styles.h27} dir={"auto"}>
-                What we do
+                Real Estate Services
               </h2>
             </div>
           </div>
@@ -52,8 +52,7 @@ export function ServiceSection() {
             }
           >
             <p className={styles.elevatingBrandPresence} dir={"auto"}>
-              Elevating brand presence through cohesive visual systems and creative storytelling
-              across global markets.
+              Guiding you through luxury property purchases, strategic investments, and prime commercial leasing across Navi Mumbai.
             </p>
           </div>
         </div>
@@ -80,12 +79,12 @@ export function ServiceSection() {
                 </div>
                 <div className={styles.visualHeritage}>
                   <h3 className={styles.h3} dir={"auto"}>
-                    Visual Heritage
+                    Luxury Residences
                   </h3>
                 </div>
                 <div className={styles.craftingIconicLegacies}>
                   <p className={styles.craftingIconicLegacies2} dir={"auto"}>
-                    Crafting iconic legacies through strategic and elegant design.
+                    Curated high-rise apartments, villas, and modern residential developments in Kharghar &amp; Panvel.
                   </p>
                 </div>
                 <div className={styles.mask}></div>
@@ -116,12 +115,12 @@ export function ServiceSection() {
                 </div>
                 <div className={styles.visualHeritage22}>
                   <h3 className={styles.h32} dir={"auto"}>
-                    Motion &amp; Style
+                    Commercial &amp; Retail Hubs
                   </h3>
                 </div>
                 <div className={styles.bringingConceptsTo}>
                   <p className={styles.bringingConceptsTo2} dir={"auto"}>
-                    Bringing concepts to life through fluid and expressive design.
+                    Grade-A corporate office suites, modern retail showrooms, and prime high-footfall business spaces.
                   </p>
                 </div>
                 <div className={styles.mask2}></div>
@@ -152,12 +151,12 @@ export function ServiceSection() {
                 </div>
                 <div className={styles.visualHeritage32}>
                   <h3 className={styles.h33} dir={"auto"}>
-                    Brand Strategy
+                    Investment Advisory
                   </h3>
                 </div>
                 <div className={styles.definingTimelessIdentities}>
                   <p className={styles.definingTimelessIdentities2} dir={"auto"}>
-                    Defining timeless identities through refined and purposeful design.
+                    In-depth ROI forecasting, infrastructure growth analysis, and capital appreciation roadmaps for investors.
                   </p>
                 </div>
                 <div className={styles.mask3}></div>
@@ -188,12 +187,12 @@ export function ServiceSection() {
                 </div>
                 <div className={styles.visualHeritage4}>
                   <h3 className={styles.h34} dir={"auto"}>
-                    Digital Identity
+                    Legal &amp; Loan Support
                   </h3>
                 </div>
                 <div className={styles.elevatingDigitalPresence}>
                   <p className={styles.elevatingDigitalPresence2} dir={"auto"}>
-                    Elevating digital presence through modern and intuitive design.
+                    End-to-end RERA compliance checks, clear title verification, and streamlined home loan sanction support.
                   </p>
                 </div>
                 <div className={styles.mask4}></div>

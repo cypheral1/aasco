@@ -8,7 +8,7 @@ export function FlexiblePricingItem() {
           <div className={styles.dot17}></div>
           <div className={styles.topNotchExperts}>
             <h3 className={styles.h311} dir={"auto"}>
-              Flexible Pricing
+              RERA Approved Projects
             </h3>
           </div>
         </div>

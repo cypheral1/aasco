@@ -6,9 +6,9 @@ export function TopNotchExpertsItem2() {
       <div className={styles.sliderCard4} data-name={"Slider Card4"}>
         <div className={styles.secondary5} data-name={"Slider Card4"}>
           <div className={styles.dot35}></div>
-          <div className={styles.topNotchExperts19}>
+          <div className={styles.topNotchExperts20}>
             <h3 className={styles.h329} dir={"auto"}>
-              Top-notch Experts
+              Verified Navi Mumbai Homes
             </h3>
           </div>
         </div>

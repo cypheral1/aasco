@@ -51,11 +51,8 @@ export function WorksNeonDriftStudio() {
                 <div className={styles.time}>
                   <div className={styles.newYorkUSA}>
                     <p className={styles.newYorkUSA3} dir={"auto"}>
-                      / New York, USA -{" "}
+                      / Good space good time
                     </p>
-                  </div>
-                  <div className={styles.p846Pm}>
-                    <p className={styles.p846Pm2}>8:46 PM</p>
                   </div>
                 </div>
               </div>

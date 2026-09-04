@@ -8,7 +8,7 @@ export function TopNotchExpertsItem() {
           <div className={styles.dot18}></div>
           <div className={styles.topNotchExperts2}>
             <h3 className={styles.h312} dir={"auto"}>
-              Top-notch Experts
+              Verified Navi Mumbai Homes
             </h3>
           </div>
         </div>

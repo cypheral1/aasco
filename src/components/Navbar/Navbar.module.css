@@ -1,0 +1,267 @@
+.navbarWrapper {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 24px;
+  pointer-events: none;
+}
+
+.navbarCapsule {
+  pointer-events: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 20px;
+  min-width: 680px;
+  max-width: 900px;
+  padding: 8px 14px 8px 18px;
+  background: radial-gradient(
+    130% 130% at 50% 0%,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(18, 24, 38, 0.92) 50%,
+    rgba(7, 9, 15, 0.98) 100%
+  );
+  backdrop-filter: blur(36px) saturate(220%);
+  -webkit-backdrop-filter: blur(36px) saturate(220%);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    0 24px 60px -8px rgba(0, 0, 0, 0.9),
+    0 0 32px rgba(255, 255, 255, 0.08),
+    0 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glowing top rim highlight on capsule */
+.navbarCapsule::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent
+  );
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.navbarCapsule:hover {
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 
+    0 28px 68px -6px rgba(0, 0, 0, 0.95),
+    0 0 42px rgba(255, 255, 255, 0.16),
+    0 0 2px 1px rgba(255, 255, 255, 0.28),
+    inset 0 1px 2px rgba(255, 255, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+/* Balanced Left & Right Nav columns */
+.navLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--framer-font-family, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Center Logo Notch - strictly in the dead center */
+.navCenterLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 4px;
+}
+
+.notchBrandLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(24, 32, 50, 0.92) 55%,
+    rgba(10, 14, 24, 0.98) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.65),
+    0 0 16px rgba(255, 255, 255, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.notchBrandLink:hover {
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(36, 48, 74, 0.96) 55%,
+    rgba(16, 22, 36, 1) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: scale(1.1);
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.75),
+    0 0 28px rgba(255, 255, 255, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.notchLogo {
+  height: 32px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.45));
+  transition: filter 0.3s ease;
+}
+
+.notchBrandLink:hover .notchLogo {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+}
+
+/* Contact Us Button: Non-white static, brilliant white on hover */
+.navCtaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-family: var(--framer-font-family, "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  text-decoration: none;
+  box-shadow: 
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.navCtaButton:hover {
+  background: #ffffff;
+  color: #080c14;
+  border-color: #ffffff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 
+    0 10px 28px rgba(255, 255, 255, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+.ctaArrow {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.25s ease;
+  stroke: currentColor;
+}
+
+.navCtaButton:hover .ctaArrow {
+  transform: translate(3px, -3px);
+  stroke: #080c14;
+}
+
+@media (max-width: 860px) {
+  .navbarWrapper {
+    top: 18px;
+    padding: 0 12px;
+  }
+  .navbarCapsule {
+    min-width: unset;
+    width: max-content;
+    max-width: 98vw;
+    column-gap: 10px;
+    padding: 6px 10px;
+  }
+  .navLeft,
+  .navRight {
+    gap: 4px;
+  }
+  .navLink {
+    font-size: 13px;
+    padding: 6px 9px;
+  }
+  .notchLogo {
+    height: 26px;
+  }
+  .notchBrandLink {
+    padding: 5px 10px;
+  }
+  .navCtaButton {
+    padding: 7px 14px;
+    font-size: 12.5px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbarWrapper {
+    top: 12px;
+    padding: 0 6px;
+  }
+  .navbarCapsule {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 6px;
+    padding: 5px 8px;
+    max-width: 99vw;
+  }
+  .navbarCapsule::-webkit-scrollbar {
+    display: none;
+  }
+  .navLink {
+    font-size: 11.5px;
+    padding: 4px 6px;
+  }
+  .notchLogo {
+    height: 22px;
+  }
+  .navCtaButton {
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+}

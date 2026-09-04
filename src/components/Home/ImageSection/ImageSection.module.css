@@ -416,7 +416,7 @@
   border-top-right-radius: inherit;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
 }
 

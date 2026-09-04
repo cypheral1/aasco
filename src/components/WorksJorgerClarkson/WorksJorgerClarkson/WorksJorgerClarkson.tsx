@@ -51,11 +51,8 @@ export function WorksJorgerClarkson() {
                 <div className={styles.time}>
                   <div className={styles.newYorkUSA}>
                     <p className={styles.newYorkUSA3} dir={"auto"}>
-                      / New York, USA -{" "}
+                      / Good space good time
                     </p>
-                  </div>
-                  <div className={styles.p838Pm}>
-                    <p className={styles.p838Pm2}>8:38 PM</p>
                   </div>
                 </div>
               </div>

@@ -24,7 +24,7 @@ export function HireUsSection() {
               </div>
               <div className={styles.ourApproach} data-framecoded-motion={"rc4g"}>
                 <h2 className={styles.h2} dir={"auto"}>
-                  Hire us!!
+                  Contact Us
                 </h2>
               </div>
             </div>

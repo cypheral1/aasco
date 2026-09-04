@@ -4,19 +4,6 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className={styles.heroSection}>
-      <header className={styles.headerPanel} data-framecoded-motion={"r10"}>
-        <Link href={"/#top"} className={styles.brandLink}>
-          <Image
-            src="/assets/aasco-logo-a.png"
-            alt="AASCO Logo"
-            className={styles.brandIcon}
-            width={40}
-            height={40}
-            priority
-          />
-          <span className={styles.brandWordmark}>AASCO</span>
-        </Link>
-      </header>
       <div className={styles.bgImage2}>
         <div className={styles.bGImage} data-framecoded-motion={"r13"}>
           <div className={styles.bgImage3}>

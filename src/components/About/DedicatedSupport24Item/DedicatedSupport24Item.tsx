@@ -8,7 +8,7 @@ export function DedicatedSupport24Item() {
           <div className={styles.dot19}></div>
           <div className={styles.topNotchExperts3}>
             <h3 className={styles.h313} dir={"auto"}>
-              Dedicated Support 24/7
+              Zero Brokerage Advisory
             </h3>
           </div>
         </div>

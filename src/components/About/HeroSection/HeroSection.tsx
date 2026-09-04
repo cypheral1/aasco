@@ -46,15 +46,15 @@ export function HeroSection() {
         <div className={styles.ourCreativityWith} data-framecoded-motion={"r6hc"}>
           <div className={styles.subTitle}>
             <h5 className={styles.h5} dir={"auto"}>
-              Our Creativity With
+              Navi Mumbai's Trusted
             </h5>
             <h5 className={styles.h52} dir={"auto"}>
-              Clear Purpose
+              Real Estate Partner
             </h5>
           </div>
           <div className={styles.aCreativeStudioFocusedOnBuildingBrandsThatConnectInspireAndGrow}>
             <p className={styles.creativeStudioFocused} dir={"auto"}>
-              A creative studio focused on building brands that connect, inspire, and grow.
+              Connecting homebuyers and visionary investors with Navi Mumbai’s most iconic residential and commercial addresses.
             </p>
           </div>
         </div>

@@ -51,11 +51,8 @@ export function WorksArchitectureStudio() {
                 <div className={styles.time}>
                   <div className={styles.newYorkUSA}>
                     <p className={styles.newYorkUSA3} dir={"auto"}>
-                      / New York, USA -{" "}
+                      / Good space good time
                     </p>
-                  </div>
-                  <div className={styles.p840Pm}>
-                    <p className={styles.p840Pm2}>8:40 PM</p>
                   </div>
                 </div>
               </div>

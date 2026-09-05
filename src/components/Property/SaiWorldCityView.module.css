@@ -59,7 +59,18 @@
 .brandTitleWrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  height: 40px;
+}
+
+.brandLogoImg {
+  height: 34px !important;
+  max-width: 180px !important;
+  width: auto !important;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  filter: brightness(1.1);
 }
 
 .brandLogo {
@@ -1397,6 +1408,46 @@
   width: min(840px, 95vw);
   background: #0E121C;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modalHeader h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.closeModalBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeModalBtn:hover {
+  color: #FFFFFF;
+}
+
+.videoEmbedWrapper {
+  aspect-ratio: 16 / 9;
+  background: #05070B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Dimensions Table */
 .dimensionsBox {
   display: flex;
@@ -1911,9 +1962,12 @@
 
 /* Brand Logo Image */
 .brandLogoImg {
-  height: 38px;
-  width: auto;
+  height: 34px !important;
+  max-width: 180px !important;
+  width: auto !important;
   object-fit: contain;
+  display: block;
+  flex-shrink: 0;
   filter: brightness(1.1);
 }
 

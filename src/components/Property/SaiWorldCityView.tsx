@@ -313,6 +313,7 @@ export function SaiWorldCityView() {
               src="https://paradise-saiworldcitypanvel.com/assets/images/logo/logo.png"
               alt="Sai World City Logo"
               className={styles.brandLogoImg}
+              style={{ height: "34px", maxWidth: "180px", width: "auto", objectFit: "contain", display: "block" }}
             />
             <span className={styles.brandDivider}>|</span>
             <span className={styles.brandSub}>AASCO LUXURY COLLECTION</span>

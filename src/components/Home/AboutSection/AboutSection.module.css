@@ -230,30 +230,33 @@
 }
 
 .indexNumber {
-  font-family: var(--font-primary, monospace, sans-serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #0F172A;
-  padding: 5px 10px;
-  border-radius: 0px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-primary, monospace);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+  background: rgba(4, 6, 12, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .coordinateBadge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 0px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 200px;
+  gap: 5px;
+  padding: 5px 9px;
+  background: rgba(4, 6, 12, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--font-primary, monospace);
+  font-size: 9px;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .radarDot {
@@ -261,15 +264,15 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2563EB;
-  flex-shrink: 0;
+  background: #FFFFFF;
+  display: inline-block;
 }
 
 .radarRing {
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  border: 1px solid #2563EB;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -281,78 +284,69 @@
 }
 
 .coordText {
-  font-family: var(--font-primary, monospace, sans-serif);
+  font-family: var(--font-primary, monospace);
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0F172A;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .growthPill {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 11px;
-  border-radius: 0px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0;
+  padding: 5px 9px;
+  background: rgba(4, 6, 12, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.cardWrapper:hover .growthPill {
+  background: rgba(4, 6, 12, 0.9);
+  border-color: rgba(98, 232, 166, 0.85);
 }
 
 .growthDot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #059669;
+  background: #62E8A6;
+  box-shadow: 0 0 6px #62E8A6;
 }
 
 .growthText {
-  font-family: var(--font-primary, monospace, sans-serif);
-  font-size: 9px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #047857;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
 }
 
-/* Card Content & Data Reveal (Elevated Floating White Container) */
+/* Card Content & Data Reveal (Elevated Intelligence Drawer) */
 .cardContent {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 6;
-  width: 100%;
+  z-index: 5;
   margin-top: auto;
-  padding: 18px 20px 14px;
+  padding: 16px 18px 12px;
   border-radius: 0px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
-    0 18px 40px -4px rgba(0, 0, 0, 0.65),
-    0 6px 16px rgba(0, 0, 0, 0.35),
-    inset 0 1px 2px #FFFFFF;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s ease,
-              background 0.35s ease,
-              border-color 0.35s ease;
+  background: rgba(4, 7, 14, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
   transform-style: preserve-3d;
 }
 
 .cardWrapper:hover .cardContent {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  box-shadow: 
-    0 26px 56px -6px rgba(0, 0, 0, 0.8),
-    0 10px 22px rgba(0, 0, 0, 0.45),
-    inset 0 1px 2px #FFFFFF;
-  transform: translateZ(42px) translateY(-3px);
+  background: rgba(4, 7, 14, 0.88);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.85);
+  transform: translateZ(44px) translateY(-4px);
 }
 
 .titleGroup {
@@ -362,39 +356,32 @@
 }
 
 .localityCategory {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-size: 10px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 }
 
 .localityName {
   font-family: var(--font-heading, inherit);
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin: 0;
   letter-spacing: -0.02em;
-  color: #0F172A;
-  margin: 0;
-  line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
-.detailsText {
-  font-size: 12px;
-  color: #475569;
-  margin: 0;
-  font-weight: 600;
-}
-
-/* Primary Price & Numerical Styling */
+/* Primary Price & Live Sparkline */
 .priceRow {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
-  padding-top: 10px;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
-  gap: 8px;
+  align-items: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .priceContainer {
@@ -404,72 +391,177 @@
 }
 
 .priceLabel {
-  font-size: 8px;
-  letter-spacing: 0.14em;
+  font-size: 9px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.45);
   font-weight: 700;
 }
 
 .priceValue {
   display: flex;
   align-items: baseline;
-  gap: 1px;
+  gap: 2px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
 
 .amount {
-  font-family: var(--font-primary, monospace, sans-serif);
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 800;
+  color: #FFFFFF;
   letter-spacing: -0.02em;
-  color: #0F172A;
-  line-height: 1;
 }
 
-/* Micro Market Sparkline Graph */
+/* Micro Sparkline Graph */
 .sparklineWrap {
   display: flex;
   align-items: center;
-  padding: 2px 4px;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cardWrapper:hover .sparklineWrap {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .sparklineSvg {
-  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
   overflow: visible;
 }
 
-/* Action Explore Row */
-.actionRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 10px;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
+.sparklinePath {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.8s ease;
 }
 
-.exploreText {
-  font-family: var(--font-primary, sans-serif);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+.sparklineDraw {
+  animation: drawSparkline 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawSparkline {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Data Drawer (Expands on Hover) */
+.dataDrawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              margin 0.35s ease;
+  margin-top: 0;
+}
+
+.drawerOpen {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+.demandMeter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demandHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  color: #0F172A;
+}
+
+.demandVal {
+  color: #E2BA62;
+}
+
+.meterTrack {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), #E2BA62);
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.infraSummary {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.infraIcon {
+  color: #E2BA62;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+/* Bottom Footer & Magnetic "EXPLORE →" */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.viewBrief {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
   transition: color 0.3s ease;
 }
 
-.cardWrapper:hover .exploreText {
-  color: #2563EB;
+.cardWrapper:hover .viewBrief {
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.exploreArrow {
-  font-size: 12px;
-  color: #0F172A;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+.exploreControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
-.cardWrapper:hover .exploreArrow {
-  color: #2563EB;
+.exploreLabel {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+}
+
+.arrowIcon {
+  font-size: 13px;
+  color: #E2BA62;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.cardWrapper:hover .arrowIcon {
+  transform: translateX(4px);
+  color: #FFFFFF;
 }
 
 .propertyFooter {

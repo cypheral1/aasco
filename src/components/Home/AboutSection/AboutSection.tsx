@@ -13,8 +13,10 @@ interface FeaturedProperty {
   priceLabel: string;
   details: string;
   badge: string;
-  badgeType: "featured" | "hot" | "luxury";
   specs: string;
+  demandLabel: string;
+  demandIndex: number;
+  highlights: string;
   href: string;
   source: string;
   fallback: string;
@@ -25,14 +27,16 @@ const properties: FeaturedProperty[] = [
   {
     id: "meghna-star-walk",
     index: "01",
-    title: "Meghna Star Walk At Kharghar NX.",
-    location: "NX Kharghar",
-    price: "₹23.99 L* - 32.99 L*",
-    priceLabel: "STARTING PRICE",
+    title: "Meghna Star Walk",
+    location: "NAVI MUMBAI SECTOR · NX KHARGHAR",
+    price: "₹ 23.99 L* - 32.99 L*",
+    priceLabel: "INDEX VALUATION",
     details: "360 - 600 sq. ft. · 1, 2 BHK",
-    badge: "FEATURED",
-    badgeType: "featured",
-    specs: "1 & 2 BHK · 360-600 SQ.FT",
+    badge: "+14%",
+    specs: "19.0473° N, 73.0699° E",
+    demandLabel: "HIGH LIQUIDITY",
+    demandIndex: 94,
+    highlights: "Metro Line 1 Link · High Rental Yield Corridor · CIDCO Planned",
     href: "/properties/meghna-star-walk-kharghar",
     source: "/assets/properties/property-1.jpg",
     fallback: "/assets/properties/property-1.jpg",
@@ -42,13 +46,15 @@ const properties: FeaturedProperty[] = [
     id: "arihant-avanti-palace",
     index: "02",
     title: "Arihant Avanti Palace",
-    location: "Dombivli",
-    price: "₹42 Lacs* - 65 Lacs*",
-    priceLabel: "STARTING PRICE",
+    location: "NAVI MUMBAI REGION · DOMBIVLI",
+    price: "₹ 42 Lacs* - 65 Lacs*",
+    priceLabel: "INDEX VALUATION",
     details: "400 - 650 sq. ft. · 1, 2 BHK",
-    badge: "EXCLUSIVE",
-    badgeType: "hot",
-    specs: "1 & 2 BHK · 400-650 SQ.FT",
+    badge: "+18%",
+    specs: "19.2183° N, 73.0867° E",
+    demandLabel: "MASSIVE APPRECIATION",
+    demandIndex: 98,
+    highlights: "Multi-Modal Hub · Gated Integrated Township · Luxury Amenities",
     href: "/properties/arihant-avanti-palace",
     source: "/assets/properties/property-2.jpg",
     fallback: "/assets/properties/property-2.jpg",
@@ -58,13 +64,15 @@ const properties: FeaturedProperty[] = [
     id: "sai-world-city",
     index: "03",
     title: "Sai World City & Towers",
-    location: "Kharghar, Navi Mumbai",
-    price: "₹65 Lacs* - 1.25 Cr*",
-    priceLabel: "STARTING PRICE",
+    location: "NAVI MUMBAI SECTOR · KHARGHAR",
+    price: "₹ 65 Lacs* - 1.25 Cr*",
+    priceLabel: "INDEX VALUATION",
     details: "720 - 1250 sq. ft. · 2, 3 BHK",
-    badge: "LUXURY",
-    badgeType: "luxury",
-    specs: "2 & 3 BHK · 720-1250 SQ.FT",
+    badge: "+22%",
+    specs: "19.0330° N, 73.0297° E",
+    demandLabel: "FASTEST GROWTH",
+    demandIndex: 96,
+    highlights: "Central Park Proximity · 18-Hole Golf Course · Cosmopolitan High-Rise",
     href: "/properties/navi-mumbai-homes",
     source: "/assets/properties/property-3.jpg",
     fallback: "/assets/properties/property-3.jpg",
@@ -91,7 +99,6 @@ const topDevelopers = [
   { name: "Meghna Builders", location: "Navi Mumbai" },
 ];
 
-// Single Property Card with 3D Parallax Tilt, Glare, Scanner & Sparkline
 function FeaturedPropertyCard({
   item,
   index,
@@ -113,8 +120,8 @@ function FeaturedPropertyCard({
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateY = ((x - centerX) / centerX) * 7;
-    const rotateX = -((y - centerY) / centerY) * 7;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    const rotateX = -((y - centerY) / centerY) * 8;
 
     const glareX = (x / rect.width) * 100;
     const glareY = (y / rect.height) * 100;
@@ -164,30 +171,30 @@ function FeaturedPropertyCard({
       style={{
         animationDelay: `${index * 100}ms`,
       }}
-      aria-label={`View details for ${item.title}`}
+      aria-label={`View intelligence dossier for ${item.title}`}
     >
       <div
         className={styles.card}
         style={{
-          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(${isHovered ? 10 : 0}px)`,
+          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(${isHovered ? 12 : 0}px)`,
         }}
       >
-        {/* Layer 1: Full-Bleed Background Cinematic Image */}
+        {/* Layer 1: Multi-depth Background Cinematic Image */}
         <div className={styles.imageLayer}>
           <div
             className={styles.bgImage}
             style={{
               backgroundImage: `url('${item.source}')`,
-              transform: `scale(${isHovered ? 1.08 : 1.02}) translate(${tilt.y * -0.4}px, ${tilt.x * 0.4}px)`,
+              transform: `scale(${isHovered ? 1.08 : 1.02}) translate(${tilt.y * -0.5}px, ${tilt.x * 0.5}px)`,
             }}
           />
-          {/* Atmospheric gradient overlay */}
+          {/* Deep charcoal atmospheric gradient overlay */}
           <div className={styles.atmosphereGradient} />
           {/* Dynamic Light Sweep / Glare on Hover */}
           <div
             className={styles.ambientGlare}
             style={{
-              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 220, 160, 0.06) 40%, transparent 70%)`,
+              background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 220, 160, 0.06) 40%, transparent 70%)`,
             }}
           />
         </div>
@@ -195,8 +202,8 @@ function FeaturedPropertyCard({
         {/* Layer 2: Futuristic Property Scanner Beam */}
         <div className={`${styles.scannerBeam} ${isHovered ? styles.scannerActive : ""}`} />
 
-        {/* Top Header Row: Index Number, Center Specs Badge, & Status Pill */}
-        <div className={styles.cardTopRow} style={{ transform: "translateZ(26px)" }}>
+        {/* Top Header Row: Index Number, Center Coordinates, & Growth Metric */}
+        <div className={styles.cardTopRow} style={{ transform: "translateZ(30px)" }}>
           <span className={styles.indexNumber}>{item.index}</span>
 
           <div className={styles.coordinateBadge}>
@@ -212,15 +219,14 @@ function FeaturedPropertyCard({
           </div>
         </div>
 
-        {/* Bottom Card Content with Frosted Glass Container */}
-        <div className={styles.cardContent} style={{ transform: "translateZ(38px)" }}>
+        {/* Card Content & Data Reveal with Expandable Drawer Elevation */}
+        <div className={styles.cardContent} style={{ transform: "translateZ(36px)" }}>
           <div className={styles.titleGroup}>
             <span className={styles.localityCategory}>{item.location}</span>
             <h3 className={styles.localityName}>{item.title}</h3>
-            <p className={styles.detailsText}>{item.details}</p>
           </div>
 
-          {/* Price & Sparkline Row */}
+          {/* Primary Price & Appreciation Sparkline */}
           <div className={styles.priceRow}>
             <div className={styles.priceContainer}>
               <span className={styles.priceLabel}>{item.priceLabel}</span>
@@ -231,42 +237,63 @@ function FeaturedPropertyCard({
 
             {/* Micro Market Sparkline Graph */}
             <div className={styles.sparklineWrap} title="Appreciation Trend">
-              <svg className={styles.sparklineSvg} width="84" height="24" viewBox="0 0 120 32">
+              <svg className={styles.sparklineSvg} width="96" height="28" viewBox="0 0 120 32">
                 <defs>
                   <linearGradient id={`grad-prop-${item.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#94A3B8" />
-                    <stop offset="100%" stopColor="#0F172A" />
+                    <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" />
+                    <stop offset="100%" stopColor="rgba(255, 215, 120, 0.95)" />
                   </linearGradient>
                 </defs>
                 <path
                   d={sparklineD}
                   fill="none"
                   stroke={`url(#grad-prop-${item.id})`}
-                  strokeWidth="2.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={`${styles.sparklinePath} ${isHovered ? styles.sparklineDraw : ""}`}
                 />
               </svg>
             </div>
           </div>
 
-          {/* Action Explore Row with Magnetic Pull */}
-          <div className={styles.actionRow}>
-            <span className={styles.exploreText}>EXPLORE RESIDENCE</span>
-            <span
-              className={styles.exploreArrow}
+          {/* Expandable Market Intelligence Elevation Panel */}
+          <div className={`${styles.dataDrawer} ${isHovered ? styles.drawerOpen : ""}`}>
+            <div className={styles.demandMeter}>
+              <div className={styles.demandHeader}>
+                <span>MARKET DEMAND</span>
+                <span className={styles.demandVal}>
+                  {item.demandLabel} ({item.demandIndex}%)
+                </span>
+              </div>
+              <div className={styles.meterTrack}>
+                <div
+                  className={styles.meterFill}
+                  style={{ width: isHovered ? `${item.demandIndex}%` : "0%" }}
+                />
+              </div>
+            </div>
+            <p className={styles.infraSummary}>
+              <span className={styles.infraIcon}>◈</span> {item.highlights}
+            </p>
+          </div>
+
+          {/* Bottom Action Footer with Magnetic "EXPLORE →" */}
+          <div className={styles.cardFooter}>
+            <span className={styles.viewBrief}>INTELLIGENCE DOSSIER</span>
+            <div
+              className={styles.exploreControl}
               style={{
-                transform: isHovered
-                  ? `translate(${magneticOffset.x + 3}px, ${magneticOffset.y - 1}px)`
-                  : "translate(0, 0)",
+                transform: `translate(${magneticOffset.x}px, ${magneticOffset.y}px)`,
               }}
             >
-              ➔
-            </span>
+              <span className={styles.exploreLabel}>EXPLORE</span>
+              <span className={styles.arrowIcon}>→</span>
+            </div>
           </div>
         </div>
 
-        {/* Metallic Border Outline */}
+        {/* Extremely subtle metallic border stroke */}
         <div className={styles.metallicBorder} />
       </div>
     </Link>

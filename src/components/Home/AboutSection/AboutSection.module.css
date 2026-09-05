@@ -234,24 +234,26 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 4px 8px;
+  color: #0F172A;
+  padding: 5px 10px;
   border-radius: 0px;
-  background: rgba(12, 16, 24, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .coordinateBadge {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 0px;
-  background: rgba(12, 16, 24, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
-  max-width: 180px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 200px;
 }
 
 .radarDot {
@@ -259,7 +261,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #3B82F6;
+  background: #2563EB;
   flex-shrink: 0;
 }
 
@@ -267,7 +269,7 @@
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  border: 1px solid #3B82F6;
+  border: 1px solid #2563EB;
   animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -281,9 +283,9 @@
 .coordText {
   font-family: var(--font-primary, monospace, sans-serif);
   font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0F172A;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -293,30 +295,31 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 9px;
+  padding: 5px 11px;
   border-radius: 0px;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   flex-shrink: 0;
 }
 
 .growthDot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #10B981;
+  background: #059669;
 }
 
 .growthText {
   font-family: var(--font-primary, monospace, sans-serif);
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #34D399;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #047857;
 }
 
-/* Card Content & Data Reveal */
+/* Card Content & Data Reveal (White Luxury Frosted Container) */
 .cardContent {
   position: relative;
   display: flex;
@@ -324,29 +327,24 @@
   gap: 14px;
   z-index: 6;
   width: 100%;
-  padding: 16px 16px 14px;
+  padding: 18px 20px 16px;
   border-radius: 0px;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 18, 28, 0.72) 0%,
-    rgba(8, 10, 18, 0.94) 100%
-  );
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 
-    0 12px 28px -4px rgba(0, 0, 0, 0.65),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  transition: border-color 0.35s ease, background 0.35s ease;
+    0 16px 36px -4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px #FFFFFF;
+  transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
 
 .cardWrapper:hover .cardContent {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: linear-gradient(
-    180deg,
-    rgba(18, 24, 38, 0.82) 0%,
-    rgba(10, 13, 24, 0.96) 100%
-  );
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 
+    0 20px 42px -4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px #FFFFFF;
 }
 
 .titleGroup {
@@ -358,36 +356,36 @@
 .localityCategory {
   font-family: var(--font-primary, sans-serif);
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(212, 175, 55, 0.95); /* Refined Gold Accent */
+  color: #64748B;
 }
 
 .localityName {
   font-family: var(--font-heading, inherit);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #0F172A;
   margin: 0;
   line-height: 1.2;
 }
 
 .detailsText {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  color: #475569;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Primary Price & Live Numerical Counter */
+/* Primary Price & Numerical Styling */
 .priceRow {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
   gap: 8px;
 }
 
@@ -399,10 +397,10 @@
 
 .priceLabel {
   font-size: 8px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 600;
+  color: #64748B;
+  font-weight: 700;
 }
 
 .priceValue {
@@ -416,7 +414,7 @@
   font-size: 16px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #0F172A;
   line-height: 1;
 }
 
@@ -428,7 +426,7 @@
 }
 
 .sparklineSvg {
-  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
   overflow: visible;
 }
 
@@ -438,32 +436,32 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .exploreText {
   font-family: var(--font-primary, sans-serif);
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: #0F172A;
   transition: color 0.3s ease;
 }
 
 .cardWrapper:hover .exploreText {
-  color: #FFFFFF;
+  color: #2563EB;
 }
 
 .exploreArrow {
   font-size: 12px;
-  color: rgba(212, 175, 55, 0.9);
+  color: #0F172A;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
   will-change: transform;
 }
 
 .cardWrapper:hover .exploreArrow {
-  color: #FFFFFF;
+  color: #2563EB;
 }
 
 .propertyFooter {

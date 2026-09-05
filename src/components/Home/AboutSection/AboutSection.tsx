@@ -234,8 +234,8 @@ function FeaturedPropertyCard({
               <svg className={styles.sparklineSvg} width="84" height="24" viewBox="0 0 120 32">
                 <defs>
                   <linearGradient id={`grad-prop-${item.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" />
-                    <stop offset="100%" stopColor="rgba(212, 175, 55, 0.95)" />
+                    <stop offset="0%" stopColor="#94A3B8" />
+                    <stop offset="100%" stopColor="#0F172A" />
                   </linearGradient>
                 </defs>
                 <path

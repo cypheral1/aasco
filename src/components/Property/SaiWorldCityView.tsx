@@ -9,17 +9,29 @@ interface PlanConfig {
   bhk: string;
   carpetArea: string;
   price: string;
-  rawPrice: number;
   tagline: string;
   dimensions: { room: string; size: string }[];
   features: string[];
   blueprintImg: string;
+  highlights: string[];
 }
 
 const HERO_BANNERS = [
-  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B1.webp?v=1776947758",
-  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B2.webp?v=1776947758",
-  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B3.webp?v=1776947758",
+  {
+    url: "https://paradise-saiworldcitypanvel.com/assets/images/banner/B1.webp?v=1776947758",
+    title: "Iconic Skyscraper Towers",
+    tagline: "38-Acre Global Architecture Inspired by New York, Paris & Dubai",
+  },
+  {
+    url: "https://paradise-saiworldcitypanvel.com/assets/images/banner/B2.webp?v=1776947758",
+    title: "Club Vegas 75,000 Sq.Ft. Resort",
+    tagline: "International Multi-Level Luxury Clubhouse & Olympic Pools",
+  },
+  {
+    url: "https://paradise-saiworldcitypanvel.com/assets/images/banner/B3.webp?v=1776947758",
+    title: "Panoramic Skyline & Hill Vistas",
+    tagline: "High-Rise Residences Overlooking Scenic Panvel Hills",
+  },
 ];
 
 const UNIT_CONFIGS: PlanConfig[] = [
@@ -28,7 +40,6 @@ const UNIT_CONFIGS: PlanConfig[] = [
     bhk: "2 BHK",
     carpetArea: "620 - 892 Sq.Ft.",
     price: "₹ 1.25 - 1.61 Cr*",
-    rawPrice: 12500000,
     tagline: "Spacious dual-balcony luxury residence with master bedroom suite & expansive sunrise sundeck.",
     dimensions: [
       { room: "Grand Living & Dining", size: "18'6\" × 11'0\"" },
@@ -45,13 +56,13 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Home automation ready with smart digital video door security",
     ],
     blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/UnitPlan.webp",
+    highlights: ["East-West Vastu", "Dual Balconies", "Master Suite", "Dedicated Utility"],
   },
   {
     type: "3 BHK Grande Royale",
     bhk: "3 BHK",
     carpetArea: "1334 Sq.Ft.",
     price: "₹ 2.41 Cr*++",
-    rawPrice: 24100000,
     tagline: "Expansive 3-bedroom residence with dedicated dining area, double deck, and private foyer entrance.",
     dimensions: [
       { room: "Living & Formal Dining", size: "22'4\" × 13'0\"" },
@@ -68,13 +79,13 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Dedicated high-speed elevator access per floor cluster",
     ],
     blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/UnitPlan.webp",
+    highlights: ["Private Foyer", "Double Deck", "Walk-in Wardrobe", "Servant Room"],
   },
   {
     type: "3.5 BHK Imperial Suite",
     bhk: "3.5 BHK",
     carpetArea: "1598 Sq.Ft.",
     price: "₹ 2.89 Cr*++",
-    rawPrice: 28900000,
     tagline: "Palatial 3.5 BHK with executive home office/study room, dual master suites, and sunset deck.",
     dimensions: [
       { room: "Grand Salon & Dining Deck", size: "25'0\" × 14'6\"" },
@@ -91,13 +102,13 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "2 covered podium multi-level car parking allocations",
     ],
     blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp",
+    highlights: ["Home Office Study", "20ft Wide Deck", "Italian Marble", "2 Car Parks"],
   },
   {
     type: "4 BHK Royal Sky Penthouse",
     bhk: "4 BHK",
     carpetArea: "1858 Sq.Ft.",
     price: "₹ 3.34 Cr*++",
-    rawPrice: 33400000,
     tagline: "The crown jewel of Panvel with 360-degree skyline, private sky terrace, and double-height ceiling voids.",
     dimensions: [
       { room: "Double-Height Grand Hall", size: "28'6\" × 16'0\"" },
@@ -114,6 +125,7 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Direct express elevator access with private keycard security",
     ],
     blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp",
+    highlights: ["Private Sky Terrace", "18ft High Ceiling", "4 En-Suite Beds", "3 Reserved Parks"],
   },
 ];
 
@@ -232,9 +244,9 @@ const GALLERY_ITEMS = [
   },
   {
     title: "38-Acre Podium Green Landscape",
-    category: "Landscape",
+    category: "Architecture",
     img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-6.webp",
-    desc: "Acres of manicured lawns, reflexology paths, and multi-sport courts.",
+    desc: "Lush botanical gardens, zen alcoves, and private jogging trails.",
   },
 ];
 
@@ -253,24 +265,20 @@ export function SaiWorldCityView() {
   const [siteVisitDate, setSiteVisitDate] = useState("");
   const [selectedConfigInterest, setSelectedConfigInterest] = useState("2 BHK");
 
-  // EMI Calculator State
-  const [loanAmount, setLoanAmount] = useState(12500000); // 1.25 Cr
-  const [tenureYears, setTenureYears] = useState(20);
-  const [interestRate, setInterestRate] = useState(8.5);
-
   // Auto banner rotation
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
-  const calculateEMI = () => {
-    const r = interestRate / 12 / 100;
-    const n = tenureYears * 12;
-    const emi = (loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    return Math.round(emi);
+  const handlePrevBanner = () => {
+    setActiveBannerIndex((prev) => (prev - 1 + HERO_BANNERS.length) % HERO_BANNERS.length);
+  };
+
+  const handleNextBanner = () => {
+    setActiveBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
   };
 
   const selectedPlan = UNIT_CONFIGS[selectedPlanIndex];
@@ -332,17 +340,35 @@ export function SaiWorldCityView() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section — Full Window Viewport with Data Overlaid on Image */}
       <section className={styles.heroSection} id="overview">
         <div className={styles.heroBg}>
           <img
-            src={HERO_BANNERS[activeBannerIndex]}
-            alt="Sai World City Panvel Luxury Towers"
+            src={HERO_BANNERS[activeBannerIndex].url}
+            alt={HERO_BANNERS[activeBannerIndex].title}
             className={styles.heroImg}
           />
           <div className={styles.heroOverlay} />
           <div className={styles.heroVignette} />
         </div>
+
+        {/* Floating Image Switcher Arrows on Left and Right */}
+        <button
+          onClick={handlePrevBanner}
+          className={styles.heroArrowLeft}
+          aria-label="Previous Property View"
+          title="Previous Image"
+        >
+          ‹
+        </button>
+        <button
+          onClick={handleNextBanner}
+          className={styles.heroArrowRight}
+          aria-label="Next Property View"
+          title="Next Image"
+        >
+          ›
+        </button>
 
         <div className={styles.heroContainer}>
           <div className={styles.heroTopControls}>
@@ -355,15 +381,21 @@ export function SaiWorldCityView() {
               <span className={styles.earlyBirdText}>Avail Exclusive Early Bird Offers</span>
             </div>
 
-            <div className={styles.bannerDots}>
-              {HERO_BANNERS.map((_, bIdx) => (
-                <button
-                  key={bIdx}
-                  className={`${styles.bannerDot} ${activeBannerIndex === bIdx ? styles.activeBannerDot : ""}`}
-                  onClick={() => setActiveBannerIndex(bIdx)}
-                  aria-label={`Slide ${bIdx + 1}`}
-                />
-              ))}
+            {/* Interactive Image Switcher Buttons */}
+            <div className={styles.imageSwitcherBar}>
+              <span className={styles.viewLabel}>Change View:</span>
+              <div className={styles.bannerDots}>
+                {HERO_BANNERS.map((banner, bIdx) => (
+                  <button
+                    key={bIdx}
+                    className={`${styles.bannerPillBtn} ${activeBannerIndex === bIdx ? styles.activeBannerPillBtn : ""}`}
+                    onClick={() => setActiveBannerIndex(bIdx)}
+                  >
+                    <span className={styles.pillIndex}>0{bIdx + 1}</span>
+                    <span className={styles.pillText}>{banner.title.split(" ")[0]}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -486,7 +518,7 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
-      {/* Interactive Pricing & Floor Plan Matrix */}
+      {/* Interactive Pricing & Floor Plan Matrix — Ultra-Luxury Architectural Showcase */}
       <section className={styles.pricingSection} id="pricing">
         <div className={styles.sectionContainer}>
           <div className={styles.sectionHeader}>
@@ -546,10 +578,7 @@ export function SaiWorldCityView() {
                   <button
                     key={config.bhk}
                     className={`${styles.configTabBtn} ${selectedPlanIndex === index ? styles.activeTab : ""}`}
-                    onClick={() => {
-                      setSelectedPlanIndex(index);
-                      setLoanAmount(config.rawPrice);
-                    }}
+                    onClick={() => setSelectedPlanIndex(index)}
                   >
                     <span className={styles.tabBhk}>{config.bhk}</span>
                     <span className={styles.tabPrice}>{config.price}</span>
@@ -609,7 +638,7 @@ export function SaiWorldCityView() {
                   </div>
                 </div>
 
-                {/* Interactive Floor Plan Schematic & EMI */}
+                {/* Interactive Floor Plan Architectural Preview */}
                 <div className={styles.planVisualCol}>
                   <div
                     className={styles.unitPlanSchematicCard}
@@ -621,72 +650,47 @@ export function SaiWorldCityView() {
                       className={styles.unitPlanImg}
                     />
                     <div className={styles.unitPlanOverlay}>
-                      <span>🔍 Enlarge Floor Plan</span>
+                      <span>🔍 Click to Enlarge Floor Plan</span>
                     </div>
                   </div>
 
-                  {/* Interactive EMI Estimator */}
-                  <div className={styles.emiCard}>
-                    <h4 className={styles.emiTitle}>
-                      <span className={styles.emiIcon}>📊</span> Real-Time EMI Estimator
-                    </h4>
-                    <div className={styles.emiResultBox}>
-                      <span className={styles.emiResultLabel}>ESTIMATED MONTHLY INSTALLMENT</span>
-                      <strong className={styles.emiAmount}>₹ {calculateEMI().toLocaleString("en-IN")}/mo</strong>
-                      <span className={styles.emiSubNote}>Based on {tenureYears} Years @ {interestRate}% Interest</span>
+                  {/* Architectural Advantages Card */}
+                  <div className={styles.planHighlightsCard}>
+                    <div className={styles.planHighlightsHeader}>
+                      <span className={styles.planHighlightsEyebrow}>ARCHITECTURAL ADVANTAGES</span>
+                      <h4 className={styles.planHighlightsTitle}>{selectedPlan.bhk} Key Advantages</h4>
                     </div>
-
-                    <div className={styles.sliderGroup}>
-                      <div className={styles.sliderHeader}>
-                        <span>Loan Amount</span>
-                        <strong>₹ {(loanAmount / 100000).toFixed(1)} Lakhs</strong>
+                    <div className={styles.planBadgeChips}>
+                      {selectedPlan.highlights.map((h, hIdx) => (
+                        <span key={hIdx} className={styles.planChipBadge}>
+                          ✓ {h}
+                        </span>
+                      ))}
+                    </div>
+                    <div className={styles.planSummaryBox}>
+                      <div className={styles.summaryRow}>
+                        <span>Configuration</span>
+                        <strong>{selectedPlan.type}</strong>
                       </div>
-                      <input
-                        type="range"
-                        min="5000000"
-                        max="40000000"
-                        step="500000"
-                        value={loanAmount}
-                        onChange={(e) => setLoanAmount(Number(e.target.value))}
-                        className={styles.rangeSlider}
-                      />
-                    </div>
-
-                    <div className={styles.sliderGroup}>
-                      <div className={styles.sliderHeader}>
-                        <span>Loan Tenure</span>
-                        <strong>{tenureYears} Years</strong>
+                      <div className={styles.summaryRow}>
+                        <span>Carpet Area</span>
+                        <strong>{selectedPlan.carpetArea}</strong>
                       </div>
-                      <input
-                        type="range"
-                        min="5"
-                        max="30"
-                        step="1"
-                        value={tenureYears}
-                        onChange={(e) => setTenureYears(Number(e.target.value))}
-                        className={styles.rangeSlider}
-                      />
-                    </div>
-
-                    <div className={styles.sliderGroup}>
-                      <div className={styles.sliderHeader}>
-                        <span>Interest Rate</span>
-                        <strong>{interestRate}% p.a.</strong>
+                      <div className={styles.summaryRow}>
+                        <span>Special Price</span>
+                        <strong className={styles.goldPrice}>{selectedPlan.price}</strong>
                       </div>
-                      <input
-                        type="range"
-                        min="7.5"
-                        max="12"
-                        step="0.1"
-                        value={interestRate}
-                        onChange={(e) => setInterestRate(Number(e.target.value))}
-                        className={styles.rangeSlider}
-                      />
+                      <div className={styles.summaryRow}>
+                        <span>Orientation</span>
+                        <strong>Vastu Compliant (East-West)</strong>
+                      </div>
                     </div>
-
-                    <div className={styles.loanPartnerNote}>
-                      <span>Approved by SBI, HDFC, ICICI, Axis &amp; all leading banks.</span>
-                    </div>
+                    <button
+                      onClick={() => setIsBrochureModalOpen(true)}
+                      className={styles.requestCostSheetBtn}
+                    >
+                      Request Detailed Cost Sheet &amp; Floor Plan PDF ➔
+                    </button>
                   </div>
                 </div>
               </div>

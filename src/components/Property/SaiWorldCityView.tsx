@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./SaiWorldCityView.module.css";
 
@@ -15,6 +15,12 @@ interface PlanConfig {
   features: string[];
   blueprintImg: string;
 }
+
+const HERO_BANNERS = [
+  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B1.webp?v=1776947758",
+  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B2.webp?v=1776947758",
+  "https://paradise-saiworldcitypanvel.com/assets/images/banner/B3.webp?v=1776947758",
+];
 
 const UNIT_CONFIGS: PlanConfig[] = [
   {
@@ -38,7 +44,7 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Premium imported vitrified flooring & Kohler/Grohe sanitaryware",
       "Home automation ready with smart digital video door security",
     ],
-    blueprintImg: "/assets/service-penthouse.jpg",
+    blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/UnitPlan.webp",
   },
   {
     type: "3 BHK Grande Royale",
@@ -61,7 +67,7 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Floor-to-ceiling acoustic soundproof double glazing",
       "Dedicated high-speed elevator access per floor cluster",
     ],
-    blueprintImg: "/assets/service-interior.jpg",
+    blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/UnitPlan.webp",
   },
   {
     type: "3.5 BHK Imperial Suite",
@@ -84,7 +90,7 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "Concealed Daikin/Mitsubishi VRV air-conditioning provisions",
       "2 covered podium multi-level car parking allocations",
     ],
-    blueprintImg: "/assets/service-custom.jpg",
+    blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp",
   },
   {
     type: "4 BHK Royal Sky Penthouse",
@@ -107,110 +113,135 @@ const UNIT_CONFIGS: PlanConfig[] = [
       "3 dedicated covered multi-level reserved car parking slots",
       "Direct express elevator access with private keycard security",
     ],
-    blueprintImg: "/assets/localities/panvel.jpg",
+    blueprintImg: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp",
   },
 ];
 
 const AMENITIES = [
-  { category: "Club Vegas", title: "75,000 Sq.Ft. Club Vegas", desc: "Grand landmark multi-level clubhouse with international Las Vegas-inspired architecture.", icon: "🏛️" },
-  { category: "Club Vegas", title: "Vegas Infinity Lap Pool", desc: "Resort-style temperature controlled lap pool with sunken aqua loungers & cabanas.", icon: "🏊" },
-  { category: "Club Vegas", title: "Private Dolby Atmos Cinema", desc: "32-seater luxury screening theatre for private movie premieres and sporting events.", icon: "🎬" },
-  { category: "Club Vegas", title: "Billiards & Cigar Lounge", desc: "Gentlemen's clubroom with championship snooker, poker, and card tables.", icon: "🎱" },
-  { category: "Wellness & Spa", title: "Hydrotherapy Spa & Sauna", desc: "Steam, sauna, and ayurvedic massage suites with professional certified therapists.", icon: "💆" },
-  { category: "Wellness & Spa", title: "TechnoGym Olympic Fitness", desc: "Fully equipped cardio, strength, and CrossFit arena with personal training staff.", icon: "🏋️" },
-  { category: "Wellness & Spa", title: "Zen Yoga & Meditation Deck", desc: "Open-air landscaped sunrise platform surrounded by soothing reflexology water paths.", icon: "🧘" },
-  { category: "Sports Arena", title: "Multi-Sport Astro Turf", desc: "Floodlit turf for FIFA-standard 5-a-side football and box cricket leagues.", icon: "⚽" },
-  { category: "Sports Arena", title: "Tennis & Squash Courts", desc: "All-weather synthetic surface tennis and indoor air-conditioned squash courts.", icon: "🎾" },
-  { category: "Sky Living", title: "Sky Observatory Deck", desc: "High-altitude telescope deck for star gazing and NMIA runway flight view vistas.", icon: "🔭" },
-  { category: "Nature & Gardens", title: "Central Thematic Green Park", desc: "Acres of manicured lawns, botanical flower gardens, and shaded reflexology gazebos.", icon: "🌳" },
-  { category: "Kids & Family", title: "Kids Aqua Wonderland", desc: "Splash pads, interactive water slides, and adventure play zones with safety EPDM flooring.", icon: "🎠" },
+  { category: "Club Vegas", title: "75,000 Sq.Ft. Club Vegas", desc: "Grand landmark G+5 multi-level clubhouse with international Las Vegas-inspired architecture.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Clubhouse.webp", icon: "🏛️" },
+  { category: "Club Vegas", title: "Vegas Infinity Lap Pool", desc: "Resort-style temperature controlled lap pool with sunken aqua loungers & cabanas.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Swimming-Pool.webp", icon: "🏊" },
+  { category: "Wellness & Spa", title: "TechnoGym Olympic Fitness", desc: "Fully equipped cardio, strength, and CrossFit arena with personal training staff.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Gym.webp", icon: "🏋️" },
+  { category: "Sports Arena", title: "Indoor Sports Lounge", desc: "Championship snooker, table tennis, air hockey, and card gaming suites.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Indoor-Games.webp", icon: "🎱" },
+  { category: "Kids & Family", title: "Kids Pool & Aqua Play Area", desc: "Splash pads, water slides, and adventure play zones with safety EPDM flooring.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Kids-Pool-and-Play-Area.webp", icon: "🎠" },
+  { category: "Nature & Gardens", title: "Dry Mountain Courtyard", desc: "Serene zen stone courtyard with tranquil Japanese dry landscape styling.", img: "https://paradise-saiworldcitypanvel.com/assets/images/amenities/Dry-Mountain-Courtyard.webp", icon: "🪨" },
+  { category: "Club Vegas", title: "Private Dolby Atmos Cinema", desc: "32-seater luxury screening theatre for private movie premieres and sporting events.", img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-3.webp", icon: "🎬" },
+  { category: "Sky Living", title: "Sky Observatory Deck", desc: "High-altitude telescope deck for star gazing and NMIA runway flight view vistas.", img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-1.webp", icon: "🔭" },
 ];
 
 const LOCATION_CATEGORIES = [
-  { id: "all", name: "All Landmarks" },
-  { id: "transit", name: "Transit & Highways" },
-  { id: "education", name: "Schools & Colleges" },
-  { id: "healthcare", name: "Hospitals & Medical" },
-  { id: "lifestyle", name: "Shopping & Leisure" },
+  { id: "all", name: "All Landmarks (47+)" },
+  { id: "connectivity", name: "Connectivity & Transit (9)" },
+  { id: "education_hub", name: "Education Hub (11)" },
+  { id: "healthcare", name: "Healthcare & Hospitals (16)" },
+  { id: "malls_shopping", name: "Malls & Shopping (4)" },
+  { id: "tech_park", name: "Tech & Business Parks (4)" },
+  { id: "rejuvenation", name: "Rejuvenation & Leisure (3)" },
 ];
 
 const LOCATION_RADAR_ITEMS = [
-  // Transit
-  { name: "Palaspe Junction, Panvel", time: "4 Mins*", category: "transit", icon: "📍", type: "Key Junction", note: "Direct gateway intersection connecting Mumbai, Pune, and Goa" },
-  { name: "NH 17: Mumbai–Goa Highway", time: "4 Mins*", category: "transit", icon: "🛣️", type: "National Highway", note: "Immediate access for seamless coastal connectivity" },
-  { name: "Panvel Bus Terminus", time: "8 Mins*", category: "transit", icon: "🚌", type: "State Transit Hub", note: "Central interstate transit bus depot" },
-  { name: "MTHL Atal Setu (Sea Bridge)", time: "10 Mins*", category: "transit", icon: "🌉", type: "Trans-Harbour Link", note: "Direct 20-minute signal-free corridor into South Mumbai" },
-  { name: "Multi Modal Corridor (MMC)", time: "10 Mins*", category: "transit", icon: "🚇", type: "High-Speed Ring", note: "126-km growth corridor linking Virar to Alibaug" },
-  { name: "NH 4: Mumbai–Pune Expressway", time: "12 Mins*", category: "transit", icon: "🚗", type: "Expressway", note: "Smooth connectivity to Pune and IT industrial hubs" },
-  { name: "Panvel Terminus Railway Station", time: "12 Mins*", category: "transit", icon: "🚆", type: "Central Rail Junction", note: "Hub for Harbour, Central, and outstation Konkan trains" },
-  { name: "NH 4B: JNPT Expressway", time: "16 Mins*", category: "transit", icon: "⚓", type: "Port Corridor", note: "Rapid freight and logistics connectivity to JNPT port" },
-  { name: "Navi Mumbai Intl. Airport (NMIA)", time: "22 Mins*", category: "transit", icon: "✈️", type: "International Aviation Hub", note: "Upcoming greenfield international mega airport" },
+  // Connectivity
+  { name: "Palaspe Junction, Panvel", time: "4 Mins*", category: "connectivity", icon: "📍", type: "Key Junction", note: "Direct gateway intersection connecting Mumbai, Pune, and Goa" },
+  { name: "NH 17: Mumbai–Goa Highway", time: "4 Mins*", category: "connectivity", icon: "🛣️", type: "National Highway", note: "Immediate access for seamless coastal connectivity" },
+  { name: "Panvel Bus Depot", time: "8 Mins*", category: "connectivity", icon: "🚌", type: "State Transit Hub", note: "Central interstate transit bus terminus" },
+  { name: "Mumbai Trans Harbour Link (MTHL / Atal Setu)", time: "10 Mins*", category: "connectivity", icon: "🌉", type: "Trans-Harbour Sea Bridge", note: "Direct 20-minute signal-free corridor into South Mumbai" },
+  { name: "Multi Modal Corridor (MMC)", time: "10 Mins*", category: "connectivity", icon: "🚇", type: "High-Speed Ring", note: "126-km growth corridor linking Virar to Alibaug" },
+  { name: "NH 4: Mumbai–Pune Highway", time: "12 Mins*", category: "connectivity", icon: "🚗", type: "Expressway", note: "Smooth connectivity to Pune and IT industrial hubs" },
+  { name: "Panvel Terminus Railway Station", time: "12 Mins*", category: "connectivity", icon: "🚆", type: "Central Rail Junction", note: "Hub for Harbour, Central, and outstation Konkan trains" },
+  { name: "NH 4B: JNPT Expressway", time: "16 Mins*", category: "connectivity", icon: "⚓", type: "Port Corridor", note: "Rapid freight and logistics connectivity to JNPT port" },
+  { name: "Navi Mumbai Intl. Airport (NMIA)", time: "22 Mins*", category: "connectivity", icon: "✈️", type: "International Airport", note: "Upcoming greenfield international mega aviation hub" },
 
-  // Education
-  { name: "MNR International School", time: "7 Mins*", category: "education", icon: "🎓", type: "CBSE / IB School", note: "Premier international K-12 schooling with sports complex" },
-  { name: "St. Wilfred's College & School", time: "10 Mins*", category: "education", icon: "🏫", type: "Higher Education", note: "Reputed engineering, arts, and management campus" },
-  { name: "New Horizon Public School", time: "10 Mins*", category: "education", icon: "📚", type: "CBSE School", note: "Ranked among top academic institutions in Panvel" },
-  { name: "DAV Public School, New Panvel", time: "10 Mins*", category: "education", icon: "🎓", type: "CBSE School", note: "Distinguished academic excellence center" },
-  { name: "Amity University Mumbai", time: "16 Mins*", category: "education", icon: "🏛️", type: "Global University", note: "Sprawling university campus with global degree courses" },
-  { name: "Delhi Public School (DPS Panvel)", time: "24 Mins*", category: "education", icon: "🏫", type: "CBSE School", note: "World-class education infrastructure & Olympic sports" },
+  // Education Hub
+  { name: "MNR International School", time: "7 Mins*", category: "education_hub", icon: "🎓", type: "CBSE / IB School", note: "Premier international K-12 schooling with sports complex" },
+  { name: "St. Wilfred Academy", time: "10 Mins*", category: "education_hub", icon: "🏫", type: "Higher Education", note: "Reputed engineering, arts, and management campus" },
+  { name: "New Horizon Public School", time: "10 Mins*", category: "education_hub", icon: "📚", type: "CBSE School", note: "Ranked among top academic institutions in Panvel" },
+  { name: "DAV Public School", time: "10 Mins*", category: "education_hub", icon: "🎓", type: "CBSE School", note: "Distinguished academic excellence center" },
+  { name: "St. Joseph's High School", time: "10 Mins*", category: "education_hub", icon: "🏫", type: "High School", note: "Distinguished convent education" },
+  { name: "CKT School & College", time: "10 Mins*", category: "education_hub", icon: "🎓", type: "Junior & Degree College", note: "Premier commerce, science, and arts academy" },
+  { name: "Mahatma School", time: "12 Mins*", category: "education_hub", icon: "📚", type: "School & Junior College", note: "Comprehensive holistic education campus" },
+  { name: "Pillai College of Engineering", time: "12 Mins*", category: "education_hub", icon: "🏛️", type: "Engineering & Architecture", note: "Top engineering, architecture & research campus" },
+  { name: "Amity University Mumbai", time: "16 Mins*", category: "education_hub", icon: "🏛️", type: "Global University", note: "Sprawling university campus with global degree courses" },
+  { name: "Ryan International School", time: "18 Mins*", category: "education_hub", icon: "🎓", type: "ICSE / CBSE School", note: "Global sports and academic curriculum" },
+  { name: "Delhi Public School (DPS Panvel)", time: "24 Mins*", category: "education_hub", icon: "🏫", type: "CBSE School", note: "World-class education infrastructure & Olympic sports" },
 
   // Healthcare
-  { name: "Lifeline Hospital Panvel", time: "7 Mins*", category: "healthcare", icon: "🏥", type: "Multi-Speciality", note: "24x7 emergency and trauma care centre" },
+  { name: "Lifeline Hospital", time: "7 Mins*", category: "healthcare", icon: "🏥", type: "Multi-Speciality", note: "24x7 emergency and trauma care centre" },
   { name: "Gandhi Super Speciality Hospital", time: "7 Mins*", category: "healthcare", icon: "🩺", type: "Super Speciality", note: "Advanced cardiology and surgical facilities" },
-  { name: "Dr. Patil's Hospital", time: "8 Mins*", category: "healthcare", icon: "🏥", type: "General & Surgery", note: "Comprehensive outpatient and inpatient care" },
+  { name: "Niramay Hospital", time: "7 Mins*", category: "healthcare", icon: "🏥", type: "Multi-Speciality Hospital", note: "Full critical and maternal care" },
+  { name: "Sparsh Hospital", time: "7 Mins*", category: "healthcare", icon: "🩺", type: "Critical Care", note: "Specialized orthopedics and general care" },
+  { name: "Paramount Hospital", time: "7 Mins*", category: "healthcare", icon: "🏥", type: "General Hospital", note: "Inpatient and outpatient healthcare" },
+  { name: "Unnati Multi-Speciality Hospital", time: "7 Mins*", category: "healthcare", icon: "🩺", type: "Super Speciality", note: "Advanced surgical care" },
+  { name: "Purohit Hospital", time: "8 Mins*", category: "healthcare", icon: "🏥", type: "General Hospital", note: "Comprehensive diagnostic and surgical care" },
+  { name: "Sahasrabuddhe Hospital", time: "9 Mins*", category: "healthcare", icon: "🩺", type: "Speciality Clinic", note: "Pediatric & family medicine" },
+  { name: "Dr. Patil's Hospital", time: "9 Mins*", category: "healthcare", icon: "🏥", type: "General & Surgery", note: "Comprehensive medical services" },
+  { name: "Dr. Oza Hospital", time: "9 Mins*", category: "healthcare", icon: "🩺", type: "Medical Center", note: "Diagnostic and day-care procedures" },
+  { name: "Panacea Hospital", time: "10 Mins*", category: "healthcare", icon: "🏥", type: "Multi-Speciality", note: "Specialized ICUs and surgery wards" },
+  { name: "Life Care Hospital", time: "10 Mins*", category: "healthcare", icon: "🩺", type: "General Hospital", note: "Emergency and pathology services" },
+  { name: "More Hospital", time: "10 Mins*", category: "healthcare", icon: "🏥", type: "Healthcare Center", note: "Family clinic and specialty doctors" },
+  { name: "Arunodaya Hospital", time: "10 Mins*", category: "healthcare", icon: "🩺", type: "Speciality Hospital", note: "Maternity and orthopedic clinic" },
+  { name: "Phoenix Hospital", time: "10 Mins*", category: "healthcare", icon: "🏥", type: "Emergency Care", note: "Round-the-clock ambulance and ICU" },
   { name: "MGM Hospital & Medical College", time: "12 Mins*", category: "healthcare", icon: "🏥", type: "Tertiary Care Hospital", note: "1000+ bed medical university & emergency hub" },
-  { name: "Apollo Hospitals, CBD Belapur", time: "20 Mins*", category: "healthcare", icon: "🩺", type: "Multi-Speciality Care", note: "JCI-accredited quaternary care facility" },
 
-  // Lifestyle & Shopping
-  { name: "Orion Mall Panvel (PVR Cinemas)", time: "8 Mins*", category: "lifestyle", icon: "🛍️", type: "Premium Mall", note: "Major retail stores, food court, and multiplex" },
-  { name: "D-Mart Hypermarket Palaspe", time: "10 Mins*", category: "lifestyle", icon: "🛒", type: "Hypermarket", note: "Daily grocery, apparel, and essentials" },
-  { name: "Kharghar Valley Golf Course", time: "5 Mins*", category: "lifestyle", icon: "⛳", type: "18-Hole Championship", note: "CIDCO international championship public golf course" },
-  { name: "Central Park Kharghar (290 Acres)", time: "5 Mins*", category: "lifestyle", icon: "🌳", type: "Mega Park", note: "Asia's largest thematic green city park" },
-  { name: "Grand ISKCON Temple Kharghar", time: "5 Mins*", category: "lifestyle", icon: "🛕", type: "Spiritual Centre", note: "Architectural masterpiece and cultural temple complex" },
-  { name: "Little World Mall Kharghar", time: "18 Mins*", category: "lifestyle", icon: "🎬", type: "Shopping Mall", note: "Multiplex cinemas, apparel brands, and casual dining" },
+  // Malls & Shopping
+  { name: "Orion Mall Panvel (PVR Cinemas)", time: "8 Mins*", category: "malls_shopping", icon: "🛍️", type: "Mega Mall", note: "Major retail stores, food court, and multiplex" },
+  { name: "Reliance Fresh", time: "9 Mins*", category: "malls_shopping", icon: "🛒", type: "Supermarket", note: "Fresh groceries and daily essentials" },
+  { name: "D-Mart Hypermarket Palaspe", time: "10 Mins*", category: "malls_shopping", icon: "🛒", type: "Hypermarket", note: "Daily grocery, apparel, and home essentials" },
+  { name: "Little World Mall Kharghar", time: "18 Mins*", category: "malls_shopping", icon: "🎬", type: "Shopping Mall", note: "Multiplex cinemas, apparel brands, and casual dining" },
+
+  // Tech & Business Parks
+  { name: "CIDCO Business Zone", time: "16 Mins*", category: "tech_park", icon: "🏢", type: "Corporate Hub", note: "Modern commercial towers and office complexes" },
+  { name: "Panvel Business Park", time: "22 Mins*", category: "tech_park", icon: "💼", type: "Commercial District", note: "Corporate offices and IT enterprises" },
+  { name: "Kharghar Industrial Zone", time: "28 Mins*", category: "tech_park", icon: "🏭", type: "Industrial Hub", note: "Manufacturing and light industrial parks" },
+  { name: "Taloja Business Park", time: "30 Mins*", category: "tech_park", icon: "🏗️", type: "Logistics Hub", note: "Logistics, pharmaceutical, and manufacturing estate" },
+
+  // Rejuvenation & Leisure
+  { name: "18-Hole Kharghar Valley Golf Course", time: "5 Mins*", category: "rejuvenation", icon: "⛳", type: "Championship Golf", note: "CIDCO international championship 18-hole golf course" },
+  { name: "Kharghar Central Park (290 Acres)", time: "5 Mins*", category: "rejuvenation", icon: "🌳", type: "Thematic Mega Park", note: "Asia's largest thematic green city park" },
+  { name: "Grand ISKCON Temple Kharghar", time: "5 Mins*", category: "rejuvenation", icon: "🛕", type: "Spiritual Centre", note: "Architectural masterpiece and cultural temple complex" },
 ];
 
 const GALLERY_ITEMS = [
   {
-    title: "Iconic Skyscraper Facade",
+    title: "Cosmopolitan Skyscraper Elevation",
     category: "Architecture",
-    img: "/assets/localities/panvel.jpg",
-    desc: "Cosmopolitan glass and steel architecture inspired by New York & Dubai skylines.",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-1.webp",
+    desc: "Iconic global architecture inspired by New York, Paris & Dubai skylines.",
   },
   {
-    title: "Club Vegas 75K Sq.Ft. Resort",
+    title: "Club Vegas 75K Sq.Ft. Grand Entrance",
     category: "Club Vegas",
-    img: "/assets/service-penthouse.jpg",
-    desc: "Multi-level grand lifestyle club with Las Vegas-style luxury and water features.",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-2.webp",
+    desc: "Multi-level G+5 clubhouse resort with luxury hospitality ambiance.",
   },
   {
-    title: "Grand Living Room Suites",
+    title: "Opulent Living & Dining Grand Salon",
     category: "Interiors",
-    img: "/assets/service-interior.jpg",
-    desc: "Expansive sundeck with floor-to-ceiling glass and Italian marble finishes.",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-3.webp",
+    desc: "Expansive double deck with floor-to-ceiling glass and Italian marble finishes.",
   },
   {
-    title: "Presidential Master Bedroom",
+    title: "Presidential Master Bedroom Suite",
     category: "Interiors",
-    img: "/assets/service-custom.jpg",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-4.webp",
     desc: "Spacious master suites with walk-in wardrobes and designer en-suite baths.",
   },
   {
-    title: "Olympic Temperature-Controlled Pool",
+    title: "Vegas Infinity Lap Pool & Cabanas",
     category: "Club Vegas",
-    img: "/assets/localities/kharghar.jpg",
-    desc: "Infinity-edge lap pool with sunken aqua loungers and private cabanas.",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-5.webp",
+    desc: "Resort-style lap pool with sunken aqua loungers and private gazebos.",
   },
   {
-    title: "Central Thematic Podium Greens",
+    title: "38-Acre Podium Green Landscape",
     category: "Landscape",
-    img: "/assets/localities/panvel.jpg",
-    desc: "38 acres of landscaped podiums with multi-sport arenas and children play parks.",
+    img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-6.webp",
+    desc: "Acres of manicured lawns, reflexology paths, and multi-sport courts.",
   },
 ];
 
 export function SaiWorldCityView() {
+  const [activeBannerIndex, setActiveBannerIndex] = useState(0);
   const [selectedPlanIndex, setSelectedPlanIndex] = useState(0);
+  const [activeFloorPlanTab, setActiveFloorPlanTab] = useState<"unit" | "master">("unit");
   const [amenityFilter, setAmenityFilter] = useState("All");
   const [locationTab, setLocationTab] = useState("all");
   const [galleryFilter, setGalleryFilter] = useState("All");
@@ -226,6 +257,14 @@ export function SaiWorldCityView() {
   const [loanAmount, setLoanAmount] = useState(12500000); // 1.25 Cr
   const [tenureYears, setTenureYears] = useState(20);
   const [interestRate, setInterestRate] = useState(8.5);
+
+  // Auto banner rotation
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   const calculateEMI = () => {
     const r = interestRate / 12 / 100;
@@ -270,9 +309,13 @@ export function SaiWorldCityView() {
             <span className={styles.backArrow}>←</span> All Properties
           </Link>
           <div className={styles.brandTitleWrap}>
-            <span className={styles.brandLogo}>AASCO</span>
+            <img
+              src="https://paradise-saiworldcitypanvel.com/assets/images/logo/logo.png"
+              alt="Sai World City Logo"
+              className={styles.brandLogoImg}
+            />
             <span className={styles.brandDivider}>|</span>
-            <span className={styles.brandSub}>LUXURY COLLECTION</span>
+            <span className={styles.brandSub}>AASCO LUXURY COLLECTION</span>
           </div>
           <div className={styles.navLinks}>
             <a href="#overview">Overview</a>
@@ -292,7 +335,7 @@ export function SaiWorldCityView() {
       <section className={styles.heroSection} id="overview">
         <div className={styles.heroBg}>
           <img
-            src="/assets/localities/panvel.jpg"
+            src={HERO_BANNERS[activeBannerIndex]}
             alt="Sai World City Panvel Luxury Towers"
             className={styles.heroImg}
           />
@@ -301,13 +344,26 @@ export function SaiWorldCityView() {
         </div>
 
         <div className={styles.heroContainer}>
-          <div className={styles.launchBanner}>
-            <span className={styles.liveIndicator}>
-              <span className={styles.liveDot} />
-              BOOKING OPEN
-            </span>
-            <span className={styles.phaseText}>◆ Phase 3 Launching Soon!</span>
-            <span className={styles.earlyBirdText}>Avail Exclusive Early Bird Offers</span>
+          <div className={styles.heroTopControls}>
+            <div className={styles.launchBanner}>
+              <span className={styles.liveIndicator}>
+                <span className={styles.liveDot} />
+                BOOKING OPEN
+              </span>
+              <span className={styles.phaseText}>◆ Phase 3 Launching Soon!</span>
+              <span className={styles.earlyBirdText}>Avail Exclusive Early Bird Offers</span>
+            </div>
+
+            <div className={styles.bannerDots}>
+              {HERO_BANNERS.map((_, bIdx) => (
+                <button
+                  key={bIdx}
+                  className={`${styles.bannerDot} ${activeBannerIndex === bIdx ? styles.activeBannerDot : ""}`}
+                  onClick={() => setActiveBannerIndex(bIdx)}
+                  aria-label={`Slide ${bIdx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className={styles.titleArea}>
@@ -382,10 +438,14 @@ export function SaiWorldCityView() {
                 curated landscapes, and world-class infrastructure.
               </p>
               <p className={styles.bodyPara}>
-                With seamless connectivity to the upcoming Navi Mumbai International Airport, Mumbai Trans
-                Harbour Link (Atal Setu), major national highways, and key educational and healthcare hubs,
-                it places you right where growth, comfort, and opportunity meet without the chaos usually
-                attached to it.
+                What truly sets Sai World City apart is its lifestyle ecosystem, anchored by the grand Club Vegas—a
+                75,000 sq. ft. G+5 clubhouse that feels less like an amenity and more like a destination. From infinity pools,
+                sky lounges, and wellness zones to banquet spaces, sports arenas, and creative studios, every corner is designed
+                to elevate how you live, unwind, and connect.
+              </p>
+              <p className={styles.bodyPara}>
+                With seamless connectivity to the upcoming Navi Mumbai International Airport, Mumbai Trans Harbour Link (Atal Setu),
+                major highways, and key educational and healthcare hubs, it places you right where growth, comfort, and opportunity meet.
               </p>
 
               <div className={styles.highlightsChecklist}>
@@ -409,10 +469,10 @@ export function SaiWorldCityView() {
             </div>
 
             <div className={styles.aboutImageCol}>
-              <div className={styles.aboutImageCard}>
+              <div className={styles.aboutImageCard} onClick={() => setLightboxImage("https://paradise-saiworldcitypanvel.com/assets/images/about/About.webp")}>
                 <img
-                  src="/assets/service-penthouse.jpg"
-                  alt="Sai World City Luxury High Rise Interior"
+                  src="https://paradise-saiworldcitypanvel.com/assets/images/about/About.webp"
+                  alt="Sai World City Luxury High Rise Architecture"
                   className={styles.aboutImage}
                 />
                 <div className={styles.imageOverlayBadge}>
@@ -429,155 +489,216 @@ export function SaiWorldCityView() {
       <section className={styles.pricingSection} id="pricing">
         <div className={styles.sectionContainer}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>UNITS &amp; PRICING</span>
+            <span className={styles.sectionEyebrow}>UNITS &amp; FLOOR PLANS</span>
             <h2>Area &amp; <em>Floor Plan Breakdown</em></h2>
             <p className={styles.sectionDesc}>
-              Select your preferred luxury configuration to view dimensions, carpet areas, indicative pricing, and layout specifications.
+              Select your preferred luxury configuration to view dimensions, carpet areas, indicative pricing, and master blueprints.
             </p>
           </div>
 
-          <div className={styles.configTabs}>
-            {UNIT_CONFIGS.map((config, index) => (
-              <button
-                key={config.bhk}
-                className={`${styles.configTabBtn} ${selectedPlanIndex === index ? styles.activeTab : ""}`}
-                onClick={() => {
-                  setSelectedPlanIndex(index);
-                  setLoanAmount(config.rawPrice);
-                }}
+          {/* Master Plan vs Unit Plan Toggle */}
+          <div className={styles.planTypeToggleRow}>
+            <button
+              className={`${styles.planTypeBtn} ${activeFloorPlanTab === "unit" ? styles.activePlanTypeBtn : ""}`}
+              onClick={() => setActiveFloorPlanTab("unit")}
+            >
+              📐 Unit Floor Plans
+            </button>
+            <button
+              className={`${styles.planTypeBtn} ${activeFloorPlanTab === "master" ? styles.activePlanTypeBtn : ""}`}
+              onClick={() => setActiveFloorPlanTab("master")}
+            >
+              🗺️ 38-Acre Master Layout Plan
+            </button>
+          </div>
+
+          {activeFloorPlanTab === "master" ? (
+            <div className={styles.masterPlanCard}>
+              <div
+                className={styles.blueprintWrap}
+                onClick={() => setLightboxImage("https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp")}
               >
-                <span className={styles.tabBhk}>{config.bhk}</span>
-                <span className={styles.tabPrice}>{config.price}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.planDetailsCard}>
-            <div className={styles.planInfoCol}>
-              <div className={styles.planBadgeRow}>
-                <span className={styles.planBhkBadge}>{selectedPlan.bhk}</span>
-                <span className={styles.carpetBadge}>Carpet Area: {selectedPlan.carpetArea}</span>
-              </div>
-              <h3 className={styles.planTitle}>{selectedPlan.type}</h3>
-              <p className={styles.planTagline}>{selectedPlan.tagline}</p>
-
-              <div className={styles.priceHighlightBox}>
-                <span className={styles.priceHighlightLabel}>SPECIAL PRICE (ONWARDS)</span>
-                <strong className={styles.priceHighlightVal}>{selectedPlan.price}</strong>
-                <span className={styles.priceHighlightNote}>*Government taxes, stamp duty &amp; registration extra</span>
-              </div>
-
-              {/* Room Dimensions Table */}
-              <div className={styles.dimensionsBox}>
-                <span className={styles.dimTitle}>TYPICAL ROOM DIMENSIONS:</span>
-                <div className={styles.dimGrid}>
-                  {selectedPlan.dimensions.map((dim, dIdx) => (
-                    <div key={dIdx} className={styles.dimRow}>
-                      <span className={styles.dimRoom}>{dim.room}</span>
-                      <strong className={styles.dimSize}>{dim.size}</strong>
-                    </div>
-                  ))}
+                <img
+                  src="https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp"
+                  alt="Sai World City 38-Acre Master Plan"
+                  className={styles.blueprintImg}
+                />
+                <div className={styles.blueprintZoomOverlay}>
+                  <span>🔍 Click to View High-Resolution Master Plan</span>
                 </div>
               </div>
-
-              <div className={styles.featuresList}>
-                <span className={styles.featuresTitle}>SPECIFICATION HIGHLIGHTS:</span>
-                <ul>
-                  {selectedPlan.features.map((feat, i) => (
-                    <li key={i}>
-                      <span className={styles.featureDot}>◈</span> {feat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={styles.planCtaRow}>
-                <button
-                  onClick={() => setIsBrochureModalOpen(true)}
-                  className={styles.planBookBtn}
-                >
-                  Download {selectedPlan.bhk} Blueprint PDF ↗
+              <div className={styles.masterPlanMeta}>
+                <h3>Sai World City 38-Acre Master Township Layout</h3>
+                <p>
+                  Comprehensive layout featuring high-rise towers, 75,000 sq. ft. Club Vegas, multi-tiered security,
+                  podium recreation parks, Olympic swimming lap pools, and multi-sport astro turfs.
+                </p>
+                <button onClick={() => setIsBrochureModalOpen(true)} className={styles.planBookBtn}>
+                  Download Master Plan PDF 📥
                 </button>
-                <a href="#booking" className={styles.planVisitBtn}>
-                  Book Model Flat Visit ➔
-                </a>
               </div>
             </div>
+          ) : (
+            <>
+              <div className={styles.configTabs}>
+                {UNIT_CONFIGS.map((config, index) => (
+                  <button
+                    key={config.bhk}
+                    className={`${styles.configTabBtn} ${selectedPlanIndex === index ? styles.activeTab : ""}`}
+                    onClick={() => {
+                      setSelectedPlanIndex(index);
+                      setLoanAmount(config.rawPrice);
+                    }}
+                  >
+                    <span className={styles.tabBhk}>{config.bhk}</span>
+                    <span className={styles.tabPrice}>{config.price}</span>
+                  </button>
+                ))}
+              </div>
 
-            {/* Interactive EMI Estimator */}
-            <div className={styles.emiCalculatorCol}>
-              <div className={styles.emiCard}>
-                <h4 className={styles.emiTitle}>
-                  <span className={styles.emiIcon}>📊</span> Real-Time EMI Estimator
-                </h4>
-                <div className={styles.emiResultBox}>
-                  <span className={styles.emiResultLabel}>ESTIMATED MONTHLY INSTALLMENT</span>
-                  <strong className={styles.emiAmount}>₹ {calculateEMI().toLocaleString("en-IN")}/mo</strong>
-                  <span className={styles.emiSubNote}>Based on {tenureYears} Years @ {interestRate}% Interest</span>
-                </div>
-
-                <div className={styles.sliderGroup}>
-                  <div className={styles.sliderHeader}>
-                    <span>Loan Amount</span>
-                    <strong>₹ {(loanAmount / 100000).toFixed(1)} Lakhs</strong>
+              <div className={styles.planDetailsCard}>
+                <div className={styles.planInfoCol}>
+                  <div className={styles.planBadgeRow}>
+                    <span className={styles.planBhkBadge}>{selectedPlan.bhk}</span>
+                    <span className={styles.carpetBadge}>Carpet Area: {selectedPlan.carpetArea}</span>
                   </div>
-                  <input
-                    type="range"
-                    min="5000000"
-                    max="40000000"
-                    step="500000"
-                    value={loanAmount}
-                    onChange={(e) => setLoanAmount(Number(e.target.value))}
-                    className={styles.rangeSlider}
-                  />
-                </div>
+                  <h3 className={styles.planTitle}>{selectedPlan.type}</h3>
+                  <p className={styles.planTagline}>{selectedPlan.tagline}</p>
 
-                <div className={styles.sliderGroup}>
-                  <div className={styles.sliderHeader}>
-                    <span>Loan Tenure</span>
-                    <strong>{tenureYears} Years</strong>
+                  <div className={styles.priceHighlightBox}>
+                    <span className={styles.priceHighlightLabel}>SPECIAL PRICE (ONWARDS)</span>
+                    <strong className={styles.priceHighlightVal}>{selectedPlan.price}</strong>
+                    <span className={styles.priceHighlightNote}>*Government taxes, stamp duty &amp; registration extra</span>
                   </div>
-                  <input
-                    type="range"
-                    min="5"
-                    max="30"
-                    step="1"
-                    value={tenureYears}
-                    onChange={(e) => setTenureYears(Number(e.target.value))}
-                    className={styles.rangeSlider}
-                  />
-                </div>
 
-                <div className={styles.sliderGroup}>
-                  <div className={styles.sliderHeader}>
-                    <span>Interest Rate</span>
-                    <strong>{interestRate}% p.a.</strong>
+                  {/* Room Dimensions Table */}
+                  <div className={styles.dimensionsBox}>
+                    <span className={styles.dimTitle}>TYPICAL ROOM DIMENSIONS:</span>
+                    <div className={styles.dimGrid}>
+                      {selectedPlan.dimensions.map((dim, dIdx) => (
+                        <div key={dIdx} className={styles.dimRow}>
+                          <span className={styles.dimRoom}>{dim.room}</span>
+                          <strong className={styles.dimSize}>{dim.size}</strong>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <input
-                    type="range"
-                    min="7.5"
-                    max="12"
-                    step="0.1"
-                    value={interestRate}
-                    onChange={(e) => setInterestRate(Number(e.target.value))}
-                    className={styles.rangeSlider}
-                  />
+
+                  <div className={styles.featuresList}>
+                    <span className={styles.featuresTitle}>SPECIFICATION HIGHLIGHTS:</span>
+                    <ul>
+                      {selectedPlan.features.map((feat, i) => (
+                        <li key={i}>
+                          <span className={styles.featureDot}>◈</span> {feat}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className={styles.planCtaRow}>
+                    <button
+                      onClick={() => setIsBrochureModalOpen(true)}
+                      className={styles.planBookBtn}
+                    >
+                      Download {selectedPlan.bhk} Blueprint PDF ↗
+                    </button>
+                    <a href="#booking" className={styles.planVisitBtn}>
+                      Book Model Flat Visit ➔
+                    </a>
+                  </div>
                 </div>
 
-                <div className={styles.loanPartnerNote}>
-                  <span>Approved by SBI, HDFC, ICICI, Axis &amp; all leading financial institutions.</span>
+                {/* Interactive Floor Plan Schematic & EMI */}
+                <div className={styles.planVisualCol}>
+                  <div
+                    className={styles.unitPlanSchematicCard}
+                    onClick={() => setLightboxImage(selectedPlan.blueprintImg)}
+                  >
+                    <img
+                      src={selectedPlan.blueprintImg}
+                      alt={`${selectedPlan.type} Floor Plan`}
+                      className={styles.unitPlanImg}
+                    />
+                    <div className={styles.unitPlanOverlay}>
+                      <span>🔍 Enlarge Floor Plan</span>
+                    </div>
+                  </div>
+
+                  {/* Interactive EMI Estimator */}
+                  <div className={styles.emiCard}>
+                    <h4 className={styles.emiTitle}>
+                      <span className={styles.emiIcon}>📊</span> Real-Time EMI Estimator
+                    </h4>
+                    <div className={styles.emiResultBox}>
+                      <span className={styles.emiResultLabel}>ESTIMATED MONTHLY INSTALLMENT</span>
+                      <strong className={styles.emiAmount}>₹ {calculateEMI().toLocaleString("en-IN")}/mo</strong>
+                      <span className={styles.emiSubNote}>Based on {tenureYears} Years @ {interestRate}% Interest</span>
+                    </div>
+
+                    <div className={styles.sliderGroup}>
+                      <div className={styles.sliderHeader}>
+                        <span>Loan Amount</span>
+                        <strong>₹ {(loanAmount / 100000).toFixed(1)} Lakhs</strong>
+                      </div>
+                      <input
+                        type="range"
+                        min="5000000"
+                        max="40000000"
+                        step="500000"
+                        value={loanAmount}
+                        onChange={(e) => setLoanAmount(Number(e.target.value))}
+                        className={styles.rangeSlider}
+                      />
+                    </div>
+
+                    <div className={styles.sliderGroup}>
+                      <div className={styles.sliderHeader}>
+                        <span>Loan Tenure</span>
+                        <strong>{tenureYears} Years</strong>
+                      </div>
+                      <input
+                        type="range"
+                        min="5"
+                        max="30"
+                        step="1"
+                        value={tenureYears}
+                        onChange={(e) => setTenureYears(Number(e.target.value))}
+                        className={styles.rangeSlider}
+                      />
+                    </div>
+
+                    <div className={styles.sliderGroup}>
+                      <div className={styles.sliderHeader}>
+                        <span>Interest Rate</span>
+                        <strong>{interestRate}% p.a.</strong>
+                      </div>
+                      <input
+                        type="range"
+                        min="7.5"
+                        max="12"
+                        step="0.1"
+                        value={interestRate}
+                        onChange={(e) => setInterestRate(Number(e.target.value))}
+                        className={styles.rangeSlider}
+                      />
+                    </div>
+
+                    <div className={styles.loanPartnerNote}>
+                      <span>Approved by SBI, HDFC, ICICI, Axis &amp; all leading banks.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </section>
 
-      {/* Club Vegas 75K Amenities Section */}
+      {/* Club Vegas 75K Amenities Section with Authentic Images */}
       <section className={styles.amenitiesSection} id="amenities">
         <div className={styles.sectionContainer}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>RESORT-STYLE LIVING</span>
+            <span className={styles.sectionEyebrow}>RESORT-STYLE DESTINATION</span>
             <h2>75,000 Sq.Ft. Club Vegas &amp; <em>50+ Amenities</em></h2>
             <p className={styles.sectionDesc}>
               A world of entertainment, sports, and serenity built to exceed the finest international clubhouses.
@@ -600,11 +721,24 @@ export function SaiWorldCityView() {
 
           <div className={styles.amenityGrid}>
             {filteredAmenities.map((amenity, i) => (
-              <div key={i} className={styles.amenityCard}>
-                <div className={styles.amenityIconWrapper}>{amenity.icon}</div>
-                <div className={styles.amenityCategoryTag}>{amenity.category}</div>
-                <h4 className={styles.amenityTitle}>{amenity.title}</h4>
-                <p className={styles.amenityDesc}>{amenity.desc}</p>
+              <div
+                key={i}
+                className={styles.amenityCard}
+                onClick={() => setLightboxImage(amenity.img)}
+              >
+                <div className={styles.amenityImgWrapper}>
+                  <img src={amenity.img} alt={amenity.title} className={styles.amenityImg} />
+                  <div className={styles.amenityBadgeRow}>
+                    <span className={styles.amenityCategoryTag}>{amenity.category}</span>
+                  </div>
+                </div>
+                <div className={styles.amenityContent}>
+                  <div className={styles.amenityTitleRow}>
+                    <span className={styles.amenityEmoji}>{amenity.icon}</span>
+                    <h4 className={styles.amenityTitle}>{amenity.title}</h4>
+                  </div>
+                  <p className={styles.amenityDesc}>{amenity.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -643,14 +777,14 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
-      {/* Strategic Location Radar Section */}
+      {/* Strategic Location Radar Section with Google Maps Embed */}
       <section className={styles.locationSection} id="location">
         <div className={styles.sectionContainer}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>STRATEGIC CONNECTIVITY</span>
+            <span className={styles.sectionEyebrow}>STRATEGIC CONNECTIVITY RADAR</span>
             <h2>Connected to the <em>Heart of MMR Growth</em></h2>
             <p className={styles.sectionDesc}>
-              Positioned at Palaspe Junction, Panvel with ultra-fast highway and airport access. Explore commute times across sectors.
+              Positioned at Palaspe Junction, Panvel with ultra-fast highway, metro, and airport access. Explore 47+ key landmarks.
             </p>
           </div>
 
@@ -681,6 +815,32 @@ export function SaiWorldCityView() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Google Maps Live Frame */}
+          <div className={styles.googleMapsFrameWrap}>
+            <div className={styles.mapHeader}>
+              <div>
+                <span className={styles.mapEyebrow}>GEOGRAPHIC LOCATION</span>
+                <h4>Palaspe Junction, Panvel, Navi Mumbai (18.9676° N, 73.1248° E)</h4>
+              </div>
+              <a
+                href="https://maps.google.com/?q=Sai+World+City+Panvel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.mapDirectionsBtn}
+              >
+                Get Live Directions ↗
+              </a>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.180985554309!2d73.1248308!3d18.9676128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e7b1c4bf9485%3A0xde2ff6b4d8743963!2sSAI%20WORLD%20CITY!5e0!3m2!1sen!2sin!4v1776947274098!5m2!1sen!2sin"
+              title="Sai World City Location Map"
+              className={styles.googleMapsIframe}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>
@@ -732,7 +892,7 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
-      {/* Developer Legacy Section */}
+      {/* Developer Legacy Section with Real RERA QR Codes */}
       <section className={styles.developerSection}>
         <div className={styles.sectionContainer}>
           <div className={styles.developerCard}>
@@ -765,14 +925,40 @@ export function SaiWorldCityView() {
               </div>
             </div>
 
-            <div className={styles.reraDisclosures}>
-              <div className={styles.reraBox}>
-                <span>PROJECT RERA REGISTRATION</span>
-                <strong>P52000006318 | P52000022708</strong>
+            <div className={styles.reraDisclosuresGrid}>
+              <div className={styles.reraCard}>
+                <img
+                  src="https://paradise-saiworldcitypanvel.com/assets/images/qr-code/6a1e858311803-qrcode_p52000006318.webp"
+                  alt="MahaRERA QR Code Phase 1 & 2"
+                  className={styles.qrCodeImg}
+                />
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>PHASE 1 &amp; 2 MAHARERA</span>
+                  <strong className={styles.reraNumber}>P52000006318</strong>
+                  <p>MahaRERA registered residential township</p>
+                </div>
               </div>
-              <div className={styles.reraBox}>
-                <span>AUTHORIZED AGENT RERA (AASCO)</span>
-                <strong>A51900029955</strong>
+
+              <div className={styles.reraCard}>
+                <img
+                  src="https://paradise-saiworldcitypanvel.com/assets/images/qr-code/6a1e85831190b-qrcode_p52000022708.webp"
+                  alt="MahaRERA QR Code Phase 3"
+                  className={styles.qrCodeImg}
+                />
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>PHASE 3 MAHARERA</span>
+                  <strong className={styles.reraNumber}>P52000022708</strong>
+                  <p>MahaRERA registered expansion phase</p>
+                </div>
+              </div>
+
+              <div className={styles.reraCard}>
+                <div className={styles.agentBadgeIcon}>🛡️</div>
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>AUTHORISED ADVISOR RERA</span>
+                  <strong className={styles.reraNumber}>A51900029955</strong>
+                  <p>Aasco Realty Certified Real Estate Partner</p>
+                </div>
               </div>
             </div>
           </div>
@@ -809,7 +995,7 @@ export function SaiWorldCityView() {
               <div className={styles.whatsappDirect}>
                 <span>Prefer instant messaging?</span>
                 <a
-                  href="https://wa.me/919999999999?text=Hello%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel."
+                  href="https://wa.me/918828112657?text=Hello%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel."
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.whatsappBtn}
@@ -844,7 +1030,7 @@ export function SaiWorldCityView() {
                   <div className={styles.formRow}>
                     <div className={styles.formField}>
                       <label>Mobile Phone</label>
-                      <input type="tel" placeholder="+91 98765 43210" required />
+                      <input type="tel" placeholder="+91 88281 12657" required />
                     </div>
                     <div className={styles.formField}>
                       <label>Email Address</label>
@@ -970,7 +1156,7 @@ export function SaiWorldCityView() {
                   </div>
                   <div className={styles.formField}>
                     <label>WhatsApp / Mobile Number</label>
-                    <input type="tel" placeholder="+91 98765 43210" required />
+                    <input type="tel" placeholder="+91 88281 12657" required />
                   </div>
                   <div className={styles.formField}>
                     <label>Email Address</label>
@@ -995,13 +1181,13 @@ export function SaiWorldCityView() {
           </div>
           <div className={styles.stickyActions}>
             <a
-              href="tel:+919999999999"
+              href="tel:+918828112657"
               className={styles.stickyCallBtn}
             >
-              📞 Call Advisor
+              📞 +91 88281 12657
             </a>
             <a
-              href="https://wa.me/919999999999?text=Hello%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel."
+              href="https://wa.me/918828112657?text=Hello%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel."
               target="_blank"
               rel="noopener noreferrer"
               className={styles.stickyWhatsappBtn}
@@ -1038,11 +1224,12 @@ export function SaiWorldCityView() {
           </div>
           <div className={styles.footerDisclaimers}>
             <p>
-              Project RERA: P52000006318 | P52000022708 · Agent RERA: A51900029955 (Aasco Realty).
+              Project RERA: P52000006318 | P52000022708 · Authorized Agent RERA: A51900029955 (PropSolutions4U Pvt. Ltd. / Aasco Realty).
             </p>
             <p>
-              The content presented on this page is for informational guidance. Prices and availability are subject
-              to change as per developer discretion. All trademarks and project names are properties of Paradise Group.
+              The content presented on this website is solely for informational purposes and does not constitute a service offer.
+              Prices mentioned are subject to change without prior notification, and the availability of the listed properties is not assured.
+              All trademarks, project names, and developer marks belong to Paradise Group.
             </p>
           </div>
         </div>

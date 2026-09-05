@@ -17,9 +17,10 @@ type Property = {
 };
 
 const properties: Property[] = [
+  { slug: "sai-world-city-panvel", title: "Sai World City Panvel", location: "Panvel", type: "3 BHK", status: "New Launch", budget: "Above 1 Cr", price: "₹ 1.25 Cr* - 3.34 Cr*", details: "620 - 1858 sq. ft. · 2, 3, 3.5 & 4 BHK", image: "/assets/localities/panvel.jpg" },
   { slug: "meghna-star-walk-kharghar", title: "Meghna Star Walk At Kharghar NX.", location: "Kharghar", type: "2 BHK", status: "New Launch", budget: "Under 50 Lacs", price: "23.99 Lacs* - 32.99 Lacs*", details: "360 - 600 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-1.jpg" },
   { slug: "arihant-avanti-palace", title: "Arihant Avanti Palace", location: "Dombivli", type: "2 BHK", status: "Ready to Move", budget: "50 Lacs - 1 Cr", price: "42 Lacs* - 65 Lacs*", details: "400 - 650 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-2.jpg" },
-  { slug: "navi-mumbai-homes", title: "Sai World City & Towers", location: "Navi Mumbai", type: "2 BHK", status: "Featured", budget: "50 Lacs - 1 Cr", price: "65 Lacs* - 1.25 Cr*", details: "720 - 1250 sq. ft. · 2, 3 BHK", image: "/assets/properties/property-3.jpg" },
+  { slug: "navi-mumbai-homes", title: "Sai World City & Towers", location: "Panvel", type: "2 BHK", status: "Featured", budget: "Above 1 Cr", price: "₹ 1.25 Cr* - 3.34 Cr*", details: "620 - 1858 sq. ft. · 2, 3, 4 BHK", image: "/assets/properties/property-3.jpg" },
   { slug: "mumbai-homes", title: "Mumbai Luxury Residences", location: "Mumbai", type: "3 BHK", status: "Featured", budget: "Above 1 Cr", price: "1.50 Cr* - 3.20 Cr*", details: "1100 - 1850 sq. ft. · 3, 4 BHK", image: "/assets/properties/property-1.jpg" },
   { slug: "thane-residences", title: "Thane Sky Terraces", location: "Thane", type: "2 BHK", status: "New Launch", budget: "Above 1 Cr", price: "85 Lacs* - 1.60 Cr*", details: "650 - 1100 sq. ft. · 2, 3 BHK", image: "/assets/properties/property-2.jpg" },
   { slug: "taloja-new-homes", title: "Taloja Greens & Heights", location: "Taloja", type: "1 BHK", status: "Ready to Move", budget: "Under 50 Lacs", price: "28 Lacs* - 45 Lacs*", details: "380 - 590 sq. ft. · 1, 2 BHK", image: "/assets/properties/property-3.jpg" },

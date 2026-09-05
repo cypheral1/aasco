@@ -9,8 +9,8 @@ export function HeroSection() {
           <div className={styles.bgImage3}>
             <Image
               className={styles.bgImage4}
-              src={"/assets/hong-kong-city-skyline-city-lights.jpg"}
-              alt={"bg image"}
+              src={"/assets/hero-luxury-bg.jpg"}
+              alt={"Aasco Realty Luxury Waterfront Towers"}
               width={3840}
               height={2160}
               sizes={

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import styles from "./SaiWorldCityView.module.css";
 
@@ -442,6 +442,29 @@ export function SaiWorldCityView() {
     return () => clearInterval(timer);
   }, []);
 
+  // Scroll-triggered reveal animations (IntersectionObserver)
+  const revealRef = useCallback((node: HTMLElement | null) => {
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.revealed);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    // Observe this node and all children with revealOnScroll class
+    if (node.classList.contains(styles.revealOnScroll)) {
+      observer.observe(node);
+    }
+    const children = node.querySelectorAll(`.${styles.revealOnScroll}`);
+    children.forEach((child) => observer.observe(child));
+    return () => observer.disconnect();
+  }, []);
+
   const handlePrevBanner = () => {
     setActiveBannerIndex((prev) => (prev - 1 + HERO_BANNERS.length) % HERO_BANNERS.length);
   };
@@ -618,12 +641,38 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
+      {/* Luxury Scrolling Marquee Ribbon */}
+      <div className={styles.luxuryMarquee}>
+        <div className={styles.marqueeTrack}>
+          {[1, 2].map((set) => (
+            <React.Fragment key={set}>
+              <span className={`${styles.marqueeItem} ${styles.marqueeGold}`}>Sai World City Panvel</span>
+              <span className={styles.marqueeDot} />
+              <span className={styles.marqueeItem}>38-Acre Global Township</span>
+              <span className={styles.marqueeDot} />
+              <span className={`${styles.marqueeItem} ${styles.marqueeGold}`}>75,000 Sq.Ft. Club Vegas</span>
+              <span className={styles.marqueeDot} />
+              <span className={styles.marqueeItem}>2, 3, 3.5 & 4 BHK Luxury Residences</span>
+              <span className={styles.marqueeDot} />
+              <span className={`${styles.marqueeItem} ${styles.marqueeGold}`}>By Paradise Group</span>
+              <span className={styles.marqueeDot} />
+              <span className={styles.marqueeItem}>Navi Mumbai International Airport 20 Mins</span>
+              <span className={styles.marqueeDot} />
+              <span className={`${styles.marqueeItem} ${styles.marqueeGold}`}>Starting ₹ 1.25 Cr*</span>
+              <span className={styles.marqueeDot} />
+              <span className={styles.marqueeItem}>RERA: P52000006318</span>
+              <span className={styles.marqueeDot} />
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
       {/* Main Page Content Wrapper for Overlapping Curtain Reveal Footer */}
       <div className={styles.pageContentWrapper}>
         {/* About The Township Section */}
-        <section className={styles.aboutTownshipSection}>
+        <section className={styles.aboutTownshipSection} ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.revealOnScroll}`}>
               <span className={styles.sectionEyebrow}>THE MASTER VISION</span>
               <h2>A Global Landmark in <em>Panvel, Navi Mumbai</em></h2>
               <p className={styles.sectionDesc}>
@@ -632,7 +681,7 @@ export function SaiWorldCityView() {
               </p>
             </div>
 
-            <div className={styles.aboutGrid}>
+            <div className={`${styles.aboutGrid} ${styles.revealOnScroll}`}>
               <div className={styles.aboutTextCol}>
                 <p className={styles.aboutLead}>
                   Discover an international lifestyle where every morning begins with breathtaking Sahyadri hill views
@@ -709,10 +758,13 @@ export function SaiWorldCityView() {
           </div>
         </section>
 
+        {/* Gold Section Divider */}
+        <div className={styles.sectionDivider} />
+
         {/* Interactive Pricing & Floor Plan Matrix — Improved UI (No Emojis) */}
-        <section className={styles.pricingSection} id="pricing">
+        <section className={styles.pricingSection} id="pricing" ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.revealOnScroll}`}>
               <span className={styles.sectionEyebrow}>ARCHITECTURAL BLUEPRINTS</span>
               <h2>Area &amp; <em>Floor Plan Breakdown</em></h2>
               <p className={styles.sectionDesc}>
@@ -913,10 +965,13 @@ export function SaiWorldCityView() {
           </div>
         </section>
 
+        {/* Gold Section Divider */}
+        <div className={styles.sectionDivider} />
+
         {/* 75,000 Sq.Ft. Club Vegas & 50+ Amenities — Full-Page Experience */}
-        <section className={styles.amenitiesSection} id="amenities">
+        <section className={styles.amenitiesSection} id="amenities" ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.revealOnScroll}`}>
               <span className={styles.sectionEyebrow}>RESORT-STYLE GLOBAL DESTINATION</span>
               <h2>75,000 Sq.Ft. Club Vegas &amp; <em>50+ Amenities</em></h2>
               <p className={styles.sectionDesc}>
@@ -1000,9 +1055,9 @@ export function SaiWorldCityView() {
         </section>
 
         {/* Strategic Location Radar — Vector SVGs & 100% Left-to-Right Full Bleed Map */}
-        <section className={styles.locationSection} id="location">
+        <section className={styles.locationSection} id="location" ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.revealOnScroll}`}>
               <span className={styles.sectionEyebrow}>STRATEGIC CONNECTIVITY RADAR</span>
               <h2>Connected to the <em>Heart of MMR Growth</em></h2>
               <p className={styles.sectionDesc}>
@@ -1074,10 +1129,13 @@ export function SaiWorldCityView() {
           </div>
         </section>
 
+        {/* Gold Section Divider */}
+        <div className={styles.sectionDivider} />
+
         {/* Project Gallery & Architecture — Enhanced Luxury UI */}
-        <section className={styles.gallerySection} id="gallery">
+        <section className={styles.gallerySection} id="gallery" ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.revealOnScroll}`}>
               <span className={styles.sectionEyebrow}>VISUAL PORTFOLIO</span>
               <h2>Project <em>Gallery &amp; Architecture</em></h2>
               <p className={styles.sectionDesc}>
@@ -1126,10 +1184,13 @@ export function SaiWorldCityView() {
           </div>
         </section>
 
+        {/* Gold Section Divider */}
+        <div className={styles.sectionDivider} />
+
         {/* Developer Spotlight & Credentials */}
-        <section className={styles.developerSection}>
+        <section className={styles.developerSection} ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.developerCard}>
+            <div className={`${styles.developerCard} ${styles.revealOnScroll}`}>
               <div className={styles.devHeader}>
                 <span className={styles.devEyebrow}>DEVELOPER SPOTLIGHT</span>
                 <h3>Paradise Group — <em>34 Years of Architectural Excellence</em></h3>
@@ -1203,10 +1264,13 @@ export function SaiWorldCityView() {
           </div>
         </section>
 
+        {/* Gold Section Divider */}
+        <div className={styles.sectionDivider} />
+
         {/* VIP Booking & Consultation Section */}
-        <section className={styles.bookingSection} id="booking">
+        <section className={styles.bookingSection} id="booking" ref={revealRef}>
           <div className={styles.sectionContainer}>
-            <div className={styles.bookingWrapper}>
+            <div className={`${styles.bookingWrapper} ${styles.revealOnScroll}`}>
               <div className={styles.bookingIntro}>
                 <span className={styles.bookingEyebrow}>EXCLUSIVE CONSULTATION</span>
                 <h2>Schedule a <em>VIP Site Visit</em></h2>

@@ -68,131 +68,402 @@
   gap: 28px;
 }
 
-.propertyCard {
+/* Card Wrapper with 3D Perspective */
+.cardWrapper {
+  perspective: 1200px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  display: block;
+  animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: space-between;
+  height: 460px;
+  padding: 26px 24px;
+  border-radius: 0px; /* Sharp 90-degree architectural edges */
+  background: #080A10;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 0px;
-  background: #e8ebf0;
-  color: #12151d;
-  text-decoration: none;
   transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease,
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
-  will-change: transform;
+  transition: box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s ease;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
 }
 
-.propertyCard:hover {
-  transform: translateY(-10px) scale(1.015);
-  border-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 24px 54px -10px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 255, 255, 0.08);
+/* Extremely subtle metallic border */
+.metallicBorder {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 10;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.propertyImage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
+.cardWrapper:hover .metallicBorder {
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.04), 0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+/* Multi-depth image and gradient atmosphere */
+.imageLayer {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  background: #0d0f14;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.propertyImage img {
-  display: block;
+.bgImage {
+  position: absolute;
+  inset: -15px;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.02) contrast(1.06) saturate(1.12);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s ease;
+  will-change: transform, filter;
+}
+
+.cardWrapper:hover .bgImage {
+  filter: brightness(1.15) contrast(1.1) saturate(1.22);
+}
+
+.atmosphereGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 12, 0.45) 0%,
+    rgba(4, 6, 12, 0.02) 28%,
+    rgba(4, 6, 12, 0.25) 55%,
+    rgba(4, 6, 12, 0.85) 78%,
+    rgba(4, 6, 12, 0.98) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.cardWrapper:hover .atmosphereGradient {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 12, 0.35) 0%,
+    rgba(4, 6, 12, 0.0) 28%,
+    rgba(4, 6, 12, 0.18) 55%,
+    rgba(4, 6, 12, 0.8) 78%,
+    rgba(4, 6, 12, 0.95) 100%
+  );
+}
+
+.ambientGlare {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cardWrapper:hover .ambientGlare {
+  opacity: 1;
+}
+
+/* Futuristic Property Scanner Beam */
+.scannerBeam {
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 70%,
+    rgba(255, 255, 255, 0.35) 95%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
 }
 
-.propertyCard:hover .propertyImage img {
-  transform: scale(1.08);
+.scannerActive {
+  opacity: 1;
+  animation: scanSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
-.propertyImage span {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.36);
-  border-radius: 999px;
-  padding: 6px 14px;
-  background: rgba(8, 10, 16, 0.76);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
+@keyframes scanSweep {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
-.propertyCard:hover .propertyImage span {
-  transform: translateY(-2px);
-  background: rgba(8, 10, 16, 0.9);
-}
-
-.propertyInfo {
-  display: grid;
-  grid-template-columns: 1fr auto;
+/* Top Header Row */
+.cardTopRow {
   position: relative;
-  gap: 16px;
-  padding: 22px 24px;
-  background: linear-gradient(180deg, #f0f2f6 0%, #e3e6ec 100%);
-  flex-grow: 1;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 6;
+  gap: 12px;
 }
 
-.location {
-  margin: 0 0 8px;
-  color: #636b78;
-  font-size: 10px;
-  letter-spacing: 1.5px;
+.indexNumber {
+  font-family: var(--font-primary, monospace, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 0px;
+  background: rgba(12, 16, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.coordinateBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 0px;
+  background: rgba(12, 16, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  max-width: 180px;
+}
+
+.radarDot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3B82F6;
+  flex-shrink: 0;
+}
+
+.radarRing {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid #3B82F6;
+  animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes radarPing {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.coordText {
+  font-family: var(--font-primary, monospace, sans-serif);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.growthPill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 0px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+
+.growthDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.growthText {
+  font-family: var(--font-primary, monospace, sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #34D399;
+}
+
+/* Card Content & Data Reveal */
+.cardContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 6;
+  width: 100%;
+  padding: 16px 16px 14px;
+  border-radius: 0px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 18, 28, 0.72) 0%,
+    rgba(8, 10, 18, 0.94) 100%
+  );
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.cardWrapper:hover .cardContent {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 24, 38, 0.82) 0%,
+    rgba(10, 13, 24, 0.96) 100%
+  );
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.localityCategory {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 700;
+  color: rgba(212, 175, 55, 0.95); /* Refined Gold Accent */
 }
 
-.propertyInfo h3 {
-  margin: 0 0 10px;
-  font-size: clamp(17px, 1.4vw, 22px);
+.localityName {
+  font-family: var(--font-heading, inherit);
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.2;
-  color: #12151d;
-}
-
-.details {
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
   margin: 0;
-  color: #555e6c;
-  font-size: 12px;
+  line-height: 1.2;
+}
+
+.detailsText {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
   font-weight: 500;
 }
 
-.propertyInfo strong {
-  align-self: flex-end;
-  color: #12151d;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: right;
-  white-space: nowrap;
+/* Primary Price & Live Numerical Counter */
+.priceRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 8px;
 }
 
-.cardArrow {
-  position: absolute;
-  right: 22px;
-  top: 22px;
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceLabel {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.priceValue {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+}
+
+.amount {
+  font-family: var(--font-primary, monospace, sans-serif);
   font-size: 16px;
-  color: #7b8493;
-  transition: transform 0.3s ease, color 0.3s ease;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  line-height: 1;
 }
 
-.propertyCard:hover .cardArrow {
-  transform: translate(2px, -2px);
-  color: #12151d;
+/* Micro Market Sparkline Graph */
+.sparklineWrap {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+}
+
+.sparklineSvg {
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+  overflow: visible;
+}
+
+/* Action Explore Row */
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exploreText {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.cardWrapper:hover .exploreText {
+  color: #FFFFFF;
+}
+
+.exploreArrow {
+  font-size: 12px;
+  color: rgba(212, 175, 55, 0.9);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+  will-change: transform;
+}
+
+.cardWrapper:hover .exploreArrow {
+  color: #FFFFFF;
 }
 
 .propertyFooter {

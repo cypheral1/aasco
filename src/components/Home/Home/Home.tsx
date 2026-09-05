@@ -26,6 +26,11 @@ export function Home() {
 
   return (
     <div className={styles.norvin2} id={"main"} data-framecoded-state={"t0s1"}>
+      {/* Static Real Estate Fixed Background */}
+      <div className={styles.fixedRealEstateBg} aria-hidden="true">
+        <div className={styles.fixedRealEstateOverlay} />
+      </div>
+
       <section
         className={styles.norvinSection}
         data-layout-template={"true"}

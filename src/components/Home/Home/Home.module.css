@@ -1,14 +1,25 @@
 .norvin2 {
   margin: 0px;
   padding: 0px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
+  position: relative;
+}
+
+.fixedRealEstateBg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("/assets/realty-fixed-bg.jpg") center center / cover no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fixedRealEstateOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 25%, rgba(4, 4, 4, 0.62) 0%, rgba(4, 4, 4, 0.85) 60%, rgba(4, 4, 4, 0.96) 100%),
+    linear-gradient(180deg, rgba(4, 4, 4, 0.35) 0%, rgba(4, 4, 4, 0.82) 45%, rgba(4, 4, 4, 0.97) 100%);
 }
 
 .norvinSection {
@@ -32,7 +43,8 @@
   row-gap: 0px;
   column-gap: 0px;
   place-content: center flex-start;
-  background-color: rgb(4, 4, 4);
+  background-color: transparent;
+  z-index: 1;
 }
 
 .div6 {
@@ -1074,10 +1086,7 @@
 .postHero {
   position: relative;
   width: 100%;
-  background:
-    linear-gradient(rgba(4, 4, 4, 0.86), rgba(4, 4, 4, 0.86)),
-    url("/assets/realty-city-night.jpg") center top / cover;
-  background-attachment: fixed;
+  background: transparent;
 }
 
 .top {

@@ -213,7 +213,7 @@ function FeaturedPropertyCard({
         </div>
 
         {/* Bottom Card Content with Frosted Glass Container */}
-        <div className={styles.cardContent} style={{ transform: "translateZ(32px)" }}>
+        <div className={styles.cardContent} style={{ transform: "translateZ(38px)" }}>
           <div className={styles.titleGroup}>
             <span className={styles.localityCategory}>{item.location}</span>
             <h3 className={styles.localityName}>{item.title}</h3>

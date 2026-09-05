@@ -102,52 +102,6 @@
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
-}
-
-/* ===== CUSTOM CURSOR ===== */
-
-.customCursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--lux-champagne, #C5A76F);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              background 0.3s ease;
-  transform: translate(-50%, -50%);
-}
-
-.customCursor.cursorExpand {
-  width: 48px;
-  height: 48px;
-  background: rgba(197, 167, 111, 0.15);
-  border: 1px solid var(--lux-champagne);
-  mix-blend-mode: normal;
-}
-
-.cursorLabel {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--lux-ivory);
-  transform: translate(-50%, 20px);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.cursorLabel.visible {
-  opacity: 1;
 }
 
 /* ===== CINEMATIC INTRO OVERLAY ===== */
@@ -481,7 +435,7 @@
   color: var(--lux-ivory);
   font-size: 24px;
   font-weight: 300;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -647,7 +601,7 @@
   align-items: center;
   gap: 12px;
   transition: gap 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
-  cursor: none;
+  cursor: pointer;
 }
 
 .heroCta:hover {
@@ -673,7 +627,7 @@
   text-decoration: none;
   background: transparent;
   border: none;
-  cursor: none;
+  cursor: pointer;
   transition: color 0.3s ease;
 }
 
@@ -1072,7 +1026,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
   display: inline-flex;
   align-items: center;
@@ -1103,7 +1057,7 @@
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
   min-width: 160px;
 }
@@ -1319,7 +1273,7 @@
   background: var(--lux-black);
   border: none;
   padding: 14px 28px;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
 }
 
@@ -1339,7 +1293,7 @@
   align-items: center;
   gap: 8px;
   transition: gap 0.3s ease;
-  cursor: none;
+  cursor: pointer;
 }
 
 .planVisitBtn:hover {
@@ -1353,7 +1307,7 @@
   position: relative;
   background: #fff;
   padding: 32px;
-  cursor: none;
+  cursor: pointer;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1472,7 +1426,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   border: none;
-  cursor: none;
+  cursor: pointer;
   transition: background 0.4s ease;
 }
 
@@ -1491,7 +1445,7 @@
 .blueprintWrap {
   position: relative;
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 
 .blueprintImg {
@@ -1548,22 +1502,42 @@
    AMENITIES — CINEMATIC DARK SECTION
    ========================================================= */
 
-.amenitiesSection {
-  background: var(--lux-black);
-  color: var(--lux-ivory);
+.sectionContainerWide {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 120px 48px;
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+}
+
+.mergedAmenitiesPlansGrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .mergedAmenitiesPlansGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.amenitiesMainCol {
+  display: flex;
+  flex-direction: column;
 }
 
 .amenityFilterPills {
   display: flex;
   gap: 0;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
   border-bottom: 1px solid rgba(244, 241, 232, 0.08);
 }
 
 .filterPill {
-  padding: 14px 24px;
+  padding: 14px 20px;
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
@@ -1572,7 +1546,7 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
 }
 
@@ -1588,14 +1562,22 @@
 .amenityGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .amenityGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .amenityCard {
   position: relative;
   overflow: hidden;
-  cursor: none;
-  height: 380px;
+  cursor: pointer;
+  height: 360px;
+  border: 1px solid rgba(197, 167, 111, 0.12);
+  background: #111;
 }
 
 .amenityImgWrapper {
@@ -1617,17 +1599,17 @@
 .amenityContent {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(7,7,7,0.85) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(7,7,7,0.9) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px;
+  padding: 28px;
   gap: 6px;
   transition: background 0.4s ease;
 }
 
 .amenityCard:hover .amenityContent {
-  background: linear-gradient(180deg, transparent 20%, rgba(7,7,7,0.9) 100%);
+  background: linear-gradient(180deg, transparent 20%, rgba(7,7,7,0.95) 100%);
 }
 
 .amenityBadgeRow {
@@ -1643,6 +1625,7 @@
   text-transform: uppercase;
   color: var(--lux-champagne);
   padding: 4px 10px;
+  background: rgba(7, 7, 7, 0.8);
   border: 1px solid rgba(197, 167, 111, 0.3);
 }
 
@@ -1656,7 +1639,7 @@
 
 .amenityTitle {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   color: var(--lux-ivory);
   margin: 0;
@@ -1666,6 +1649,321 @@
   font-size: 13px;
   color: var(--lux-muted);
   line-height: 1.55;
+  margin: 0;
+}
+
+/* 25% Sidebar Area & Floor Plan Studio */
+.floorPlanSidebarCol {
+  position: relative;
+}
+
+.sidebarPlanStickyCard {
+  position: sticky;
+  top: 90px;
+  background: #111111;
+  border: 1px solid rgba(197, 167, 111, 0.25);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.sidebarPlanHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebarEyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--lux-champagne);
+  text-transform: uppercase;
+}
+
+.sidebarTitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--lux-ivory);
+  margin: 0;
+}
+
+.sidebarTitle em {
+  font-style: italic;
+  color: var(--lux-champagne);
+}
+
+.sidebarSub {
+  font-size: 12px;
+  color: var(--lux-muted);
+  margin: 0;
+}
+
+.sidebarPlanToggleRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #080808;
+  border: 1px solid rgba(197, 167, 111, 0.15);
+  padding: 3px;
+  gap: 4px;
+}
+
+.sidebarToggleBtn {
+  background: transparent;
+  border: none;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--lux-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeSidebarToggle {
+  background: var(--lux-champagne);
+  color: var(--lux-black);
+}
+
+.sidebarBhkChipsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.sidebarBhkChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  background: #181818;
+  border: 1px solid rgba(197, 167, 111, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebarBhkChip:hover {
+  border-color: var(--lux-champagne);
+}
+
+.activeBhkChip {
+  background: rgba(197, 167, 111, 0.2);
+  border-color: var(--lux-champagne);
+}
+
+.sidebarBhkText {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lux-ivory);
+}
+
+.activeBhkChip .sidebarBhkText {
+  color: var(--lux-champagne);
+}
+
+.sidebarCarpetMini {
+  font-size: 9px;
+  color: var(--lux-muted);
+}
+
+.sidebarSelectedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebarPlanMetaTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(197, 167, 111, 0.15);
+  padding-bottom: 10px;
+}
+
+.sidebarPlanName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lux-ivory);
+  margin: 0;
+}
+
+.sidebarPriceTag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sidebarPriceLabel {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--lux-muted);
+}
+
+.sidebarPriceVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lux-champagne);
+}
+
+.sidebarBlueprintWrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: #080808;
+  border: 1px solid rgba(197, 167, 111, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.sidebarBlueprintImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.4s ease;
+}
+
+.sidebarBlueprintWrap:hover .sidebarBlueprintImg {
+  transform: scale(1.06);
+}
+
+.sidebarBlueprintZoomBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(7, 7, 7, 0.85);
+  border: 1px solid var(--lux-champagne);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--lux-champagne);
+}
+
+.sidebarDimBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #0d0d0f;
+  border: 1px solid rgba(197, 167, 111, 0.12);
+  padding: 10px 12px;
+}
+
+.sidebarDimTitle {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--lux-champagne);
+  text-transform: uppercase;
+}
+
+.sidebarDimList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebarDimRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.sidebarDimRow:last-child {
+  border-bottom: none;
+}
+
+.sidebarDimRoom {
+  color: var(--lux-muted);
+  font-weight: 500;
+}
+
+.sidebarDimSize {
+  color: var(--lux-ivory);
+  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  letter-spacing: 0.5px;
+}
+
+.sidebarChipsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sidebarHighlightPill {
+  font-size: 10px;
+  padding: 3px 8px;
+  background: rgba(197, 167, 111, 0.08);
+  border: 1px solid rgba(197, 167, 111, 0.2);
+  color: var(--lux-ivory);
+}
+
+.sidebarActionsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sidebarRequestBtn {
+  width: 100%;
+  padding: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--lux-black);
+  background: var(--lux-champagne);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebarRequestBtn:hover {
+  background: #d8ba82;
+}
+
+.sidebarVisitLink {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--lux-ivory);
+  text-decoration: none;
+  padding: 8px;
+  border: 1px solid rgba(197, 167, 111, 0.25);
+  transition: all 0.3s ease;
+}
+
+.sidebarVisitLink:hover {
+  border-color: var(--lux-champagne);
+  color: var(--lux-champagne);
+}
+
+.sidebarMasterPlanBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebarMasterDesc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--lux-muted);
   margin: 0;
 }
 
@@ -1746,7 +2044,7 @@
   background: transparent;
   border: 1px solid rgba(244, 241, 232, 0.15);
   padding: 10px 20px;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
 }
 
@@ -1782,7 +2080,7 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
 }
 
@@ -1970,7 +2268,7 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
 }
 
@@ -1995,7 +2293,7 @@
 .galleryCard {
   position: relative;
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 
 .galleryImgWrap {
@@ -2357,7 +2655,7 @@
   gap: 10px;
   font-size: 13px;
   color: var(--lux-muted);
-  cursor: none;
+  cursor: pointer;
 }
 
 .checkboxLabel input { accent-color: var(--lux-champagne); width: 14px; height: 14px; }
@@ -2372,7 +2670,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   border: none;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.4s ease;
   margin-top: 8px;
 }
@@ -2429,7 +2727,7 @@
   background: transparent;
   border: 1px solid rgba(244, 241, 232, 0.15);
   padding: 10px 20px;
-  cursor: none;
+  cursor: pointer;
   margin-top: 10px;
   transition: all 0.3s ease;
 }
@@ -2609,7 +2907,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s ease;
   border: none;
 }
@@ -2664,7 +2962,6 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  cursor: none;
 }
 
 .modalContent {
@@ -2708,7 +3005,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -2754,7 +3051,6 @@
   align-items: center;
   justify-content: center;
   padding: 48px;
-  cursor: none;
 }
 
 .lightboxWrap {
@@ -2777,7 +3073,7 @@
   font-size: 24px;
   background: transparent;
   border: none;
-  cursor: none;
+  cursor: pointer;
   transition: color 0.2s ease;
 }
 

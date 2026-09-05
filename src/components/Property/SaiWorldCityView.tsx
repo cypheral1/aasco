@@ -209,7 +209,6 @@ const GALLERY_ITEMS = [
   { title: "38-Acre Podium Green Landscape", category: "Landscape", img: "https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-6.webp", desc: "Lush botanical gardens, zen alcoves, and private jogging trails." },
 ];
 
-/* Pure Vector SVG Icons */
 function renderSvgIcon(key: string) {
   const props = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (key) {
@@ -245,11 +244,11 @@ function renderSvgIcon(key: string) {
 
 const SECTIONS = [
   { id: "overview", label: "OVERVIEW" },
-  { id: "pricing", label: "RESIDENCES" },
-  { id: "amenities", label: "CLUB" },
+  { id: "amenities", label: "CLUB & PLANS" },
   { id: "walkthrough", label: "FILM" },
-  { id: "location", label: "LOCATION" },
   { id: "gallery", label: "GALLERY" },
+  { id: "location", label: "LOCATION" },
+  { id: "about", label: "ABOUT" },
   { id: "booking", label: "ENQUIRE" },
 ];
 
@@ -270,8 +269,6 @@ export function SaiWorldCityView() {
   const [navSolid, setNavSolid] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const [introVisible, setIntroVisible] = useState(true);
-  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
-  const [cursorExpand, setCursorExpand] = useState(false);
 
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -293,8 +290,7 @@ export function SaiWorldCityView() {
   useEffect(() => {
     const handleScroll = () => {
       setNavSolid(window.scrollY > 80);
-      // Track active section
-      const sectionIds = SECTIONS.map(s => s.id);
+      const sectionIds = SECTIONS.map((s) => s.id);
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
         if (el && el.getBoundingClientRect().top <= 200) {
@@ -305,26 +301,6 @@ export function SaiWorldCityView() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Custom cursor
-  useEffect(() => {
-    const move = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
-    const over = () => setCursorExpand(true);
-    const out = () => setCursorExpand(false);
-    window.addEventListener("mousemove", move);
-    const interactives = document.querySelectorAll("a, button, [data-cursor]");
-    interactives.forEach(el => {
-      el.addEventListener("mouseenter", over);
-      el.addEventListener("mouseleave", out);
-    });
-    return () => {
-      window.removeEventListener("mousemove", move);
-      interactives.forEach(el => {
-        el.removeEventListener("mouseenter", over);
-        el.removeEventListener("mouseleave", out);
-      });
-    };
   }, []);
 
   // Scroll reveal observer
@@ -342,7 +318,7 @@ export function SaiWorldCityView() {
       { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
     );
     if (node.classList.contains(styles.reveal)) observer.observe(node);
-    node.querySelectorAll(`.${styles.reveal}`).forEach(c => observer.observe(c));
+    node.querySelectorAll(`.${styles.reveal}`).forEach((c) => observer.observe(c));
     return () => observer.disconnect();
   }, []);
 
@@ -359,9 +335,6 @@ export function SaiWorldCityView() {
 
   return (
     <div className={styles.propertyRoot} ref={rootRef}>
-      {/* Custom Cursor */}
-      <div className={`${styles.customCursor} ${cursorExpand ? styles.cursorExpand : ""}`} style={{ left: cursorPos.x, top: cursorPos.y }} />
-
       {/* Cinematic Intro Overlay */}
       {introVisible && (
         <div className={styles.introOverlay} style={{ opacity: introVisible ? 1 : 0, transition: "opacity 0.6s ease" }}>
@@ -372,9 +345,19 @@ export function SaiWorldCityView() {
       )}
 
       {/* Scroll Progress Indicator */}
-      <nav className={styles.scrollProgress}>
+      <nav className={styles.scrollProgress} aria-label="Sections navigation">
         {SECTIONS.map((s, i) => (
-          <a key={s.id} href={`#${s.id}`} className={`${styles.progressItem} ${activeSection === i ? styles.activeProgress : ""}`} style={{ textDecoration: "none" }}>
+          <a
+            key={s.id}
+            href={`#${s.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById(s.id);
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={`${styles.progressItem} ${activeSection === i ? styles.activeProgress : ""}`}
+            style={{ textDecoration: "none" }}
+          >
             <span className={styles.progressNumber}>{String(i + 1).padStart(2, "0")}</span>
             <span className={styles.progressLine} />
             <span className={styles.progressLabel}>{s.label}</span>
@@ -382,7 +365,7 @@ export function SaiWorldCityView() {
         ))}
       </nav>
 
-      {/* Navigation */}
+      {/* Navigation Header */}
       <header className={`${styles.topNav} ${navSolid ? styles.navSolid : styles.navTransparent}`}>
         <div className={styles.navContainer}>
           <Link href="/works#top" className={styles.backLink}>
@@ -395,14 +378,35 @@ export function SaiWorldCityView() {
           </div>
           <div className={styles.navLinks}>
             {SECTIONS.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className={styles.navLinkItem}>{s.label}</a>
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className={styles.navLinkItem}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById(s.id);
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {s.label}
+              </a>
             ))}
-            <a href="#booking" className={styles.navCta}>Book Visit</a>
+            <a
+              href="#booking"
+              className={styles.navCta}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("booking");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Book Visit
+            </a>
           </div>
         </div>
       </header>
 
-      {/* ═══ HERO — CINEMATIC FULL VIEWPORT ═══ */}
+      {/* ═══ 1. HERO — CINEMATIC FULL VIEWPORT (01 OVERVIEW) ═══ */}
       <section className={styles.heroSection} id="overview">
         <div className={styles.heroBg}>
           {HERO_BANNERS.map((b, i) => (
@@ -413,14 +417,18 @@ export function SaiWorldCityView() {
         <div className={styles.heroVignette} />
         <div className={styles.heroGrain} />
 
-        <button className={styles.heroArrowLeft} onClick={handlePrevBanner} aria-label="Previous image">‹</button>
-        <button className={styles.heroArrowRight} onClick={handleNextBanner} aria-label="Next image">›</button>
+        <button type="button" className={styles.heroArrowLeft} onClick={handlePrevBanner} aria-label="Previous image">‹</button>
+        <button type="button" className={styles.heroArrowRight} onClick={handleNextBanner} aria-label="Next image">›</button>
 
-        {/* Slide Counter */}
-        <div className={styles.slideCounter}>
-          <span className={styles.slideCounterCurrent}>{String(activeBannerIndex + 1).padStart(2, "0")}</span>
-          <span className={styles.slideCounterSep}>/</span>
-          <span className={styles.slideCounterTotal}>{String(HERO_BANNERS.length).padStart(2, "0")}</span>
+        {/* Integrated Hero Controls Bar */}
+        <div className={styles.heroSliderControls}>
+          <button type="button" className={styles.heroControlBtn} onClick={handlePrevBanner} aria-label="Previous slide">‹</button>
+          <div className={styles.slideCounter}>
+            <span className={styles.slideCounterCurrent}>{String(activeBannerIndex + 1).padStart(2, "0")}</span>
+            <span className={styles.slideCounterSep}>/</span>
+            <span className={styles.slideCounterTotal}>{String(HERO_BANNERS.length).padStart(2, "0")}</span>
+          </div>
+          <button type="button" className={styles.heroControlBtn} onClick={handleNextBanner} aria-label="Next slide">›</button>
         </div>
 
         <div className={styles.heroContent}>
@@ -473,482 +481,441 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
-      {/* ═══ EDITORIAL INTRODUCTION ═══ */}
-      <section className={styles.editorialIntro} ref={revealRef}>
-        <div className={`${styles.editorialIntroInner} ${styles.reveal}`}>
-          <h2 className={styles.editorialHeadline}>
-            A city<br />designed for<br /><em>the way you live.</em>
-          </h2>
-          <p className={styles.editorialSub}>
-            Inspired by the world&apos;s greatest cities — New York, Paris &amp; Dubai — Sai World City is a 38-acre integrated global township that redefines luxury living in Navi Mumbai.
-          </p>
-        </div>
-      </section>
+      {/* ═══ 2. MERGED: 75% 75,000 SQ.FT. CLUB VEGAS & 50+ AMENITIES + 25% AREA & FLOOR PLANS (02 CLUB & PLANS) ═══ */}
+      <section className={`${styles.amenitiesSection} ${styles.sectionDark}`} id="amenities" ref={revealRef}>
+        <div className={styles.sectionContainerWide}>
+          <div className={styles.mergedAmenitiesPlansGrid}>
 
-      {/* ═══ ANIMATED STATISTICS ═══ */}
-      <section className={styles.statsSection} ref={revealRef}>
-        <div className={styles.statsGrid}>
-          {[
-            { num: "38", unit: "Acres", label: "GLOBAL TOWNSHIP" },
-            { num: "75,000", unit: "Sq.Ft.", label: "CLUB VEGAS" },
-            { num: "50+", unit: "", label: "LUXURY AMENITIES" },
-            { num: "2–4", unit: "BHK", label: "RESIDENCES" },
-          ].map((s, i) => (
-            <div key={i} className={`${styles.statItem} ${styles.reveal} ${styles[`d${i + 1}` as keyof typeof styles] || ""}`}>
-              <span className={styles.statNumber}>{s.num}</span>
-              {s.unit && <span className={styles.statUnit}>{s.unit}</span>}
-              <span className={styles.statLabel}>{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+            {/* 75% MAIN: 75,000 SQ.FT. CLUB VEGAS & 50+ AMENITIES */}
+            <div className={styles.amenitiesMainCol}>
+              <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+                <span className={styles.sectionEyebrow}>RESORT-STYLE GLOBAL DESTINATION</span>
+                <h2 className={styles.sectionTitle}>75,000 Sq.Ft. Club Vegas &amp; <em>50+ Amenities</em></h2>
+                <p className={styles.sectionDesc}>A Las Vegas-inspired multi-level G+5 clubhouse that transforms everyday living into a resort experience.</p>
+                <div className={styles.sectionLine} />
+              </div>
 
-      {/* PAGE CONTENT WRAPPER */}
-      <div className={styles.pageContentWrapper}>
+              <div className={`${styles.amenityFilterPills} ${styles.reveal}`}>
+                {["All", "Club Vegas", "Wellness & Spa", "Sports Arena", "Kids & Family", "Nature & Gardens", "Sky Living"].map((cat) => (
+                  <button key={cat} className={`${styles.filterPill} ${amenityFilter === cat ? styles.activeFilterPill : ""}`} onClick={() => setAmenityFilter(cat)}>
+                    {cat}
+                  </button>
+                ))}
+              </div>
 
-        {/* ═══ ABOUT THE TOWNSHIP ═══ */}
-        <section className={`${styles.aboutSection} ${styles.sectionWarm}`} ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>THE MASTER VISION</span>
-              <h2 className={styles.sectionTitle}>A Global Landmark in <em>Panvel, Navi Mumbai</em></h2>
-              <p className={styles.sectionDesc}>An international lifestyle where every morning begins with breathtaking Sahyadri hill views and every evening unfolds against a spectacular skyline.</p>
-              <div className={styles.sectionLine} />
-            </div>
-
-            <div className={`${styles.aboutGrid} ${styles.reveal}`}>
-              <div className={styles.aboutTextCol}>
-                <p className={styles.aboutLead}>
-                  Discover an international lifestyle where every morning begins with breathtaking Sahyadri hill views and every evening unfolds against a spectacular skyline.
-                </p>
-                <p className={styles.aboutBody}>
-                  Sai World City is a 38-Acre integrated global township featuring New York, Paris &amp; Dubai-inspired architecture. At its heart lies Club Vegas — a 75,000 sq.ft. multi-level G+5 clubhouse with over 50 world-class amenities including a resort-style infinity pool, TechnoGym fitness, private cinema, and championship sports facilities.
-                </p>
-                <div className={styles.aboutFeatures}>
-                  {[
-                    { icon: "clubhouse", title: "G+5 Club Vegas", desc: "75,000 sq.ft. multi-level resort-style clubhouse" },
-                    { icon: "flight", title: "NMIA Airport 20 Mins", desc: "Direct connectivity to new Navi Mumbai International Airport" },
-                    { icon: "bridge", title: "MTHL Connected", desc: "10 min to Trans-Harbour Link to South Mumbai" },
-                    { icon: "school", title: "Education Hub", desc: "11+ schools and universities within close proximity" },
-                  ].map((f, i) => (
-                    <div key={i} className={styles.aboutFeatureItem}>
-                      <span className={styles.featureIconWrap}>{renderSvgIcon(f.icon)}</span>
-                      <div><strong>{f.title}</strong><span>{f.desc}</span></div>
+              <div className={`${styles.amenityGrid} ${styles.reveal}`}>
+                {filteredAmenities.map((a, i) => (
+                  <div key={i} className={styles.amenityCard}>
+                    <div className={styles.amenityImgWrapper}>
+                      <img src={a.img} alt={a.title} className={styles.amenityImg} loading="lazy" />
                     </div>
-                  ))}
-                </div>
-              </div>
-              <div className={styles.aboutVisualCol}>
-                <div className={styles.aboutImageFrame}>
-                  <img src="https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-1.webp" alt="Sai World City Aerial View" className={styles.aboutMainImg} />
-                  <div className={styles.imageOverlayBadge}>
-                    <span className={styles.badgeNumber}>38</span>
-                    <span className={styles.badgeText}>ACRE TOWNSHIP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ FLOOR PLANS & PRICING ═══ */}
-        <section className={`${styles.pricingSection} ${styles.sectionLight}`} id="pricing" ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>ARCHITECTURAL BLUEPRINTS</span>
-              <h2 className={styles.sectionTitle}>Area &amp; <em>Floor Plan Breakdown</em></h2>
-              <p className={styles.sectionDesc}>Every residence is designed for maximum space efficiency with Vastu-compliant layouts and premium finishes.</p>
-              <div className={styles.sectionLine} />
-            </div>
-
-            <div className={`${styles.planTypeToggleRow} ${styles.reveal}`}>
-              <button className={`${styles.planTypeBtn} ${activeFloorPlanTab === "unit" ? styles.activePlanTypeBtn : ""}`} onClick={() => setActiveFloorPlanTab("unit")}>Unit Plans</button>
-              <button className={`${styles.planTypeBtn} ${activeFloorPlanTab === "master" ? styles.activePlanTypeBtn : ""}`} onClick={() => setActiveFloorPlanTab("master")}>Master Layout</button>
-            </div>
-
-            {activeFloorPlanTab === "unit" ? (
-              <>
-                <div className={`${styles.configTabs} ${styles.reveal}`}>
-                  {UNIT_CONFIGS.map((cfg, idx) => (
-                    <button key={idx} className={`${styles.configTabBtn} ${selectedPlanIndex === idx ? styles.activeTab : ""}`} onClick={() => setSelectedPlanIndex(idx)}>
-                      <div className={styles.tabHeaderRow}>
-                        <span className={styles.tabBhk}>{cfg.bhk}</span>
-                        <span className={styles.tabCarpetMini}>{cfg.carpetArea}</span>
+                    <div className={styles.amenityBadgeRow}>
+                      <span className={styles.amenityCategoryTag}>{a.category}</span>
+                    </div>
+                    <div className={styles.amenityContent}>
+                      <div className={styles.amenityTitleRow}>
+                        <span className={styles.amenitySvgWrap}>{renderSvgIcon(a.iconKey)}</span>
+                        <h3 className={styles.amenityTitle}>{a.title}</h3>
                       </div>
-                      <span className={styles.tabPrice}>{cfg.price}</span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className={`${styles.planDetailsCard} ${styles.reveal}`}>
-                  <div className={styles.planInfoCol}>
-                    <div className={styles.planBadgeRow}>
-                      <span className={styles.planBhkBadge}>{selectedPlan.bhk}</span>
-                      <span className={styles.carpetBadge}>{selectedPlan.carpetArea}</span>
-                    </div>
-                    <h3 className={styles.planTitle}>{selectedPlan.type}</h3>
-                    <p className={styles.planTagline}>{selectedPlan.tagline}</p>
-                    <div className={styles.priceHighlightBox}>
-                      <span className={styles.priceHighlightLabel}>STARTING PRICE</span>
-                      <span className={styles.priceHighlightVal}>{selectedPlan.price}</span>
-                      <span className={styles.priceHighlightNote}>*T&amp;C Apply. Stamp duty &amp; GST additional.</span>
-                    </div>
-                    <div className={styles.dimensionsBox}>
-                      <span className={styles.dimTitle}>ROOM DIMENSIONS</span>
-                      <div className={styles.dimGrid}>
-                        {selectedPlan.dimensions.map((d, i) => (
-                          <div key={i} className={styles.dimRow}>
-                            <span className={styles.dimRoom}>{d.room}</span>
-                            <span className={styles.dimSize}>{d.size}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className={styles.featuresList}>
-                      <span className={styles.featuresTitle}>SPECIFICATION HIGHLIGHTS</span>
-                      <ul>
-                        {selectedPlan.features.map((f, i) => (
-                          <li key={i}>
-                            <svg className={styles.featureCheckSvg} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={styles.planCtaRow}>
-                      <button className={styles.planBookBtn} onClick={() => setIsBrochureModalOpen(true)}><span>REQUEST COST SHEET</span></button>
-                      <a href="#booking" className={styles.planVisitBtn}>SCHEDULE VISIT →</a>
+                      <p className={styles.amenityDesc}>{a.desc}</p>
                     </div>
                   </div>
-                  <div className={styles.planVisualCol}>
-                    <div className={styles.unitPlanSchematicCard} onClick={() => setLightboxImage(selectedPlan.blueprintImg)}>
-                      <img src={selectedPlan.blueprintImg} alt={`${selectedPlan.bhk} Floor Plan`} className={styles.unitPlanImg} />
-                      <div className={styles.unitPlanOverlay}>VIEW FULL PLAN</div>
-                    </div>
-                    <div className={styles.planHighlightsCard}>
-                      <div className={styles.planHighlightsHeader}>
-                        <span className={styles.planHighlightsEyebrow}>ADVANTAGES</span>
-                        <h4 className={styles.planHighlightsTitle}>{selectedPlan.type}</h4>
-                      </div>
-                      <div className={styles.planBadgeChips}>
-                        {selectedPlan.highlights.map((h, i) => (
-                          <span key={i} className={styles.planChipBadge}>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
-                            {h}
-                          </span>
-                        ))}
-                      </div>
-                      <div className={styles.planSummaryBox}>
-                        <div className={styles.summaryRow}><span>Configuration</span><strong>{selectedPlan.bhk}</strong></div>
-                        <div className={styles.summaryRow}><span>Carpet Area</span><strong>{selectedPlan.carpetArea}</strong></div>
-                        <div className={styles.summaryRow}><span>Price Range</span><strong className={styles.goldPrice}>{selectedPlan.price}</strong></div>
-                      </div>
-                      <button className={styles.requestCostSheetBtn} onClick={() => setIsBrochureModalOpen(true)}>DOWNLOAD BROCHURE</button>
-                    </div>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className={`${styles.masterPlanCard} ${styles.reveal}`}>
-                <div className={styles.blueprintWrap} onClick={() => setLightboxImage("https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp")}>
-                  <img src="https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp" alt="Master Layout Plan" className={styles.blueprintImg} />
-                  <div className={styles.blueprintZoomOverlay}>VIEW FULL LAYOUT</div>
-                </div>
-                <div className={styles.masterPlanMeta}>
-                  <h3>38-Acre Master Layout</h3>
-                  <p>A meticulously planned township featuring dedicated zones for residential towers, 75,000 sq.ft. Club Vegas, landscaped podium gardens, covered parking, and commercial retail amenities.</p>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* ═══ AMENITIES — CINEMATIC DARK ═══ */}
-        <section className={`${styles.amenitiesSection} ${styles.sectionDark}`} id="amenities" ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>RESORT-STYLE GLOBAL DESTINATION</span>
-              <h2 className={styles.sectionTitle}>75,000 Sq.Ft. Club Vegas &amp; <em>50+ Amenities</em></h2>
-              <p className={styles.sectionDesc}>A Las Vegas-inspired multi-level G+5 clubhouse that transforms everyday living into a resort experience.</p>
-              <div className={styles.sectionLine} />
-            </div>
-
-            <div className={`${styles.amenityFilterPills} ${styles.reveal}`}>
-              {["All", "Club Vegas", "Wellness & Spa", "Sports Arena", "Kids & Family", "Nature & Gardens", "Sky Living"].map((cat) => (
-                <button key={cat} className={`${styles.filterPill} ${amenityFilter === cat ? styles.activeFilterPill : ""}`} onClick={() => setAmenityFilter(cat)}>
-                  {cat}
-                </button>
-              ))}
-            </div>
-
-            <div className={`${styles.amenityGrid} ${styles.reveal}`}>
-              {filteredAmenities.map((a, i) => (
-                <div key={i} className={styles.amenityCard}>
-                  <div className={styles.amenityImgWrapper}>
-                    <img src={a.img} alt={a.title} className={styles.amenityImg} loading="lazy" />
-                  </div>
-                  <div className={styles.amenityBadgeRow}>
-                    <span className={styles.amenityCategoryTag}>{a.category}</span>
-                  </div>
-                  <div className={styles.amenityContent}>
-                    <div className={styles.amenityTitleRow}>
-                      <span className={styles.amenitySvgWrap}>{renderSvgIcon(a.iconKey)}</span>
-                      <h3 className={styles.amenityTitle}>{a.title}</h3>
-                    </div>
-                    <p className={styles.amenityDesc}>{a.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ WALKTHROUGH — STEP INSIDE ═══ */}
-        <section className={styles.walkthroughSection} id="walkthrough" ref={revealRef}>
-          <div className={styles.walkthroughHeaderWrap}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>ARCHITECTURE TOUR</span>
-              <h2 className={styles.sectionTitle}><em>Step Inside.</em></h2>
-              <p className={styles.sectionDesc}>Experience the township through an official cinematic walkthrough.</p>
-            </div>
-          </div>
-          <div className={`${styles.videoPlayerFullBleed} ${styles.reveal}`}>
-            <iframe className={styles.youtubeIframeFull} src="https://www.youtube.com/embed/UYhKDhcTttA?autoplay=1&mute=1&loop=1&playlist=UYhKDhcTttA&controls=0&showinfo=0&modestbranding=1" title="Sai World City Walkthrough" allow="autoplay; encrypted-media" loading="lazy" />
-            <div className={styles.videoFloatingControlBar}>
-              <div className={styles.videoMetaLeft}>
-                <span className={styles.liveAutoplayBadge}><span className={styles.liveDot} /> AUTOPLAY</span>
-                <span className={styles.videoTitleText}>Official Architecture Tour — Sai World City Panvel</span>
-              </div>
-              <button className={styles.fullscreenTourBtn} onClick={() => setIsVideoOpen(true)}>WATCH FULL FILM</button>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ LOCATION ═══ */}
-        <section className={`${styles.locationSection} ${styles.sectionWarm}`} id="location" ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>STRATEGIC CONNECTIVITY</span>
-              <h2 className={styles.sectionTitle}>Connected to <em>Everything.</em></h2>
-              <p className={styles.sectionDesc}>Strategically positioned at the confluence of Mumbai&apos;s major infrastructure projects including MTHL, NMIA, and MMC.</p>
-              <div className={styles.sectionLine} />
-            </div>
-
-            <div className={`${styles.locationTabsRow} ${styles.reveal}`}>
-              {LOCATION_CATEGORIES.map((cat) => (
-                <button key={cat.id} className={`${styles.locationTabBtn} ${locationTab === cat.id ? styles.activeLocationTab : ""}`} onClick={() => setLocationTab(cat.id)}>
-                  {cat.name}
-                </button>
-              ))}
-            </div>
-
-            <div className={`${styles.connectivityGrid} ${styles.reveal}`}>
-              {filteredLocations.slice(0, 9).map((loc, i) => (
-                <div key={i} className={styles.connectivityCard}>
-                  <span className={styles.connIconWrap}>{renderSvgIcon(loc.iconKey)}</span>
-                  <div className={styles.connInfo}>
-                    <div className={styles.connHeaderRow}>
-                      <span className={styles.connType}>{loc.type}</span>
-                      <span className={styles.connTimeBadge}>{loc.time}</span>
-                    </div>
-                    <h4 className={styles.connName}>{loc.name}</h4>
-                    <p className={styles.connNote}>{loc.note}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.googleMapsFullBleedSection}>
-              <div className={styles.mapsTopBanner}>
-                <div className={styles.mapsTopBannerContent}>
-                  <div className={styles.mapsTextGroup}>
-                    <span className={styles.mapEyebrow}>PROJECT LOCATION</span>
-                    <h3 className={styles.mapTitle}>Sai World City — Palaspe Junction, Panvel</h3>
-                    <p className={styles.mapSub}>Near Panvel Railway Station · Opposite Palaspe Phata · Off Old Mumbai-Pune Highway</p>
-                  </div>
-                  <a href="https://maps.google.com/?q=Sai+World+City+Panvel" target="_blank" rel="noopener noreferrer" className={styles.mapDirectionsBtn}>GET DIRECTIONS</a>
-                </div>
-              </div>
-              <div className={styles.googleMapsIframeWrap}>
-                <iframe className={styles.googleMapsIframe} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.123456789!2d73.12!3d18.99!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSai+World+City!5e0!3m2!1sen!2sin!4v1234567890" title="Sai World City Location" loading="lazy" allowFullScreen />
+                ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ═══ GALLERY — ASYMMETRIC EDITORIAL ═══ */}
-        <section className={`${styles.gallerySection} ${styles.sectionLight}`} id="gallery" ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.sectionHeader} ${styles.reveal}`}>
-              <span className={styles.sectionEyebrow}>VISUAL PORTFOLIO</span>
-              <h2 className={styles.sectionTitle}>Project <em>Gallery</em></h2>
-              <p className={styles.sectionDesc}>Architectural photography capturing the scale, design, and ambition of Sai World City.</p>
-              <div className={styles.sectionLine} />
-            </div>
+            {/* 25% SIDEBAR: AREA & FLOOR PLAN BREAKDOWN STUDIO */}
+            <div className={styles.floorPlanSidebarCol} id="pricing">
+              <div className={`${styles.sidebarPlanStickyCard} ${styles.reveal}`}>
+                <div className={styles.sidebarPlanHeader}>
+                  <span className={styles.sidebarEyebrow}>ARCHITECTURAL BLUEPRINTS</span>
+                  <h3 className={styles.sidebarTitle}>Residences <em>&amp; Plans</em></h3>
+                  <p className={styles.sidebarSub}>Area breakdown &amp; Vastu layouts</p>
+                </div>
 
-            <div className={`${styles.galleryFilterRow} ${styles.reveal}`}>
-              {["All", "Architecture", "Club Vegas", "Interiors", "Landscape"].map((cat) => (
-                <button key={cat} className={`${styles.galleryPill} ${galleryFilter === cat ? styles.activeGalleryPill : ""}`} onClick={() => setGalleryFilter(cat)}>
-                  {cat}
-                </button>
-              ))}
-            </div>
+                {/* Plan Type Selector (Unit vs Master) */}
+                <div className={styles.sidebarPlanToggleRow}>
+                  <button className={`${styles.sidebarToggleBtn} ${activeFloorPlanTab === "unit" ? styles.activeSidebarToggle : ""}`} onClick={() => setActiveFloorPlanTab("unit")}>
+                    Unit Plans
+                  </button>
+                  <button className={`${styles.sidebarToggleBtn} ${activeFloorPlanTab === "master" ? styles.activeSidebarToggle : ""}`} onClick={() => setActiveFloorPlanTab("master")}>
+                    Master Plan
+                  </button>
+                </div>
 
-            <div className={`${styles.galleryGrid} ${styles.reveal}`}>
-              {filteredGallery.map((item, i) => (
-                <div key={i} className={styles.galleryCard} onClick={() => setLightboxImage(item.img)}>
-                  <div className={styles.galleryImgWrap}>
-                    <img src={item.img} alt={item.title} className={styles.galleryImg} loading="lazy" />
-                  </div>
-                  <div className={styles.galleryOverlay}>
-                    <span className={styles.zoomIcon}>VIEW →</span>
-                  </div>
-                  <div className={styles.galleryMeta}>
-                    <span className={styles.galleryTag}>{item.category}</span>
-                    <h4 className={styles.galleryTitle}>{item.title}</h4>
-                    <p className={styles.galleryDesc}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ DEVELOPER SPOTLIGHT ═══ */}
-        <section className={`${styles.developerSection} ${styles.sectionGraphite}`} ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.developerCard} ${styles.reveal}`}>
-              <div className={styles.devHeader}>
-                <span className={styles.devEyebrow}>DEVELOPER SPOTLIGHT</span>
-                <h3>Paradise Group — <em>34 Years of Architectural Excellence</em></h3>
-              </div>
-              <p className={styles.devDesc}>
-                Established in 1990, Paradise Group is one of Navi Mumbai&apos;s most trusted real estate developers with a portfolio spanning 50+ residential and commercial projects, 25,000+ delivered homes, and a reputation built on architectural innovation and timely delivery.
-              </p>
-              <div className={styles.devStatsRow}>
-                <div className={styles.devStat}><strong>34+</strong><span>Years of Excellence</span></div>
-                <div className={styles.devStat}><strong>50+</strong><span>Landmark Projects</span></div>
-                <div className={styles.devStat}><strong>25,000+</strong><span>Happy Families</span></div>
-                <div className={styles.devStat}><strong>15M+</strong><span>Sq.Ft. Developed</span></div>
-              </div>
-              <div className={styles.reraDisclosuresGrid}>
-                <div className={styles.reraCard}>
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=P52000006318&color=C5A76F&bgcolor=1A1A1A" alt="RERA QR" className={styles.qrCodeImg} />
-                  <div className={styles.reraDetails}>
-                    <span className={styles.reraTag}>MAHARERA</span>
-                    <strong className={styles.reraNumber}>P52000006318</strong>
-                    <p>Phase 2 — Verified &amp; Compliant</p>
-                  </div>
-                </div>
-                <div className={styles.reraCard}>
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=P52000038422&color=C5A76F&bgcolor=1A1A1A" alt="RERA QR" className={styles.qrCodeImg} />
-                  <div className={styles.reraDetails}>
-                    <span className={styles.reraTag}>MAHARERA</span>
-                    <strong className={styles.reraNumber}>P52000038422</strong>
-                    <p>Phase 3 — Verified &amp; Compliant</p>
-                  </div>
-                </div>
-                <div className={styles.reraCard}>
-                  <div className={styles.agentBadgeIcon}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                  </div>
-                  <div className={styles.reraDetails}>
-                    <span className={styles.reraTag}>CHANNEL PARTNER</span>
-                    <strong className={styles.reraNumber}>AASCO Realty</strong>
-                    <p>Authorized MahaRERA Agent: A52000032476</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ BOOKING / CTA ═══ */}
-        <section className={`${styles.bookingSection} ${styles.sectionDark}`} id="booking" ref={revealRef}>
-          <div className={styles.sectionContainer}>
-            <div className={`${styles.bookingWrapper} ${styles.reveal}`}>
-              <div className={styles.bookingIntro}>
-                <span className={styles.bookingEyebrow}>EXCLUSIVE CONSULTATION</span>
-                <h2>Ready to see it <em>for yourself?</em></h2>
-                <p className={styles.bookingLead}>
-                  Schedule a private site visit with our property consultants. Experience the township, explore show flats, and receive exclusive pricing.
-                </p>
-                <div className={styles.bookingPerks}>
-                  {["Priority access to pre-launch inventory & early-bird pricing", "Complimentary cab from Panvel station for site visit", "Dedicated relationship manager throughout purchase journey", "Exclusive Aasco Realty cashback & festive offers"].map((perk, i) => (
-                    <div key={i} className={styles.perkItem}>
-                      <svg className={styles.perkCheckSvg} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                      {perk}
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.whatsappDirect}>
-                  <span>Prefer WhatsApp?</span>
-                  <a href="https://wa.me/919082407700?text=Hi%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-                    CHAT NOW
-                  </a>
-                </div>
-              </div>
-
-              <div className={styles.bookingFormContainer}>
-                {!formSubmitted ? (
+                {activeFloorPlanTab === "unit" ? (
                   <>
-                    <h3 className={styles.formTitle}>Book a Private Visit</h3>
-                    <form className={styles.bookingForm} onSubmit={handleBookingSubmit}>
-                      <div className={styles.formRow}>
-                        <div className={styles.formField}>
-                          <label>FULL NAME</label>
-                          <input type="text" placeholder="Your name" required />
-                        </div>
-                        <div className={styles.formField}>
-                          <label>MOBILE NUMBER</label>
-                          <input type="tel" placeholder="+91" required />
-                        </div>
-                      </div>
-                      <div className={styles.formField}>
-                        <label>EMAIL</label>
-                        <input type="email" placeholder="your@email.com" />
-                      </div>
-                      <div className={styles.formRow}>
-                        <div className={styles.formField}>
-                          <label>CONFIGURATION</label>
-                          <select value={selectedConfigInterest} onChange={(e) => setSelectedConfigInterest(e.target.value)}>
-                            <option value="2 BHK">2 BHK — ₹1.25 Cr*</option>
-                            <option value="3 BHK">3 BHK — ₹2.41 Cr*</option>
-                            <option value="3.5 BHK">3.5 BHK — ₹2.89 Cr*</option>
-                            <option value="4 BHK">4 BHK — ₹3.34 Cr*</option>
-                          </select>
-                        </div>
-                        <div className={styles.formField}>
-                          <label>PREFERRED DATE</label>
-                          <input type="date" value={siteVisitDate} onChange={(e) => setSiteVisitDate(e.target.value)} />
+                    {/* BHK Selector Chips */}
+                    <div className={styles.sidebarBhkChipsRow}>
+                      {UNIT_CONFIGS.map((cfg, idx) => (
+                        <button key={idx} className={`${styles.sidebarBhkChip} ${selectedPlanIndex === idx ? styles.activeBhkChip : ""}`} onClick={() => setSelectedPlanIndex(idx)}>
+                          <span className={styles.sidebarBhkText}>{cfg.bhk}</span>
+                          <span className={styles.sidebarCarpetMini}>{cfg.carpetArea.split("-")[0].trim()}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Selected Plan Details Box */}
+                    <div className={styles.sidebarSelectedCard}>
+                      <div className={styles.sidebarPlanMetaTop}>
+                        <h4 className={styles.sidebarPlanName}>{selectedPlan.type}</h4>
+                        <div className={styles.sidebarPriceTag}>
+                          <span className={styles.sidebarPriceLabel}>STARTING</span>
+                          <span className={styles.sidebarPriceVal}>{selectedPlan.price}</span>
                         </div>
                       </div>
-                      <div className={styles.checkboxGroup}>
-                        <label className={styles.checkboxLabel}>
-                          <input type="checkbox" defaultChecked />
-                          I agree to receive property updates via WhatsApp &amp; SMS
-                        </label>
+
+                      {/* Interactive Blueprint Thumbnail with Lightbox zoom */}
+                      <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxImage(selectedPlan.blueprintImg)}>
+                        <img src={selectedPlan.blueprintImg} alt={`${selectedPlan.bhk} Plan`} className={styles.sidebarBlueprintImg} />
+                        <div className={styles.sidebarBlueprintZoomBadge}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                          <span>ENLARGE BLUEPRINT</span>
+                        </div>
                       </div>
-                      <button type="submit" className={styles.submitBookingBtn}>BOOK PRIVATE VISIT</button>
-                      <p className={styles.disclaimerText}>
-                        By submitting, you agree to our Privacy Policy. Your data is secure and will only be used for property consultation.
-                      </p>
-                    </form>
+
+                      {/* Room Specifications */}
+                      <div className={styles.sidebarDimBox}>
+                        <span className={styles.sidebarDimTitle}>ROOM SPECIFICATIONS</span>
+                        <div className={styles.sidebarDimList}>
+                          {selectedPlan.dimensions.map((d, i) => (
+                            <div key={i} className={styles.sidebarDimRow}>
+                              <span className={styles.sidebarDimRoom}>{d.room}</span>
+                              <span className={styles.sidebarDimSize}>{d.size}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Key highlights pills */}
+                      <div className={styles.sidebarChipsList}>
+                        {selectedPlan.highlights.map((h, i) => (
+                          <span key={i} className={styles.sidebarHighlightPill}>✓ {h}</span>
+                        ))}
+                      </div>
+
+                      {/* Actions */}
+                      <div className={styles.sidebarActionsCol}>
+                        <button className={styles.sidebarRequestBtn} onClick={() => setIsBrochureModalOpen(true)}>
+                          DOWNLOAD COST SHEET
+                        </button>
+                        <a href="#booking" className={styles.sidebarVisitLink}>
+                          SCHEDULE SITE VISIT →
+                        </a>
+                      </div>
+                    </div>
                   </>
                 ) : (
-                  <div className={styles.successState}>
-                    <div className={styles.successCheck}>✓</div>
-                    <h3>Visit Confirmed</h3>
-                    <p>Our property consultant will contact you within 30 minutes to finalize your private site visit.</p>
-                    <button className={styles.resetBtn} onClick={() => setFormSubmitted(false)}>SUBMIT ANOTHER ENQUIRY</button>
+                  <div className={styles.sidebarMasterPlanBox}>
+                    <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxImage("https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp")}>
+                      <img src="https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp" alt="Master Plan" className={styles.sidebarBlueprintImg} />
+                      <div className={styles.sidebarBlueprintZoomBadge}>
+                        <span>ENLARGE MASTER LAYOUT</span>
+                      </div>
+                    </div>
+                    <p className={styles.sidebarMasterDesc}>38-Acre global township layout with residential towers, 75K Sq.Ft. Club Vegas, and podium gardens.</p>
+                    <button className={styles.sidebarRequestBtn} onClick={() => setIsBrochureModalOpen(true)}>
+                      DOWNLOAD MASTER BROCHURE
+                    </button>
                   </div>
                 )}
               </div>
             </div>
+
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* ═══ 3. WALKTHROUGH — STEP INSIDE (03 FILM) ═══ */}
+      <section className={styles.walkthroughSection} id="walkthrough" ref={revealRef}>
+        <div className={styles.walkthroughHeaderWrap}>
+          <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+            <span className={styles.sectionEyebrow}>ARCHITECTURE TOUR</span>
+            <h2 className={styles.sectionTitle}><em>Step Inside.</em></h2>
+            <p className={styles.sectionDesc}>Experience the township through an official cinematic walkthrough.</p>
+          </div>
+        </div>
+        <div className={`${styles.videoPlayerFullBleed} ${styles.reveal}`}>
+          <iframe className={styles.youtubeIframeFull} src="https://www.youtube.com/embed/SzbhWhcaKqg?autoplay=1&mute=1&loop=1&playlist=SzbhWhcaKqg&controls=0&showinfo=0&modestbranding=1" title="Sai World City Walkthrough" allow="autoplay; encrypted-media" loading="lazy" />
+          <div className={styles.videoFloatingControlBar}>
+            <div className={styles.videoMetaLeft}>
+              <span className={styles.liveAutoplayBadge}><span className={styles.liveDot} /> AUTOPLAY</span>
+              <span className={styles.videoTitleText}>Official Architecture Tour — Sai World City Panvel</span>
+            </div>
+            <button className={styles.fullscreenTourBtn} onClick={() => setIsVideoOpen(true)}>WATCH FULL FILM</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 4. GALLERY — PROJECT GALLERY (04 GALLERY) ═══ */}
+      <section className={`${styles.gallerySection} ${styles.sectionLight}`} id="gallery" ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+            <span className={styles.sectionEyebrow}>VISUAL PORTFOLIO</span>
+            <h2 className={styles.sectionTitle}>Project <em>Gallery</em></h2>
+            <p className={styles.sectionDesc}>Architectural photography capturing the scale, design, and ambition of Sai World City.</p>
+            <div className={styles.sectionLine} />
+          </div>
+
+          <div className={`${styles.galleryFilterRow} ${styles.reveal}`}>
+            {["All", "Architecture", "Club Vegas", "Interiors", "Landscape"].map((cat) => (
+              <button key={cat} className={`${styles.galleryPill} ${galleryFilter === cat ? styles.activeGalleryPill : ""}`} onClick={() => setGalleryFilter(cat)}>
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className={`${styles.galleryGrid} ${styles.reveal}`}>
+            {filteredGallery.map((item, i) => (
+              <div key={i} className={styles.galleryCard} onClick={() => setLightboxImage(item.img)}>
+                <div className={styles.galleryImgWrap}>
+                  <img src={item.img} alt={item.title} className={styles.galleryImg} loading="lazy" />
+                </div>
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.zoomIcon}>VIEW →</span>
+                </div>
+                <div className={styles.galleryMeta}>
+                  <span className={styles.galleryTag}>{item.category}</span>
+                  <h4 className={styles.galleryTitle}>{item.title}</h4>
+                  <p className={styles.galleryDesc}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 5. LOCATION — CONNECTED TO EVERYTHING (05 LOCATION) ═══ */}
+      <section className={`${styles.locationSection} ${styles.sectionWarm}`} id="location" ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+            <span className={styles.sectionEyebrow}>STRATEGIC CONNECTIVITY</span>
+            <h2 className={styles.sectionTitle}>Connected to <em>Everything.</em></h2>
+            <p className={styles.sectionDesc}>Strategically positioned at the confluence of Mumbai&apos;s major infrastructure projects including MTHL, NMIA, and MMC.</p>
+            <div className={styles.sectionLine} />
+          </div>
+
+          <div className={`${styles.locationTabsRow} ${styles.reveal}`}>
+            {LOCATION_CATEGORIES.map((cat) => (
+              <button key={cat.id} className={`${styles.locationTabBtn} ${locationTab === cat.id ? styles.activeLocationTab : ""}`} onClick={() => setLocationTab(cat.id)}>
+                {cat.name}
+              </button>
+            ))}
+          </div>
+
+          <div className={`${styles.connectivityGrid} ${styles.reveal}`}>
+            {filteredLocations.slice(0, 9).map((loc, i) => (
+              <div key={i} className={styles.connectivityCard}>
+                <span className={styles.connIconWrap}>{renderSvgIcon(loc.iconKey)}</span>
+                <div className={styles.connInfo}>
+                  <div className={styles.connHeaderRow}>
+                    <span className={styles.connType}>{loc.type}</span>
+                    <span className={styles.connTimeBadge}>{loc.time}</span>
+                  </div>
+                  <h4 className={styles.connName}>{loc.name}</h4>
+                  <p className={styles.connNote}>{loc.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.googleMapsFullBleedSection}>
+            <div className={styles.mapsTopBanner}>
+              <div className={styles.mapsTopBannerContent}>
+                <div className={styles.mapsTextGroup}>
+                  <span className={styles.mapEyebrow}>PROJECT LOCATION</span>
+                  <h3 className={styles.mapTitle}>Sai World City — Palaspe Junction, Panvel</h3>
+                  <p className={styles.mapSub}>Near Panvel Railway Station · Opposite Palaspe Phata · Off Old Mumbai-Pune Highway</p>
+                </div>
+                <a href="https://maps.google.com/?q=Sai+World+City+Panvel" target="_blank" rel="noopener noreferrer" className={styles.mapDirectionsBtn}>GET DIRECTIONS</a>
+              </div>
+            </div>
+            <div className={styles.googleMapsIframeWrap}>
+              <iframe className={styles.googleMapsIframe} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.123456789!2d73.12!3d18.99!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSai+World+City!5e0!3m2!1sen!2sin!4v1234567890" title="Sai World City Location" loading="lazy" allowFullScreen />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 6. ABOUT THE MASTER VISION & DEVELOPER (06 ABOUT) ═══ */}
+      <section className={`${styles.aboutSection} ${styles.sectionWarm}`} id="about" ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+            <span className={styles.sectionEyebrow}>THE MASTER VISION</span>
+            <h2 className={styles.sectionTitle}>A Global Landmark in <em>Panvel, Navi Mumbai</em></h2>
+            <p className={styles.sectionDesc}>An international lifestyle where every morning begins with breathtaking Sahyadri hill views and every evening unfolds against a spectacular skyline.</p>
+            <div className={styles.sectionLine} />
+          </div>
+
+          <div className={`${styles.aboutGrid} ${styles.reveal}`}>
+            <div className={styles.aboutTextCol}>
+              <p className={styles.aboutLead}>
+                Discover an international lifestyle where every morning begins with breathtaking Sahyadri hill views and every evening unfolds against a spectacular skyline.
+              </p>
+              <p className={styles.aboutBody}>
+                Sai World City is a 38-Acre integrated global township featuring New York, Paris &amp; Dubai-inspired architecture. At its heart lies Club Vegas — a 75,000 sq.ft. multi-level G+5 clubhouse with over 50 world-class amenities including a resort-style infinity pool, TechnoGym fitness, private cinema, and championship sports facilities.
+              </p>
+              <div className={styles.aboutFeatures}>
+                {[
+                  { icon: "clubhouse", title: "G+5 Club Vegas", desc: "75,000 sq.ft. multi-level resort-style clubhouse" },
+                  { icon: "flight", title: "NMIA Airport 20 Mins", desc: "Direct connectivity to new Navi Mumbai International Airport" },
+                  { icon: "bridge", title: "MTHL Connected", desc: "10 min to Trans-Harbour Link to South Mumbai" },
+                  { icon: "school", title: "Education Hub", desc: "11+ schools and universities within close proximity" },
+                ].map((f, i) => (
+                  <div key={i} className={styles.aboutFeatureItem}>
+                    <span className={styles.featureIconWrap}>{renderSvgIcon(f.icon)}</span>
+                    <div><strong>{f.title}</strong><span>{f.desc}</span></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={styles.aboutVisualCol}>
+              <div className={styles.aboutImageFrame}>
+                <img src="https://paradise-saiworldcitypanvel.com/assets/images/gallery/Gallery-1.webp" alt="Sai World City Aerial View" className={styles.aboutMainImg} />
+                <div className={styles.imageOverlayBadge}>
+                  <span className={styles.badgeNumber}>38</span>
+                  <span className={styles.badgeText}>ACRE TOWNSHIP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DEVELOPER SPOTLIGHT */}
+      <section className={`${styles.developerSection} ${styles.sectionGraphite}`} ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.developerCard} ${styles.reveal}`}>
+            <div className={styles.devHeader}>
+              <span className={styles.devEyebrow}>DEVELOPER SPOTLIGHT</span>
+              <h3>Paradise Group — <em>34 Years of Architectural Excellence</em></h3>
+            </div>
+            <p className={styles.devDesc}>
+              Established in 1990, Paradise Group is one of Navi Mumbai&apos;s most trusted real estate developers with a portfolio spanning 50+ residential and commercial projects, 25,000+ delivered homes, and a reputation built on architectural innovation and timely delivery.
+            </p>
+            <div className={styles.devStatsRow}>
+              <div className={styles.devStat}><strong>34+</strong><span>Years of Excellence</span></div>
+              <div className={styles.devStat}><strong>50+</strong><span>Landmark Projects</span></div>
+              <div className={styles.devStat}><strong>25,000+</strong><span>Happy Families</span></div>
+              <div className={styles.devStat}><strong>15M+</strong><span>Sq.Ft. Developed</span></div>
+            </div>
+            <div className={styles.reraDisclosuresGrid}>
+              <div className={styles.reraCard}>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=P52000006318&color=C5A76F&bgcolor=1A1A1A" alt="RERA QR" className={styles.qrCodeImg} />
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>MAHARERA</span>
+                  <strong className={styles.reraNumber}>P52000006318</strong>
+                  <p>Phase 2 — Verified &amp; Compliant</p>
+                </div>
+              </div>
+              <div className={styles.reraCard}>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=P52000038422&color=C5A76F&bgcolor=1A1A1A" alt="RERA QR" className={styles.qrCodeImg} />
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>MAHARERA</span>
+                  <strong className={styles.reraNumber}>P52000038422</strong>
+                  <p>Phase 3 — Verified &amp; Compliant</p>
+                </div>
+              </div>
+              <div className={styles.reraCard}>
+                <div className={styles.agentBadgeIcon}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                </div>
+                <div className={styles.reraDetails}>
+                  <span className={styles.reraTag}>CHANNEL PARTNER</span>
+                  <strong className={styles.reraNumber}>AASCO Realty</strong>
+                  <p>Authorized MahaRERA Agent: A52000032476</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 7. BOOKING / CTA (07 ENQUIRE) ═══ */}
+      <section className={`${styles.bookingSection} ${styles.sectionDark}`} id="booking" ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.bookingWrapper} ${styles.reveal}`}>
+            <div className={styles.bookingIntro}>
+              <span className={styles.bookingEyebrow}>EXCLUSIVE CONSULTATION</span>
+              <h2>Ready to see it <em>for yourself?</em></h2>
+              <p className={styles.bookingLead}>
+                Schedule a private site visit with our property consultants. Experience the township, explore show flats, and receive exclusive pricing.
+              </p>
+              <div className={styles.bookingPerks}>
+                {["Priority access to pre-launch inventory & early-bird pricing", "Complimentary cab from Panvel station for site visit", "Dedicated relationship manager throughout purchase journey", "Exclusive Aasco Realty cashback & festive offers"].map((perk, i) => (
+                  <div key={i} className={styles.perkItem}>
+                    <svg className={styles.perkCheckSvg} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                    {perk}
+                  </div>
+                ))}
+              </div>
+              <div className={styles.whatsappDirect}>
+                <span>Prefer WhatsApp?</span>
+                <a href="https://wa.me/919082407700?text=Hi%20Aasco%2C%20I%20am%20interested%20in%20Sai%20World%20City%20Panvel.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+                  CHAT NOW
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.bookingFormContainer}>
+              {!formSubmitted ? (
+                <>
+                  <h3 className={styles.formTitle}>Book a Private Visit</h3>
+                  <form className={styles.bookingForm} onSubmit={handleBookingSubmit}>
+                    <div className={styles.formRow}>
+                      <div className={styles.formField}>
+                        <label htmlFor="booking_name">FULL NAME</label>
+                        <input id="booking_name" name="name" type="text" placeholder="Your name" required autoComplete="name" />
+                      </div>
+                      <div className={styles.formField}>
+                        <label htmlFor="booking_phone">MOBILE NUMBER</label>
+                        <input id="booking_phone" name="phone" type="tel" placeholder="+91" required autoComplete="tel" />
+                      </div>
+                    </div>
+                    <div className={styles.formField}>
+                      <label htmlFor="booking_email">EMAIL</label>
+                      <input id="booking_email" name="email" type="email" placeholder="your@email.com" autoComplete="email" />
+                    </div>
+                    <div className={styles.formRow}>
+                      <div className={styles.formField}>
+                        <label htmlFor="booking_config">CONFIGURATION</label>
+                        <select id="booking_config" name="configuration" value={selectedConfigInterest} onChange={(e) => setSelectedConfigInterest(e.target.value)}>
+                          <option value="2 BHK">2 BHK — ₹1.25 Cr*</option>
+                          <option value="3 BHK">3 BHK — ₹2.41 Cr*</option>
+                          <option value="3.5 BHK">3.5 BHK — ₹2.89 Cr*</option>
+                          <option value="4 BHK">4 BHK — ₹3.34 Cr*</option>
+                        </select>
+                      </div>
+                      <div className={styles.formField}>
+                        <label htmlFor="booking_date">PREFERRED DATE</label>
+                        <input id="booking_date" name="visitDate" type="date" value={siteVisitDate} onChange={(e) => setSiteVisitDate(e.target.value)} />
+                      </div>
+                    </div>
+                    <div className={styles.checkboxGroup}>
+                      <label className={styles.checkboxLabel} htmlFor="booking_consent">
+                        <input id="booking_consent" name="consent" type="checkbox" defaultChecked />
+                        I agree to receive property updates via WhatsApp &amp; SMS
+                      </label>
+                    </div>
+                    <button type="submit" className={styles.submitBookingBtn}>BOOK PRIVATE VISIT</button>
+                    <p className={styles.disclaimerText}>
+                      By submitting, you agree to our Privacy Policy. Your data is secure and will only be used for property consultation.
+                    </p>
+                  </form>
+                </>
+              ) : (
+                <div className={styles.successState}>
+                  <div className={styles.successCheck}>✓</div>
+                  <h3>Visit Confirmed</h3>
+                  <p>Our property consultant will contact you within 30 minutes to finalize your private site visit.</p>
+                  <button className={styles.resetBtn} onClick={() => setFormSubmitted(false)}>SUBMIT ANOTHER ENQUIRY</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ═══ FOOTER ═══ */}
       <footer className={styles.bottomFooter}>
@@ -986,14 +953,14 @@ export function SaiWorldCityView() {
               <h4 className={styles.footerColTitle}>LEGAL</h4>
               <div className={styles.footerColLinks}>
                 <Link href="/privacy-policy">Privacy Policy</Link>
-                <a href="#">Terms of Service</a>
-                <a href="#">Disclaimer</a>
+                <Link href="/privacy-policy">Terms of Service</Link>
+                <Link href="/privacy-policy">Disclaimer</Link>
               </div>
             </div>
           </div>
           <div className={styles.footerDisclaimers}>
             <p>Disclaimer: This website is a marketing initiative by AASCO Realty (MahaRERA Agent Reg: A52000032476). Content is for informational purposes only and does not constitute an offer or contract.</p>
-            <p className={styles.footerCopyright}>© {new Date().getFullYear()} AASCO Realty — From Dream to Reality. All rights reserved.</p>
+            <p className={styles.footerCopyright}>© 2026 AASCO Realty — From Dream to Reality. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -1008,7 +975,7 @@ export function SaiWorldCityView() {
           </div>
           <div className={styles.stickyActions}>
             <a href="tel:+919082407700" className={styles.stickyCallBtn}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               CALL
             </a>
             <a href="https://wa.me/919082407700" target="_blank" rel="noopener noreferrer" className={styles.stickyWhatsappBtn}>
@@ -1026,7 +993,7 @@ export function SaiWorldCityView() {
         <div className={styles.modalBackdrop} onClick={() => setIsVideoOpen(false)}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.videoEmbedWrapper}>
-              <iframe className={styles.modalIframe} src="https://www.youtube.com/embed/UYhKDhcTttA?autoplay=1&rel=0" title="Walkthrough" allow="autoplay; encrypted-media" allowFullScreen />
+              <iframe className={styles.modalIframe} src="https://www.youtube.com/embed/SzbhWhcaKqg?autoplay=1&rel=0" title="Walkthrough" allow="autoplay; encrypted-media" allowFullScreen />
             </div>
           </div>
         </div>
@@ -1044,9 +1011,18 @@ export function SaiWorldCityView() {
                 <>
                   <p className={styles.brochureIntro}>Enter your details to receive the complete project brochure and pricing sheet.</p>
                   <form className={styles.brochureForm} onSubmit={handleBrochureSubmit}>
-                    <div className={styles.formField}><label>NAME</label><input type="text" placeholder="Your name" required /></div>
-                    <div className={styles.formField}><label>MOBILE</label><input type="tel" placeholder="+91" required /></div>
-                    <div className={styles.formField}><label>EMAIL</label><input type="email" placeholder="your@email.com" /></div>
+                    <div className={styles.formField}>
+                      <label htmlFor="brochure_name">NAME</label>
+                      <input id="brochure_name" name="name" type="text" placeholder="Your name" required autoComplete="name" />
+                    </div>
+                    <div className={styles.formField}>
+                      <label htmlFor="brochure_phone">MOBILE</label>
+                      <input id="brochure_phone" name="phone" type="tel" placeholder="+91" required autoComplete="tel" />
+                    </div>
+                    <div className={styles.formField}>
+                      <label htmlFor="brochure_email">EMAIL</label>
+                      <input id="brochure_email" name="email" type="email" placeholder="your@email.com" autoComplete="email" />
+                    </div>
                     <button type="submit" className={styles.submitBookingBtn}>SEND BROCHURE</button>
                   </form>
                 </>

@@ -3452,473 +3452,715 @@
   .navLinks a:not(.navCta) { display: none; }
   .customCursor, .cursorLabel { display: none !important; }
   .propertyRoot { cursor: auto; }
-  .sceneTransitionSection { padding: 0 32px; min-height: auto; }
+  .sceneTransitionSection { padding: 0 24px; min-height: auto; }
   .sceneTransitionContainer { padding: 80px 0; }
-  .walkthroughHeaderWrap { padding: 0 32px 40px; }
+  .walkthroughHeaderWrap { padding: 0 24px 40px; }
 }
 
 @media (max-width: 768px) {
-  /* Navigation Bar */
-  .topNav {
-    padding: 14px 0;
+  /* Prevent horizontal scroll globally */
+  .propertyRoot {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Fixed Solid Navigation Bar on Mobile */
+  .topNav,
+  .navTransparent,
+  .navSolid {
+    background: rgba(7, 7, 7, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(197, 167, 111, 0.15) !important;
+    padding: 10px 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
   }
   .navContainer {
-    padding: 0 20px;
-    gap: 12px;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .backLink {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    gap: 6px;
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+  .brandTitleWrap {
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
   }
   .brandLogoImg {
-    height: 24px !important;
-    max-width: 110px !important;
+    height: 20px !important;
+    max-width: 90px !important;
+    object-fit: contain !important;
   }
   .brandDivider,
   .brandSub {
-    display: none;
+    display: none !important;
   }
   .navCta {
-    padding: 8px 16px;
-    font-size: 9.5px;
-    letter-spacing: 1.5px;
+    padding: 7px 12px !important;
+    font-size: 8.5px !important;
+    letter-spacing: 1px !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   /* Hero Section */
   .heroSection {
-    height: auto;
-    min-height: 100svh;
+    height: auto !important;
+    min-height: 100svh !important;
+    width: 100% !important;
+    overflow: hidden !important;
   }
   .heroContent {
-    padding: 88px 24px 28px;
-    height: auto;
-    min-height: 100svh;
-    justify-content: space-between;
-    gap: 32px;
+    padding: 76px 16px 20px !important;
+    height: auto !important;
+    min-height: 100svh !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .heroTopRow {
-    margin-bottom: 8px;
+    margin-bottom: 4px !important;
+    width: 100% !important;
   }
   .heroMetaBadge {
-    font-size: 9.5px;
-    letter-spacing: 2.5px;
+    font-size: 9px !important;
+    letter-spacing: 2px !important;
   }
   .heroMetaSub {
-    font-size: 10.5px;
-    letter-spacing: 1.5px;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
   }
   .heroCenter {
-    padding: 16px 0;
+    padding: 10px 0 !important;
+    width: 100% !important;
   }
   .heroHeading {
-    font-size: clamp(40px, 12vw, 56px);
-    line-height: 1.04;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
+    font-size: clamp(34px, 10.5vw, 48px) !important;
+    line-height: 1.05 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -0.02em !important;
+    word-break: break-word !important;
   }
   .heroTagline {
-    font-size: 13.5px;
-    line-height: 1.6;
-    margin-bottom: 28px;
-    max-width: 100%;
-    color: rgba(244, 241, 232, 0.85);
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+    max-width: 100% !important;
+    color: rgba(244, 241, 232, 0.85) !important;
   }
   .heroActions {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
   }
   .heroCta,
   .heroCtaSecondary {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    box-sizing: border-box;
+    width: 100% !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0 16px !important;
+    font-size: 10.5px !important;
+    letter-spacing: 1.5px !important;
+    box-sizing: border-box !important;
   }
   .heroCtaSecondary {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(244, 241, 232, 0.15);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(244, 241, 232, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
   }
   .heroArrowLeft,
-  .heroArrowRight {
-    display: none; /* Clean uncluttered mobile touch UI */
-  }
+  .heroArrowRight,
   .slideCounter {
-    display: none;
+    display: none !important;
   }
   .heroBottomRow {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 20px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(244, 241, 232, 0.12);
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 14px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid rgba(244, 241, 232, 0.12) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .heroStat {
-    border-left: 2px solid var(--lux-champagne);
-    padding-left: 12px;
-    gap: 3px;
+    border-left: 2px solid var(--lux-champagne) !important;
+    padding-left: 10px !important;
+    gap: 2px !important;
   }
   .heroStatValue {
-    font-size: 20px;
-    line-height: 1.15;
+    font-size: 18px !important;
+    line-height: 1.15 !important;
   }
   .heroStatLabel {
-    font-size: 9px;
-    letter-spacing: 1.8px;
-    opacity: 0.8;
+    font-size: 8px !important;
+    letter-spacing: 1.5px !important;
+    opacity: 0.8 !important;
   }
 
-  /* Section Spacing & Headers */
+  /* Universal Section Containers */
   .sectionContainer,
-  .sectionContainerNarrow {
-    padding: 84px 24px;
-  }
+  .sectionContainerNarrow,
   .sectionContainerWide {
-    padding: 84px 20px;
+    padding: 60px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   .sectionHeader {
-    margin-bottom: 48px;
+    margin-bottom: 32px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .sectionEyebrow {
-    font-size: 9.5px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
+    font-size: 9px !important;
+    letter-spacing: 2.5px !important;
+    margin-bottom: 10px !important;
   }
   .sectionTitle {
-    font-size: clamp(28px, 8vw, 38px);
-    line-height: 1.18;
-    margin-bottom: 14px;
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.16 !important;
+    margin-bottom: 12px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
   .sectionDesc {
-    font-size: 13.5px;
-    line-height: 1.65;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    word-break: break-word !important;
   }
 
-  /* Amenities Horizontal Scroll */
-  .amenityFilterPills {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-wrap: nowrap;
-    gap: 6px;
-    margin-bottom: 28px;
-    padding: 0 4px 6px;
-    border-bottom: 1px solid rgba(244, 241, 232, 0.1);
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  /* Merged Amenities & Floor Plans Grid — 100% Mobile Flow */
+  .mergedAmenitiesPlansGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 48px !important;
+    overflow: hidden !important;
   }
-  .amenityFilterPills::-webkit-scrollbar {
-    display: none;
+  .amenitiesMainCol,
+  .floorPlanSidebarCol {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
-  .filterPill {
-    flex-shrink: 0;
-    white-space: nowrap;
-    padding: 11px 16px;
-    font-size: 10px;
-    letter-spacing: 1.2px;
+
+  /* Horizontal Filter Pills (Amenities & Gallery & Location) */
+  .amenityFilterPills,
+  .galleryFilterRow,
+  .locationTabsRow {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    margin-bottom: 24px !important;
+    padding: 4px 0 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid rgba(244, 241, 232, 0.08) !important;
   }
+  .amenityFilterPills::-webkit-scrollbar,
+  .galleryFilterRow::-webkit-scrollbar,
+  .locationTabsRow::-webkit-scrollbar {
+    display: none !important;
+  }
+  .filterPill,
+  .galleryPill,
+  .locationTabBtn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 9px 13px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* Amenity Cards */
   .amenityGrid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
   .amenityCard {
-    height: 300px;
-    border: 1px solid rgba(197, 167, 111, 0.12);
+    height: 280px !important;
+    border: 1px solid rgba(197, 167, 111, 0.12) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .amenityCardIndex {
-    font-size: 26px;
-    top: 16px;
-    right: 18px;
+    font-size: 24px !important;
+    top: 14px !important;
+    right: 14px !important;
   }
   .amenityContent {
-    padding: 24px 20px;
+    padding: 18px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .amenityTitle {
-    font-size: 18px;
-    margin-bottom: 6px;
+    font-size: 17px !important;
+    margin-bottom: 4px !important;
+    word-break: break-word !important;
   }
   .amenityDesc {
-    font-size: 12.5px;
-    line-height: 1.55;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
   }
 
-  /* Floor Plans Sidebar */
-  .plansCompactSidebar {
-    padding: 28px 20px;
-    border: 1px solid rgba(197, 167, 111, 0.15);
-    background: rgba(18, 19, 24, 0.95);
+  /* Floor Plan Sidebar Card on Mobile */
+  .sidebarPlanStickyCard {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 22px 14px !important;
+    border: 1px solid rgba(197, 167, 111, 0.2) !important;
+    background: #0f0f12 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  .sidebarPlanHeader {
+    width: 100% !important;
+  }
+  .sidebarTitle {
+    font-size: 20px !important;
+  }
+  .sidebarPlanToggleRow {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebarToggleBtn {
+    padding: 10px !important;
+    font-size: 10px !important;
   }
   .sidebarBhkChipsRow {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .sidebarBhkChip {
-    padding: 10px 4px;
+    padding: 8px 2px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .sidebarBhkText {
-    font-size: 11px;
+    font-size: 10px !important;
   }
   .sidebarCarpetMini {
-    font-size: 8.5px;
+    font-size: 8px !important;
+  }
+  .sidebarSelectedCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .sidebarPlanMetaTop {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebarPlanName {
+    font-size: 13px !important;
+  }
+  .sidebarPriceVal {
+    font-size: 13px !important;
+  }
+  .sidebarBlueprintWrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 180px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .sidebarBlueprintImg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+  .sidebarDimBox {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebarDimRow {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebarChipsList {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sidebarHighlightPill {
+    font-size: 9px !important;
+    padding: 4px 7px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+  .sidebarActionsCol {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
   }
   .sidebarRequestBtn,
   .sidebarVisitLink {
-    padding: 14px 18px;
-    font-size: 11px;
-    letter-spacing: 1.8px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    text-align: center !important;
+    padding: 13px 14px !important;
+    font-size: 10.5px !important;
   }
 
   /* Gallery */
   .galleryGrid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 250px;
-    gap: 14px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: 240px !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   .galleryGrid > *:nth-child(1) {
-    grid-column: span 1;
-    height: 250px;
+    grid-column: span 1 !important;
+    height: 240px !important;
   }
   .galleryMeta {
-    padding: 22px;
+    padding: 18px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .galleryTitle {
-    font-size: 19px;
+    font-size: 17px !important;
   }
   .galleryDesc {
-    font-size: 12.5px;
+    font-size: 12px !important;
   }
 
-  /* Walkthrough */
+  /* Walkthrough Section */
   .walkthroughSection {
-    padding: 84px 0 0;
+    padding: 60px 0 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
   }
   .walkthroughHeaderWrap {
-    padding: 0 24px 36px;
+    padding: 0 16px 28px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .videoPlayerFullBleed {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  .youtubeIframeFull {
+    height: 240px !important;
+    width: 100% !important;
+  }
+  .videoFloatingControlBar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 14px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .videoTitleText {
+    font-size: 11.5px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .fullscreenTourBtn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px !important;
+    font-size: 10px !important;
   }
 
-  /* Location */
-  .locationTabsRow {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-wrap: nowrap;
-    gap: 8px;
-    margin-bottom: 28px;
-    padding: 0 4px 6px;
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    mask-image: linear-gradient(to right, black 85%, transparent 100%);
-  }
-  .locationTabsRow::-webkit-scrollbar {
-    display: none;
-  }
-  .locationTabBtn {
-    flex-shrink: 0;
-    white-space: nowrap;
-    padding: 11px 18px;
-    font-size: 10.5px;
-    letter-spacing: 1.5px;
-  }
+  /* Location Section */
   .connectivityGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
   .connectivityCard {
-    padding: 18px 20px;
-    border: 1px solid rgba(7, 7, 7, 0.08);
+    padding: 16px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .googleMapsFullBleedSection {
+    width: 100% !important;
+    margin-top: 32px !important;
+    overflow: hidden !important;
   }
   .mapsTopBannerContent {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-    padding: 0 24px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    padding: 0 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .mapDirectionsBtn {
-    width: 100%;
-    text-align: center;
-    padding: 15px 20px;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 13px !important;
+    box-sizing: border-box !important;
   }
   .googleMapsIframeWrap {
-    height: 320px;
+    height: 280px !important;
+    width: 100% !important;
   }
 
   /* Manifesto Section */
   .sceneTransitionSection {
-    padding: 0 24px;
-    min-height: auto;
+    padding: 0 16px !important;
+    min-height: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .sceneTransitionContainer {
-    padding: 76px 0;
-    gap: 48px;
+    padding: 60px 0 !important;
+    gap: 36px !important;
+    width: 100% !important;
   }
   .sceneHeadline {
-    font-size: clamp(30px, 8.5vw, 44px);
-    line-height: 1.15;
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
   }
   .sceneSub {
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
   }
   .sceneStatsEditorialGrid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px 18px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .sceneStatCard {
-    padding-top: 16px;
+    padding-top: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .sceneStatNumber {
-    font-size: clamp(24px, 6vw, 32px);
-    margin-bottom: 4px;
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    margin-bottom: 2px !important;
   }
   .sceneStatLabel {
-    font-size: 11px;
-    margin-bottom: 6px;
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
   }
   .sceneStatDesc {
-    font-size: 11.5px;
-    line-height: 1.5;
+    font-size: 10.5px !important;
+    line-height: 1.4 !important;
   }
 
-  /* About & Developer */
+  /* About & Developer Section */
   .aboutGrid {
-    gap: 36px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+    width: 100% !important;
   }
   .aboutFeatures {
-    gap: 14px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
   .aboutFeatureItem {
-    padding: 14px 16px;
+    padding: 12px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .developerSection {
-    padding: 84px 20px;
+    padding: 60px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .developerCard {
-    padding: 32px 20px;
+    padding: 24px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .devHeader h3 {
-    font-size: clamp(22px, 5.5vw, 28px);
-    line-height: 1.2;
+    font-size: clamp(20px, 5vw, 24px) !important;
+    line-height: 1.25 !important;
   }
   .devStatsRow {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .devStat {
-    padding: 18px 14px;
+    padding: 14px 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .devStat strong {
-    font-size: 26px;
+    font-size: 22px !important;
   }
   .devStat span {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
   }
 
-  /* Booking Form */
+  /* Booking Form Section */
   .bookingSection {
-    padding: 84px 20px;
+    padding: 60px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .bookingFormContainer {
-    padding: 32px 22px;
-    border: 1px solid rgba(197, 167, 111, 0.18);
+    padding: 24px 16px !important;
+    border: 1px solid rgba(197, 167, 111, 0.18) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .formRow {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   .formInput,
   .formSelect,
   .formTextarea {
     font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
-    padding: 14px 14px;
+    padding: 13px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .bookingSubmitBtn {
-    padding: 18px;
-    font-size: 11.5px;
-    letter-spacing: 2px;
+    padding: 16px !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Sticky Bottom Bar */
   .stickyBottomBar {
-    padding: 10px 14px;
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
-    background: rgba(10, 11, 14, 0.94);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-top: 1px solid rgba(197, 167, 111, 0.15);
+    padding: 8px 10px !important;
+    padding-bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    background: rgba(10, 11, 14, 0.96) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-top: 1px solid rgba(197, 167, 111, 0.15) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .stickyPropertyInfo {
-    display: none;
+    display: none !important;
   }
   .stickyContainer {
-    padding: 0;
+    padding: 0 !important;
+    width: 100% !important;
   }
   .stickyActions {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.3fr;
-    gap: 8px;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1.3fr !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
   }
   .stickyCallBtn,
   .stickyWhatsappBtn,
   .stickyVisitBtn {
-    padding: 13px 6px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    justify-content: center;
-    text-align: center;
-    border-radius: 2px;
+    padding: 11px 4px !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 2px !important;
+    box-sizing: border-box !important;
   }
   .stickyBrochureBtn {
-    display: none;
+    display: none !important;
   }
 
   /* Modals */
   .modalBackdrop {
-    padding: 16px;
+    padding: 12px !important;
   }
   .modalContentBrochure {
-    padding: 32px 20px;
+    padding: 24px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .lightboxOverlay {
-    padding: 20px 14px;
+    padding: 16px 10px !important;
   }
   .lightboxClose {
-    top: 14px;
-    right: 14px;
-    width: 42px;
-    height: 42px;
+    top: 10px !important;
+    right: 10px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
   .footerGrid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 32px !important;
+    width: 100% !important;
   }
 }
 
 @media (max-width: 480px) {
   .heroHeading {
-    font-size: clamp(34px, 11vw, 44px);
+    font-size: clamp(30px, 9.5vw, 40px) !important;
   }
   .sceneHeadline {
-    font-size: clamp(26px, 8vw, 36px);
+    font-size: clamp(24px, 7.5vw, 32px) !important;
   }
   .sceneStatsEditorialGrid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
   .sidebarBhkChipsRow {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
   .devStatsRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
@@ -3946,4 +4188,5 @@
     animation: none !important;
   }
 }
+
 

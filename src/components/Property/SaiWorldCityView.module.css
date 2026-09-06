@@ -3458,21 +3458,21 @@
 }
 
 @media (max-width: 768px) {
-  /* Navigation */
+  /* Navigation Bar */
   .topNav {
-    padding: 12px 0;
+    padding: 14px 0;
   }
   .navContainer {
-    padding: 0 16px;
-    gap: 8px;
+    padding: 0 20px;
+    gap: 12px;
   }
   .backLink {
     font-size: 10px;
-    letter-spacing: 1px;
-    gap: 5px;
+    letter-spacing: 1.5px;
+    gap: 6px;
   }
   .brandLogoImg {
-    height: 22px !important;
+    height: 24px !important;
     max-width: 110px !important;
   }
   .brandDivider,
@@ -3480,121 +3480,127 @@
     display: none;
   }
   .navCta {
-    padding: 8px 14px;
-    font-size: 9px;
-    letter-spacing: 1px;
+    padding: 8px 16px;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
   }
 
-  /* Hero Mobile */
+  /* Hero Section */
   .heroSection {
     height: auto;
     min-height: 100svh;
   }
   .heroContent {
-    padding: 78px 20px 24px;
+    padding: 88px 24px 28px;
     height: auto;
     min-height: 100svh;
     justify-content: space-between;
+    gap: 32px;
   }
   .heroTopRow {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   .heroMetaBadge {
-    font-size: 9px;
-    letter-spacing: 2px;
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
   }
   .heroMetaSub {
-    font-size: 10px;
+    font-size: 10.5px;
     letter-spacing: 1.5px;
   }
   .heroCenter {
-    padding: 12px 0 24px;
+    padding: 16px 0;
   }
   .heroHeading {
-    font-size: clamp(38px, 12vw, 54px);
-    line-height: 1.05;
-    margin-bottom: 14px;
+    font-size: clamp(40px, 12vw, 56px);
+    line-height: 1.04;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
   }
   .heroTagline {
-    font-size: 13px;
-    line-height: 1.55;
-    margin-bottom: 24px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 28px;
     max-width: 100%;
+    color: rgba(244, 241, 232, 0.85);
   }
   .heroActions {
     width: 100%;
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
   .heroCta,
   .heroCtaSecondary {
     width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 14px 20px;
+    padding: 0 20px;
     font-size: 11px;
     letter-spacing: 2px;
+    box-sizing: border-box;
+  }
+  .heroCtaSecondary {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(244, 241, 232, 0.15);
+    backdrop-filter: blur(8px);
   }
   .heroArrowLeft,
   .heroArrowRight {
-    opacity: 0.7;
-    top: auto;
-    bottom: 20px;
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
-    background: rgba(7, 7, 7, 0.65);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(197, 167, 111, 0.3);
+    display: none; /* Clean uncluttered mobile touch UI */
   }
-  .heroArrowLeft { left: 16px; }
-  .heroArrowRight { right: 16px; }
   .slideCounter {
     display: none;
   }
   .heroBottomRow {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px 16px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(244, 241, 232, 0.1);
+    gap: 16px 20px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(244, 241, 232, 0.12);
   }
   .heroStat {
-    border-left: 2px solid rgba(197, 167, 111, 0.35);
-    padding-left: 10px;
-    gap: 2px;
+    border-left: 2px solid var(--lux-champagne);
+    padding-left: 12px;
+    gap: 3px;
   }
   .heroStatValue {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.15;
   }
   .heroStatLabel {
-    font-size: 8.5px;
-    letter-spacing: 1.5px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    opacity: 0.8;
   }
 
-  /* Section Spacing */
+  /* Section Spacing & Headers */
   .sectionContainer,
   .sectionContainerNarrow {
-    padding: 72px 20px;
+    padding: 84px 24px;
   }
   .sectionContainerWide {
-    padding: 72px 18px;
+    padding: 84px 20px;
   }
   .sectionHeader {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
   }
   .sectionEyebrow {
-    font-size: 9px;
-    letter-spacing: 2.5px;
+    font-size: 9.5px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
   }
   .sectionTitle {
-    font-size: clamp(26px, 7vw, 36px);
-    line-height: 1.2;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.18;
+    margin-bottom: 14px;
   }
   .sectionDesc {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 13.5px;
+    line-height: 1.65;
   }
 
   /* Amenities Horizontal Scroll */
@@ -3603,10 +3609,12 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     flex-wrap: nowrap;
-    gap: 4px;
-    margin-bottom: 24px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgba(244, 241, 232, 0.08);
+    gap: 6px;
+    margin-bottom: 28px;
+    padding: 0 4px 6px;
+    border-bottom: 1px solid rgba(244, 241, 232, 0.1);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
   }
   .amenityFilterPills::-webkit-scrollbar {
     display: none;
@@ -3614,77 +3622,87 @@
   .filterPill {
     flex-shrink: 0;
     white-space: nowrap;
-    padding: 10px 14px;
+    padding: 11px 16px;
     font-size: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
   }
   .amenityGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
   }
   .amenityCard {
-    height: 280px;
+    height: 300px;
+    border: 1px solid rgba(197, 167, 111, 0.12);
   }
   .amenityCardIndex {
-    font-size: 24px;
-    top: 14px;
-    right: 16px;
+    font-size: 26px;
+    top: 16px;
+    right: 18px;
   }
   .amenityContent {
-    padding: 20px;
+    padding: 24px 20px;
   }
   .amenityTitle {
-    font-size: 17px;
+    font-size: 18px;
+    margin-bottom: 6px;
   }
   .amenityDesc {
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 12.5px;
+    line-height: 1.55;
   }
 
   /* Floor Plans Sidebar */
   .plansCompactSidebar {
-    padding: 24px 18px;
+    padding: 28px 20px;
+    border: 1px solid rgba(197, 167, 111, 0.15);
+    background: rgba(18, 19, 24, 0.95);
   }
   .sidebarBhkChipsRow {
     grid-template-columns: repeat(4, 1fr);
     gap: 6px;
   }
   .sidebarBhkChip {
-    padding: 8px 2px;
+    padding: 10px 4px;
   }
   .sidebarBhkText {
-    font-size: 10px;
+    font-size: 11px;
   }
   .sidebarCarpetMini {
-    font-size: 8px;
+    font-size: 8.5px;
+  }
+  .sidebarRequestBtn,
+  .sidebarVisitLink {
+    padding: 14px 18px;
+    font-size: 11px;
+    letter-spacing: 1.8px;
   }
 
   /* Gallery */
   .galleryGrid {
     grid-template-columns: 1fr;
-    grid-auto-rows: 240px;
-    gap: 10px;
+    grid-auto-rows: 250px;
+    gap: 14px;
   }
   .galleryGrid > *:nth-child(1) {
     grid-column: span 1;
-    height: 240px;
+    height: 250px;
   }
   .galleryMeta {
-    padding: 20px;
+    padding: 22px;
   }
   .galleryTitle {
-    font-size: 18px;
+    font-size: 19px;
   }
   .galleryDesc {
-    font-size: 12px;
+    font-size: 12.5px;
   }
 
   /* Walkthrough */
   .walkthroughSection {
-    padding: 72px 0 0;
+    padding: 84px 0 0;
   }
   .walkthroughHeaderWrap {
-    padding: 0 20px 32px;
+    padding: 0 24px 36px;
   }
 
   /* Location */
@@ -3694,8 +3712,10 @@
     scrollbar-width: none;
     flex-wrap: nowrap;
     gap: 8px;
-    margin-bottom: 24px;
-    padding-bottom: 4px;
+    margin-bottom: 28px;
+    padding: 0 4px 6px;
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
   }
   .locationTabsRow::-webkit-scrollbar {
     display: none;
@@ -3703,111 +3723,137 @@
   .locationTabBtn {
     flex-shrink: 0;
     white-space: nowrap;
-    padding: 10px 16px;
-    font-size: 10px;
+    padding: 11px 18px;
+    font-size: 10.5px;
     letter-spacing: 1.5px;
   }
   .connectivityGrid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
   .connectivityCard {
-    padding: 16px;
+    padding: 18px 20px;
+    border: 1px solid rgba(7, 7, 7, 0.08);
   }
   .mapsTopBannerContent {
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
-    padding: 0 20px;
+    gap: 18px;
+    padding: 0 24px;
   }
   .mapDirectionsBtn {
     width: 100%;
     text-align: center;
-    padding: 14px;
+    padding: 15px 20px;
   }
   .googleMapsIframeWrap {
-    height: 300px;
+    height: 320px;
   }
 
   /* Manifesto Section */
   .sceneTransitionSection {
-    padding: 0 20px;
+    padding: 0 24px;
     min-height: auto;
   }
   .sceneTransitionContainer {
-    padding: 64px 0;
-    gap: 40px;
+    padding: 76px 0;
+    gap: 48px;
   }
   .sceneHeadline {
-    font-size: clamp(28px, 8vw, 42px);
+    font-size: clamp(30px, 8.5vw, 44px);
     line-height: 1.15;
   }
   .sceneSub {
-    font-size: 13.5px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.65;
   }
   .sceneStatsEditorialGrid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px 16px !important;
+    gap: 24px 18px !important;
   }
   .sceneStatCard {
-    padding-top: 14px;
+    padding-top: 16px;
   }
   .sceneStatNumber {
-    font-size: clamp(22px, 5.5vw, 30px);
-    margin-bottom: 2px;
-  }
-  .sceneStatLabel {
-    font-size: 10.5px;
+    font-size: clamp(24px, 6vw, 32px);
     margin-bottom: 4px;
   }
-  .sceneStatDesc {
+  .sceneStatLabel {
     font-size: 11px;
-    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .sceneStatDesc {
+    font-size: 11.5px;
+    line-height: 1.5;
   }
 
   /* About & Developer */
+  .aboutGrid {
+    gap: 36px;
+  }
+  .aboutFeatures {
+    gap: 14px;
+  }
+  .aboutFeatureItem {
+    padding: 14px 16px;
+  }
+  .developerSection {
+    padding: 84px 20px;
+  }
+  .developerCard {
+    padding: 32px 20px;
+  }
+  .devHeader h3 {
+    font-size: clamp(22px, 5.5vw, 28px);
+    line-height: 1.2;
+  }
   .devStatsRow {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
   .devStat {
-    padding: 16px 12px;
+    padding: 18px 14px;
   }
   .devStat strong {
-    font-size: 24px;
+    font-size: 26px;
   }
   .devStat span {
     font-size: 10px;
+    letter-spacing: 1.5px;
   }
 
   /* Booking Form */
   .bookingSection {
-    padding: 72px 18px;
+    padding: 84px 20px;
   }
   .bookingFormContainer {
-    padding: 28px 18px;
+    padding: 32px 22px;
+    border: 1px solid rgba(197, 167, 111, 0.18);
   }
   .formRow {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
   .formInput,
   .formSelect,
   .formTextarea {
     font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
-    padding: 13px 12px;
+    padding: 14px 14px;
   }
   .bookingSubmitBtn {
-    padding: 16px;
-    font-size: 11px;
+    padding: 18px;
+    font-size: 11.5px;
     letter-spacing: 2px;
   }
 
   /* Sticky Bottom Bar */
   .stickyBottomBar {
-    padding: 8px 12px;
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    padding: 10px 14px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    background: rgba(10, 11, 14, 0.94);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(197, 167, 111, 0.15);
   }
   .stickyPropertyInfo {
     display: none;
@@ -3818,15 +3864,16 @@
   .stickyActions {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1.35fr;
-    gap: 6px;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 8px;
   }
   .stickyCallBtn,
   .stickyWhatsappBtn,
   .stickyVisitBtn {
-    padding: 12px 4px;
-    font-size: 9.5px;
-    letter-spacing: 1px;
+    padding: 13px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
     justify-content: center;
     text-align: center;
     border-radius: 2px;
@@ -3840,20 +3887,20 @@
     padding: 16px;
   }
   .modalContentBrochure {
-    padding: 28px 18px;
+    padding: 32px 20px;
   }
   .lightboxOverlay {
-    padding: 20px 12px;
+    padding: 20px 14px;
   }
   .lightboxClose {
-    top: 12px;
-    right: 12px;
-    width: 40px;
-    height: 40px;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
   }
   .footerGrid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 40px;
   }
 }
 

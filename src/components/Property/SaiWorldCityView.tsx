@@ -248,9 +248,46 @@ const SECTIONS = [
   { id: "walkthrough", label: "FILM" },
   { id: "gallery", label: "GALLERY" },
   { id: "location", label: "LOCATION" },
+  { id: "manifesto", label: "MANIFESTO" },
   { id: "about", label: "ABOUT" },
   { id: "booking", label: "ENQUIRE" },
 ];
+
+function AnimatedNumber({ target, suffix = "", duration = 1400 }: { target: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const startTime = performance.now();
+          const step = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(easeOut * target));
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              setCount(target);
+            }
+          };
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration, hasAnimated]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+}
 
 export function SaiWorldCityView() {
   const [activeBannerIndex, setActiveBannerIndex] = useState(0);
@@ -259,7 +296,7 @@ export function SaiWorldCityView() {
   const [amenityFilter, setAmenityFilter] = useState("All");
   const [locationTab, setLocationTab] = useState("all");
   const [galleryFilter, setGalleryFilter] = useState("All");
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxData, setLightboxData] = useState<{ src: string; title?: string; index?: number; total?: number } | null>(null);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -269,13 +306,51 @@ export function SaiWorldCityView() {
   const [navSolid, setNavSolid] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const [introVisible, setIntroVisible] = useState(true);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  const [cursorState, setCursorState] = useState<"default" | "hover" | "view">("default");
+  const [cursorLabel, setCursorLabel] = useState("");
+  const [progressKey, setProgressKey] = useState(0);
 
   const rootRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorLabelRef = useRef<HTMLDivElement>(null);
 
-  // Auto banner rotation
+  // Subtle 3-layer parallax physics on desktop
+  useEffect(() => {
+    if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) return;
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 2;
+      const y = (e.clientY / innerHeight - 0.5) * 2;
+      setMouseOffset({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxData) return;
+      if (e.key === "Escape") setLightboxData(null);
+      if (e.key === "ArrowRight" && lightboxData.index !== undefined && lightboxData.total !== undefined) {
+        const nextIdx = (lightboxData.index + 1) % GALLERY_ITEMS.length;
+        setLightboxData({ src: GALLERY_ITEMS[nextIdx].img, title: GALLERY_ITEMS[nextIdx].title, index: nextIdx, total: GALLERY_ITEMS.length });
+      }
+      if (e.key === "ArrowLeft" && lightboxData.index !== undefined && lightboxData.total !== undefined) {
+        const prevIdx = (lightboxData.index - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+        setLightboxData({ src: GALLERY_ITEMS[prevIdx].img, title: GALLERY_ITEMS[prevIdx].title, index: prevIdx, total: GALLERY_ITEMS.length });
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxData]);
+
+  // Auto banner rotation + progress bar reset
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
+      setProgressKey((k) => k + 1);
     }, 7000);
     return () => clearInterval(timer);
   }, []);
@@ -293,7 +368,7 @@ export function SaiWorldCityView() {
       const sectionIds = SECTIONS.map((s) => s.id);
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
-        if (el && el.getBoundingClientRect().top <= 200) {
+        if (el && el.getBoundingClientRect().top <= 220) {
           setActiveSection(i);
           break;
         }
@@ -322,6 +397,52 @@ export function SaiWorldCityView() {
     return () => observer.disconnect();
   }, []);
 
+  // Custom cursor tracking (desktop only, RAF-based)
+  useEffect(() => {
+    if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) return;
+    let raf: number;
+    const handleMouseMove = (e: MouseEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (cursorRef.current) {
+          cursorRef.current.style.left = `${e.clientX}px`;
+          cursorRef.current.style.top = `${e.clientY}px`;
+        }
+        if (cursorLabelRef.current) {
+          cursorLabelRef.current.style.left = `${e.clientX}px`;
+          cursorLabelRef.current.style.top = `${e.clientY + 32}px`;
+        }
+      });
+    };
+    const handleOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target || typeof target.closest !== "function") return;
+      const cardSelectors = [styles.galleryCard, styles.amenityCard].filter(Boolean).map(c => `.${c}`).join(", ");
+      const extraInteractive = [styles.sidebarBhkChip, styles.filterPill].filter(Boolean).map(c => `.${c}`).join(", ");
+      const interactiveSelectors = `a, button, [role="button"], input, select, textarea${extraInteractive ? `, ${extraInteractive}` : ""}`;
+      
+      const card = cardSelectors ? target.closest(cardSelectors) : null;
+      const interactive = target.closest(interactiveSelectors);
+      if (card) {
+        setCursorState("view");
+        setCursorLabel("VIEW");
+      } else if (interactive) {
+        setCursorState("hover");
+        setCursorLabel("");
+      } else {
+        setCursorState("default");
+        setCursorLabel("");
+      }
+    };
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseover", handleOver, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseover", handleOver);
+    };
+  }, []);
+
   const handlePrevBanner = () => setActiveBannerIndex((prev) => (prev - 1 + HERO_BANNERS.length) % HERO_BANNERS.length);
   const handleNextBanner = () => setActiveBannerIndex((prev) => (prev + 1) % HERO_BANNERS.length);
 
@@ -338,13 +459,17 @@ export function SaiWorldCityView() {
       {/* Cinematic Intro Overlay */}
       {introVisible && (
         <div className={styles.introOverlay} style={{ opacity: introVisible ? 1 : 0, transition: "opacity 0.6s ease" }}>
-          <span className={`${styles.introMeta} ${styles.introMetaVisible}`}>PARADISE GROUP</span>
+          <span className={`${styles.introMeta} ${styles.introMetaVisible}`}>PARADISE GROUP · AASCO EXCLUSIVE</span>
           <div className={`${styles.introLine} ${styles.introLineActive}`} />
-          <span className={`${styles.introMeta} ${styles.introMetaVisible}`}>PANVEL, NAVI MUMBAI</span>
+          <span className={`${styles.introMeta} ${styles.introMetaVisible}`}>SAI WORLD CITY · PANVEL</span>
         </div>
       )}
 
-      {/* Scroll Progress Indicator */}
+      {/* Custom Cursor */}
+      <div ref={cursorRef} className={`${styles.customCursor} ${cursorState === "hover" ? styles.cursorHover : ""} ${cursorState === "view" ? styles.cursorView : ""}`} />
+      <div ref={cursorLabelRef} className={`${styles.cursorLabel} ${cursorLabel ? styles.cursorLabelVisible : ""}`}>{cursorLabel}</div>
+
+      {/* Scroll Progress Indicator / Chapter Navigation */}
       <nav className={styles.scrollProgress} aria-label="Sections navigation">
         {SECTIONS.map((s, i) => (
           <a
@@ -377,7 +502,7 @@ export function SaiWorldCityView() {
             <span className={styles.brandSub}>AASCO COLLECTION</span>
           </div>
           <div className={styles.navLinks}>
-            {SECTIONS.map((s) => (
+            {SECTIONS.filter(s => s.id !== "manifesto").map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
@@ -408,7 +533,13 @@ export function SaiWorldCityView() {
 
       {/* ═══ 1. HERO — CINEMATIC FULL VIEWPORT (01 OVERVIEW) ═══ */}
       <section className={styles.heroSection} id="overview">
-        <div className={styles.heroBg}>
+        <div
+          className={styles.heroBg}
+          style={{
+            transform: `scale(1.04) translate3d(${mouseOffset.x * -8}px, ${mouseOffset.y * -6}px, 0)`,
+            transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        >
           {HERO_BANNERS.map((b, i) => (
             <img key={i} src={b.url} alt={b.title} className={styles.heroImg} style={{ position: "absolute", inset: 0, opacity: activeBannerIndex === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: activeBannerIndex === i ? 1 : 0 }} />
           ))}
@@ -420,22 +551,29 @@ export function SaiWorldCityView() {
         <button type="button" className={styles.heroArrowLeft} onClick={handlePrevBanner} aria-label="Previous image">‹</button>
         <button type="button" className={styles.heroArrowRight} onClick={handleNextBanner} aria-label="Next image">›</button>
 
-        {/* Integrated Hero Controls Bar */}
-        <div className={styles.heroSliderControls}>
-          <button type="button" className={styles.heroControlBtn} onClick={handlePrevBanner} aria-label="Previous slide">‹</button>
-          <div className={styles.slideCounter}>
-            <span className={styles.slideCounterCurrent}>{String(activeBannerIndex + 1).padStart(2, "0")}</span>
-            <span className={styles.slideCounterSep}>/</span>
-            <span className={styles.slideCounterTotal}>{String(HERO_BANNERS.length).padStart(2, "0")}</span>
-          </div>
-          <button type="button" className={styles.heroControlBtn} onClick={handleNextBanner} aria-label="Next slide">›</button>
+        {/* Slide Counter */}
+        <div className={styles.slideCounter}>
+          <span className={styles.slideCounterCurrent}>{String(activeBannerIndex + 1).padStart(2, "0")}</span>
+          <span className={styles.slideCounterSep}>/</span>
+          <span className={styles.slideCounterTotal}>{String(HERO_BANNERS.length).padStart(2, "0")}</span>
         </div>
 
-        <div className={styles.heroContent}>
+        {/* Progress Bar */}
+        <div className={styles.heroProgressBar}>
+          <div key={progressKey} className={styles.heroProgressFill} />
+        </div>
+
+        <div
+          className={styles.heroContent}
+          style={{
+            transform: `translate3d(${mouseOffset.x * 3}px, ${mouseOffset.y * 2}px, 0)`,
+            transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        >
           <div className={styles.heroTopRow}>
             <div className={styles.heroMetaLeft}>
               <span className={styles.heroMetaBadge}>
-                <span className={styles.heroLiveDot} /> RERA REGISTERED
+                <span className={styles.heroLiveDot} /> MAHARERA REGISTERED
               </span>
               <span className={styles.heroMetaLocation}>PALASPE JUNCTION · PANVEL · NAVI MUMBAI</span>
             </div>
@@ -448,7 +586,7 @@ export function SaiWorldCityView() {
             <h1 className={styles.heroHeading}>
               Sai World<br /><em>City</em>
             </h1>
-            <p className={styles.heroTagline}>The city within the city. 38 acres of global architecture.</p>
+            <p className={styles.heroTagline}>The city within the city. 38 acres of global architecture inspired by New York, Paris &amp; Dubai.</p>
             <div className={styles.heroActions}>
               <a href="#pricing" className={styles.heroCta}>
                 EXPLORE PROPERTY <span className={styles.heroCtaArrow}>→</span>
@@ -466,11 +604,11 @@ export function SaiWorldCityView() {
               <span className={styles.heroStatLabel}>ONWARDS</span>
             </div>
             <div className={styles.heroStat}>
-              <span className={styles.heroStatValue}>38 Acres</span>
+              <span className={styles.heroStatValue}><AnimatedNumber target={38} suffix=" Acres" /></span>
               <span className={styles.heroStatLabel}>GLOBAL TOWNSHIP</span>
             </div>
             <div className={styles.heroStat}>
-              <span className={styles.heroStatValue}>75,000 Sq.Ft.</span>
+              <span className={styles.heroStatValue}><AnimatedNumber target={75000} suffix=" Sq.Ft." /></span>
               <span className={styles.heroStatLabel}>CLUB VEGAS</span>
             </div>
             <div className={styles.heroStat}>
@@ -506,6 +644,7 @@ export function SaiWorldCityView() {
               <div className={`${styles.amenityGrid} ${styles.reveal}`}>
                 {filteredAmenities.map((a, i) => (
                   <div key={i} className={styles.amenityCard}>
+                    <span className={styles.amenityCardIndex}>{String(i + 1).padStart(2, "0")}</span>
                     <div className={styles.amenityImgWrapper}>
                       <img src={a.img} alt={a.title} className={styles.amenityImg} loading="lazy" />
                     </div>
@@ -566,7 +705,7 @@ export function SaiWorldCityView() {
                       </div>
 
                       {/* Interactive Blueprint Thumbnail with Lightbox zoom */}
-                      <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxImage(selectedPlan.blueprintImg)}>
+                      <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxData({ src: selectedPlan.blueprintImg, title: `${selectedPlan.type} Architectural Plan` })}>
                         <img src={selectedPlan.blueprintImg} alt={`${selectedPlan.bhk} Plan`} className={styles.sidebarBlueprintImg} />
                         <div className={styles.sidebarBlueprintZoomBadge}>
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
@@ -607,7 +746,7 @@ export function SaiWorldCityView() {
                   </>
                 ) : (
                   <div className={styles.sidebarMasterPlanBox}>
-                    <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxImage("https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp")}>
+                    <div className={styles.sidebarBlueprintWrap} onClick={() => setLightboxData({ src: "https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp", title: "Sai World City 38-Acre Master Township Layout" })}>
                       <img src="https://paradise-saiworldcitypanvel.com/assets/images/floor-plan/MasterPlan.webp" alt="Master Plan" className={styles.sidebarBlueprintImg} />
                       <div className={styles.sidebarBlueprintZoomBadge}>
                         <span>ENLARGE MASTER LAYOUT</span>
@@ -648,7 +787,7 @@ export function SaiWorldCityView() {
       </section>
 
       {/* ═══ 4. GALLERY — PROJECT GALLERY (04 GALLERY) ═══ */}
-      <section className={`${styles.gallerySection} ${styles.sectionLight}`} id="gallery" ref={revealRef}>
+      <section className={`${styles.gallerySection} ${styles.sectionDark}`} id="gallery" ref={revealRef}>
         <div className={styles.sectionContainer}>
           <div className={`${styles.sectionHeader} ${styles.reveal}`}>
             <span className={styles.sectionEyebrow}>VISUAL PORTFOLIO</span>
@@ -667,7 +806,7 @@ export function SaiWorldCityView() {
 
           <div className={`${styles.galleryGrid} ${styles.reveal}`}>
             {filteredGallery.map((item, i) => (
-              <div key={i} className={styles.galleryCard} onClick={() => setLightboxImage(item.img)}>
+              <div key={i} className={styles.galleryCard} onClick={() => setLightboxData({ src: item.img, title: item.title, index: i, total: filteredGallery.length })}>
                 <div className={styles.galleryImgWrap}>
                   <img src={item.img} alt={item.title} className={styles.galleryImg} loading="lazy" />
                 </div>
@@ -737,6 +876,46 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
+      {/* ═══ SIGNATURE SCENE TRANSITION: A CITY DESIGNED FOR THE WAY YOU LIVE ═══ */}
+      <section className={styles.sceneTransitionSection} id="manifesto" ref={revealRef}>
+        <div className={styles.sceneTransitionContainer}>
+          <div className={`${styles.sceneStatementBlock} ${styles.reveal}`}>
+            <span className={styles.sceneEyebrow}>THE MANIFESTO</span>
+            <h2 className={styles.sceneHeadline}>
+              A CITY <em>DESIGNED</em><br />
+              FOR THE WAY <em>YOU LIVE.</em>
+            </h2>
+            <p className={styles.sceneSub}>
+              38 acres of integrated cosmopolitan luxury where high-rise architecture, resort-level hospitality, and seamless Mumbai connectivity unite at Palaspe Junction, Panvel.
+            </p>
+            <div className={styles.sceneDividerLine} />
+          </div>
+
+          <div className={`${styles.sceneStatsEditorialGrid} ${styles.reveal}`}>
+            <div className={styles.sceneStatCard}>
+              <span className={styles.sceneStatNumber}><AnimatedNumber target={38} suffix=" Acres" /></span>
+              <span className={styles.sceneStatLabel}>Master Township</span>
+              <p className={styles.sceneStatDesc}>Global high-rise architecture inspired by New York, Paris &amp; Dubai skylines.</p>
+            </div>
+            <div className={styles.sceneStatCard}>
+              <span className={styles.sceneStatNumber}><AnimatedNumber target={75000} suffix=" Sq.Ft." /></span>
+              <span className={styles.sceneStatLabel}>Club Vegas Resort</span>
+              <p className={styles.sceneStatDesc}>G+5 multi-level international clubhouse with temperature-controlled pools.</p>
+            </div>
+            <div className={styles.sceneStatCard}>
+              <span className={styles.sceneStatNumber}><AnimatedNumber target={50} suffix="+" /></span>
+              <span className={styles.sceneStatLabel}>Curated Amenities</span>
+              <p className={styles.sceneStatDesc}>TechnoGym fitness, private Dolby Atmos cinema, sunken aqua lounges &amp; sports suites.</p>
+            </div>
+            <div className={styles.sceneStatCard}>
+              <span className={styles.sceneStatNumber}>₹1.25 Cr*</span>
+              <span className={styles.sceneStatLabel}>Starting Price</span>
+              <p className={styles.sceneStatDesc}>2, 3, 3.5 &amp; 4 BHK luxury residences with expansive sunrise-to-sunset decks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ 6. ABOUT THE MASTER VISION & DEVELOPER (06 ABOUT) ═══ */}
       <section className={`${styles.aboutSection} ${styles.sectionWarm}`} id="about" ref={revealRef}>
         <div className={styles.sectionContainer}>
@@ -794,10 +973,10 @@ export function SaiWorldCityView() {
               Established in 1990, Paradise Group is one of Navi Mumbai&apos;s most trusted real estate developers with a portfolio spanning 50+ residential and commercial projects, 25,000+ delivered homes, and a reputation built on architectural innovation and timely delivery.
             </p>
             <div className={styles.devStatsRow}>
-              <div className={styles.devStat}><strong>34+</strong><span>Years of Excellence</span></div>
-              <div className={styles.devStat}><strong>50+</strong><span>Landmark Projects</span></div>
-              <div className={styles.devStat}><strong>25,000+</strong><span>Happy Families</span></div>
-              <div className={styles.devStat}><strong>15M+</strong><span>Sq.Ft. Developed</span></div>
+              <div className={styles.devStat}><strong><AnimatedNumber target={34} suffix="+" /></strong><span>Years of Excellence</span></div>
+              <div className={styles.devStat}><strong><AnimatedNumber target={50} suffix="+" /></strong><span>Landmark Projects</span></div>
+              <div className={styles.devStat}><strong><AnimatedNumber target={25000} suffix="+" /></strong><span>Happy Families</span></div>
+              <div className={styles.devStat}><strong><AnimatedNumber target={15} suffix="M+" /></strong><span>Sq.Ft. Developed</span></div>
             </div>
             <div className={styles.reraDisclosuresGrid}>
               <div className={styles.reraCard}>
@@ -836,13 +1015,13 @@ export function SaiWorldCityView() {
         <div className={styles.sectionContainer}>
           <div className={`${styles.bookingWrapper} ${styles.reveal}`}>
             <div className={styles.bookingIntro}>
-              <span className={styles.bookingEyebrow}>EXCLUSIVE CONSULTATION</span>
+              <span className={styles.bookingEyebrow}>THE NEXT CHAPTER STARTS HERE</span>
               <h2>Ready to see it <em>for yourself?</em></h2>
               <p className={styles.bookingLead}>
-                Schedule a private site visit with our property consultants. Experience the township, explore show flats, and receive exclusive pricing.
+                Schedule a private site visit with our property consultants. Experience the township, explore show flats, and receive exclusive pre-launch pricing.
               </p>
               <div className={styles.bookingPerks}>
-                {["Priority access to pre-launch inventory & early-bird pricing", "Complimentary cab from Panvel station for site visit", "Dedicated relationship manager throughout purchase journey", "Exclusive Aasco Realty cashback & festive offers"].map((perk, i) => (
+                {["Priority access to pre-launch inventory & early-bird pricing", "Complimentary private cab from Panvel station for site visit", "Dedicated relationship manager throughout purchase journey", "Exclusive AASCO Realty cashback & festive offers"].map((perk, i) => (
                   <div key={i} className={styles.perkItem}>
                     <svg className={styles.perkCheckSvg} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                     {perk}
@@ -1039,11 +1218,45 @@ export function SaiWorldCityView() {
         </div>
       )}
 
-      {lightboxImage && (
-        <div className={styles.lightboxOverlay} onClick={() => setLightboxImage(null)}>
+      {lightboxData && (
+        <div className={styles.lightboxOverlay} onClick={() => setLightboxData(null)}>
           <div className={styles.lightboxWrap} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.lightboxClose} onClick={() => setLightboxImage(null)}>✕</button>
-            <img src={lightboxImage} alt="Full view" className={styles.lightboxImg} />
+            <div className={styles.lightboxTopRow}>
+              {lightboxData.total !== undefined && lightboxData.index !== undefined ? (
+                <span className={styles.lightboxIndexCounter}>
+                  {String(lightboxData.index + 1).padStart(2, "0")} / {String(lightboxData.total).padStart(2, "0")}
+                </span>
+              ) : (
+                <span className={styles.lightboxIndexCounter}>ARCHITECTURAL BLUEPRINT</span>
+              )}
+              {lightboxData.total !== undefined && lightboxData.index !== undefined && (
+                <div className={styles.lightboxNavBtns}>
+                  <button
+                    type="button"
+                    className={styles.lightboxNavBtn}
+                    onClick={() => {
+                      const prevIdx = (lightboxData.index! - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+                      setLightboxData({ src: GALLERY_ITEMS[prevIdx].img, title: GALLERY_ITEMS[prevIdx].title, index: prevIdx, total: GALLERY_ITEMS.length });
+                    }}
+                  >
+                    ← PREV
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.lightboxNavBtn}
+                    onClick={() => {
+                      const nextIdx = (lightboxData.index! + 1) % GALLERY_ITEMS.length;
+                      setLightboxData({ src: GALLERY_ITEMS[nextIdx].img, title: GALLERY_ITEMS[nextIdx].title, index: nextIdx, total: GALLERY_ITEMS.length });
+                    }}
+                  >
+                    NEXT →
+                  </button>
+                </div>
+              )}
+              <button className={styles.lightboxClose} onClick={() => setLightboxData(null)}>✕</button>
+            </div>
+            <img src={lightboxData.src} alt={lightboxData.title || "Full view"} className={styles.lightboxImg} />
+            {lightboxData.title && <p className={styles.lightboxCaption}>{lightboxData.title}</p>}
           </div>
         </div>
       )}

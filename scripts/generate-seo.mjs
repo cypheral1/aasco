@@ -1,7 +1,20 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const PAGE_PATHS = ["/","/contact","/about","/works/unerio-landing-page","/works/jorger-clarkson","/works/ds-freelance-developer","/works/architecture-studio","/works","/news","/privacy-policy","/works/neon-drift-studio","/works/the-canvas-theory","/news/visual-brand-and-storytelling","/news/trends-shaping-the-future","/news/big-brands-that-truly-last-long"];
+const PAGE_ENTRIES = [
+  { path: "/", priority: "1.0", changefreq: "weekly" },
+  { path: "/properties/sai-world-city-panvel", priority: "0.95", changefreq: "weekly" },
+  { path: "/properties/meghna-star-walk-kharghar", priority: "0.85", changefreq: "weekly" },
+  { path: "/properties/arihant-avanti-palace", priority: "0.85", changefreq: "weekly" },
+  { path: "/properties/mumbai-homes", priority: "0.8", changefreq: "monthly" },
+  { path: "/properties/thane-residences", priority: "0.8", changefreq: "monthly" },
+  { path: "/properties/taloja-new-homes", priority: "0.8", changefreq: "monthly" },
+  { path: "/works", priority: "0.85", changefreq: "weekly" },
+  { path: "/about", priority: "0.7", changefreq: "monthly" },
+  { path: "/contact", priority: "0.8", changefreq: "monthly" },
+  { path: "/news", priority: "0.7", changefreq: "weekly" },
+  { path: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
+];
 const root = process.cwd();
 
 async function readEnv(name) {
@@ -52,13 +65,31 @@ if (!configuredSiteUrl) {
   throw new Error("SITE_URL is required. Add it to .env before running dev or build.");
 }
 const siteUrl = normalizeSiteUrl(configuredSiteUrl);
-const urls = PAGE_PATHS.map((path) => "  <url>\n    <loc>" + escapeXml(absoluteUrl(siteUrl, path)) + "</loc>\n  </url>").join("\n");
-const sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" + urls + "\n</urlset>\n";
-const robots = "User-agent: *\nAllow: /\n\nSitemap: " + absoluteUrl(siteUrl, "/sitemap.xml") + "\n";
+const today = new Date().toISOString().split("T")[0];
+
+const urls = PAGE_ENTRIES.map((entry) => `  <url>
+    <loc>${escapeXml(absoluteUrl(siteUrl, entry.path))}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>`).join("\n");
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+
+const robots = `User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: ${absoluteUrl(siteUrl, "/sitemap.xml")}
+`;
 
 await mkdir(resolve(root, "public"), { recursive: true });
 await Promise.all([
   writeFile(resolve(root, "public", "sitemap.xml"), sitemap, "utf8"),
   writeFile(resolve(root, "public", "robots.txt"), robots, "utf8"),
 ]);
-console.log("[framecoded] SEO files generated for " + siteUrl);
+console.log("[framecoded] Rich SEO sitemap and robots.txt generated for " + siteUrl);

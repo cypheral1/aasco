@@ -4,26 +4,68 @@ import { siteAssetUrl, siteJsonLd, siteUrl } from "@/config/site";
 import { MotionRuntime } from "@/ui/MotionRuntime";
 import { motionDefinitions, interactionDefinitions } from "@/components/Home/Home/Home.motion";
 
-const structuredData: unknown[] = [];
+const structuredData: unknown[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: "AASCO Realty",
+    url: siteUrl("/"),
+    logo: siteAssetUrl("https://paradise-saiworldcitypanvel.com/assets/images/logo/logo.png"),
+    telephone: "+919082407700",
+    email: "info@aasco.in",
+    description: "Aasco Realty is a premier real estate consultancy offering trusted advisory, verified luxury properties, and end-to-end guidance across Navi Mumbai and Mumbai.",
+    priceRange: "₹₹₹",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Navi Mumbai",
+      addressRegion: "Maharashtra",
+      postalCode: "410206",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 18.9894,
+      longitude: 73.1276,
+    },
+  },
+];
 
 export const metadata: Metadata = {
-  title: "Aasco - Real Estate",
+  title: "AASCO Realty — Premier Real Estate Advisory | Navi Mumbai & Mumbai",
   description:
-    "Aasco helps you find exceptional properties and make confident real estate decisions with trusted local expertise.",
+    "AASCO Realty helps you discover exceptional luxury homes, verified developments, and investment properties with trusted local market expertise.",
+  keywords: [
+    "AASCO Realty",
+    "Real Estate Navi Mumbai",
+    "Flats in Panvel",
+    "Luxury Apartments Mumbai",
+    "Sai World City Panvel",
+    "Kharghar Properties",
+  ],
   alternates: { canonical: siteUrl("/") },
   openGraph: {
-    title: "Norvin - Premium Agency & Portfolio Template",
+    title: "AASCO Realty — Premier Real Estate Advisory",
     description:
-      "Norvin is a premium Framer template for agencies and creatives to showcase work with modern layouts, smooth interactions, and high performance. Launch a professional portfolio quickly and stand out.",
+      "Find exceptional residential developments and make confident real estate decisions with AASCO Realty.",
     url: siteUrl("/"),
-    images: [siteAssetUrl("https://framerusercontent.com/images/HLVocncMZU8AwfYZmU9Cb7uua3A.png")],
+    siteName: "AASCO Realty",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: siteAssetUrl("https://paradise-saiworldcitypanvel.com/assets/images/banner/B1.webp?v=1776947758"),
+        width: 1200,
+        height: 630,
+        alt: "AASCO Realty — Luxury Real Estate",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Norvin - Premium Agency & Portfolio Template",
+    title: "AASCO Realty — Premier Real Estate Advisory",
     description:
-      "Norvin is a premium Framer template for agencies and creatives to showcase work with modern layouts, smooth interactions, and high performance. Launch a professional portfolio quickly and stand out.",
-    images: [siteAssetUrl("https://framerusercontent.com/images/HLVocncMZU8AwfYZmU9Cb7uua3A.png")],
+      "Find exceptional residential developments and make confident real estate decisions with AASCO Realty.",
+    images: [siteAssetUrl("https://paradise-saiworldcitypanvel.com/assets/images/banner/B1.webp?v=1776947758")],
   },
 };
 

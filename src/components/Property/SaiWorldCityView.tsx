@@ -250,7 +250,31 @@ const SECTIONS = [
   { id: "location", label: "LOCATION" },
   { id: "manifesto", label: "MANIFESTO" },
   { id: "about", label: "ABOUT" },
+  { id: "faq", label: "FAQ" },
   { id: "booking", label: "ENQUIRE" },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "What is the price of 2, 3, 3.5 & 4 BHK flats at Sai World City Panvel?",
+    a: "At Sai World City Panvel, 2 BHK luxury residences start from ₹1.25 Cr* onwards (620–892 sq.ft. carpet area), 3 BHK Grande Royale residences start from ₹2.41 Cr* onwards (1334 sq.ft. carpet area), 3.5 BHK Imperial Suites with dedicated home office study start from ₹2.89 Cr*, and 4 BHK Royal Sky Penthouses start from ₹3.34 Cr*. Complete payment plans, floor-rise cost sheets, and approved bank home loan EMI details are provided upon enquiry.",
+  },
+  {
+    q: "Where is Sai World City located and what is its connectivity to Mumbai & NMIA?",
+    a: "Sai World City is strategically located at Palaspe Junction, Panvel, Navi Mumbai. It has immediate connectivity to NH 17 (Mumbai–Goa Highway) and NH 4 (Mumbai–Pune Expressway). Key commute milestones include: 10 minutes to Mumbai Trans Harbour Link (MTHL / Atal Setu) for direct 20-minute access into South Mumbai, 20 minutes to the upcoming Navi Mumbai International Airport (NMIA), 10 minutes to Multi Modal Corridor (MMC), and 12 minutes to Panvel Terminus Railway Station.",
+  },
+  {
+    q: "Is Sai World City approved by MahaRERA? What are the registration numbers?",
+    a: "Yes, Sai World City is 100% MahaRERA compliant and registered. Phase 2 registration number is P52000006318, and Phase 3 is P52000038422. Marketed by AASCO Realty (Authorized MahaRERA Real Estate Agent: A52000032476). All project clearances, titles, and leading bank home loan approvals are fully verified.",
+  },
+  {
+    q: "What amenities are featured in the 75,000 Sq.Ft. Club Vegas clubhouse?",
+    a: "Club Vegas is an international Las Vegas-themed G+5 multi-level resort clubhouse featuring over 50 luxury lifestyle amenities. Key highlights include an Olympic-sized temperature-controlled infinity lap pool, sunken aqua cabanas, TechnoGym Olympic-grade fitness arena, private 32-seater Dolby Atmos screening cinema, championship snooker and indoor games suites, zen dry mountain courtyards, sky observatory telescope deck, and kids aqua play zones.",
+  },
+  {
+    q: "How can I book a VIP private site visit or download the official floor plan brochure?",
+    a: "You can schedule a private site visit through AASCO Realty by calling +91 90824 07700 or connecting directly via WhatsApp. AASCO provides complimentary private cab pick-up from Panvel Railway Station, personalized show flat tours, and complete legal and mortgage consultation.",
+  },
 ];
 
 function AnimatedNumber({ target, suffix = "", duration = 1400 }: { target: number; suffix?: string; duration?: number }) {
@@ -303,6 +327,7 @@ export function SaiWorldCityView() {
   const [brochureSubmitted, setBrochureSubmitted] = useState(false);
   const [siteVisitDate, setSiteVisitDate] = useState("");
   const [selectedConfigInterest, setSelectedConfigInterest] = useState("2 BHK");
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [navSolid, setNavSolid] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const [introVisible, setIntroVisible] = useState(true);
@@ -497,7 +522,7 @@ export function SaiWorldCityView() {
             <span className={styles.backArrow}>←</span> All Properties
           </Link>
           <div className={styles.brandTitleWrap}>
-            <img src="https://paradise-saiworldcitypanvel.com/assets/images/logo/logo.png" alt="Sai World City Logo" className={styles.brandLogoImg} />
+            <img src="https://paradise-saiworldcitypanvel.com/assets/images/logo/logo.png" alt="Sai World City Panvel - Luxury Global Township Logo" className={styles.brandLogoImg} />
             <span className={styles.brandDivider}>|</span>
             <span className={styles.brandSub}>AASCO COLLECTION</span>
           </div>
@@ -531,6 +556,33 @@ export function SaiWorldCityView() {
         </div>
       </header>
 
+      {/* Semantic Breadcrumbs for Navigation & SEO */}
+      <nav aria-label="Breadcrumb" className={styles.breadcrumbBar}>
+        <div className={styles.breadcrumbContainer}>
+          <ol className={styles.breadcrumbList} itemScope itemType="https://schema.org/BreadcrumbList">
+            <li className={styles.breadcrumbItem} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/" itemProp="item"><span itemProp="name">Home</span></Link>
+              <meta itemProp="position" content="1" />
+              <span className={styles.breadcrumbSep}>/</span>
+            </li>
+            <li className={styles.breadcrumbItem} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/works" itemProp="item"><span itemProp="name">Properties</span></Link>
+              <meta itemProp="position" content="2" />
+              <span className={styles.breadcrumbSep}>/</span>
+            </li>
+            <li className={styles.breadcrumbItem} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/works" itemProp="item"><span itemProp="name">Panvel</span></Link>
+              <meta itemProp="position" content="3" />
+              <span className={styles.breadcrumbSep}>/</span>
+            </li>
+            <li className={`${styles.breadcrumbItem} ${styles.breadcrumbActive}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Sai World City</span>
+              <meta itemProp="position" content="4" />
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* ═══ 1. HERO — CINEMATIC FULL VIEWPORT (01 OVERVIEW) ═══ */}
       <section className={styles.heroSection} id="overview">
         <div
@@ -541,7 +593,7 @@ export function SaiWorldCityView() {
           }}
         >
           {HERO_BANNERS.map((b, i) => (
-            <img key={i} src={b.url} alt={b.title} className={styles.heroImg} style={{ position: "absolute", inset: 0, opacity: activeBannerIndex === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: activeBannerIndex === i ? 1 : 0 }} />
+            <img key={i} src={b.url} alt={`Sai World City Panvel - ${b.title}`} className={styles.heroImg} style={{ position: "absolute", inset: 0, opacity: activeBannerIndex === i ? 1 : 0, transition: "opacity 1.2s ease", zIndex: activeBannerIndex === i ? 1 : 0 }} />
           ))}
         </div>
         <div className={styles.heroOverlay} />
@@ -584,9 +636,11 @@ export function SaiWorldCityView() {
 
           <div className={styles.heroCenter}>
             <h1 className={styles.heroHeading}>
-              Sai World<br /><em>City</em>
+              Sai World<br /><em>City Panvel</em>
             </h1>
-            <p className={styles.heroTagline}>The city within the city. 38 acres of global architecture inspired by New York, Paris &amp; Dubai.</p>
+            <p className={styles.heroTagline}>
+              38-Acre Integrated Global Township at Palaspe Junction featuring 2, 3, 3.5 &amp; 4 BHK Luxury Residences inspired by New York, Paris &amp; Dubai.
+            </p>
             <div className={styles.heroActions}>
               <a href="#pricing" className={styles.heroCta}>
                 EXPLORE PROPERTY <span className={styles.heroCtaArrow}>→</span>
@@ -1010,7 +1064,66 @@ export function SaiWorldCityView() {
         </div>
       </section>
 
-      {/* ═══ 7. BOOKING / CTA (07 ENQUIRE) ═══ */}
+      {/* ═══ 7. FAQ — FREQUENTLY ASKED QUESTIONS (07 FAQ) ═══ */}
+      <section className={`${styles.faqSection} ${styles.sectionWarm}`} id="faq" ref={revealRef}>
+        <div className={styles.sectionContainer}>
+          <div className={`${styles.sectionHeader} ${styles.reveal}`}>
+            <span className={styles.sectionEyebrow}>KNOWLEDGE &amp; CLARITY</span>
+            <h2 className={styles.sectionTitle}>Frequently Asked <em>Questions</em></h2>
+            <p className={styles.sectionDesc}>
+              Everything you need to know about pricing, configurations, MahaRERA approvals, and connectivity at Sai World City Panvel.
+            </p>
+            <div className={styles.sectionLine} />
+          </div>
+
+          <div className={`${styles.faqList} ${styles.reveal}`}>
+            {FAQ_ITEMS.map((item, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div key={idx} className={`${styles.faqItem} ${isOpen ? styles.faqItemOpen : ""}`}>
+                  <button
+                    type="button"
+                    className={styles.faqQuestionBtn}
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${idx}`}
+                  >
+                    <span className={styles.faqIndexBadge}>{String(idx + 1).padStart(2, "0")}</span>
+                    <span className={styles.faqQuestionText}>{item.q}</span>
+                    <span className={styles.faqToggleIcon}>{isOpen ? "−" : "+"}</span>
+                  </button>
+                  <div
+                    id={`faq-answer-${idx}`}
+                    className={styles.faqAnswerWrap}
+                    style={{
+                      maxHeight: isOpen ? "400px" : "0px",
+                      opacity: isOpen ? 1 : 0,
+                      transition: "max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <p className={styles.faqAnswerText}>{item.a}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={`${styles.faqBottomHelp} ${styles.reveal}`}>
+            <p>Have more questions about payment schemes, bank loans, or customized floor plans?</p>
+            <div className={styles.faqHelpActions}>
+              <a href="https://wa.me/919082407700?text=Hi%20Aasco%2C%20I%20have%20questions%20regarding%20Sai%20World%20City%20Panvel." target="_blank" rel="noopener noreferrer" className={styles.faqWhatsappBtn}>
+                Chat on WhatsApp →
+              </a>
+              <a href="tel:+919082407700" className={styles.faqCallBtn}>
+                Speak with Advisor: +91 90824 07700
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 8. BOOKING / CTA (08 ENQUIRE) ═══ */}
       <section className={`${styles.bookingSection} ${styles.sectionDark}`} id="booking" ref={revealRef}>
         <div className={styles.sectionContainer}>
           <div className={`${styles.bookingWrapper} ${styles.reveal}`}>
@@ -1117,6 +1230,8 @@ export function SaiWorldCityView() {
                 <a href="#amenities">Club Vegas</a>
                 <a href="#walkthrough">Walkthrough</a>
                 <a href="#location">Location</a>
+                <a href="#about">About Project</a>
+                <a href="#faq">FAQ</a>
                 <a href="#gallery">Gallery</a>
               </div>
             </div>

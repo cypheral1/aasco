@@ -2,47 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://your-domain.com/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/contact</loc>
+    <loc>https://your-domain.com/properties/sai-world-city-panvel</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/about</loc>
+    <loc>https://your-domain.com/properties/meghna-star-walk-kharghar</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/works/unerio-landing-page</loc>
+    <loc>https://your-domain.com/properties/arihant-avanti-palace</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/works/jorger-clarkson</loc>
+    <loc>https://your-domain.com/properties/mumbai-homes</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/works/ds-freelance-developer</loc>
+    <loc>https://your-domain.com/properties/thane-residences</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/works/architecture-studio</loc>
+    <loc>https://your-domain.com/properties/taloja-new-homes</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://your-domain.com/works</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/about</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/contact</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://your-domain.com/news</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://your-domain.com/privacy-policy</loc>
-  </url>
-  <url>
-    <loc>https://your-domain.com/works/neon-drift-studio</loc>
-  </url>
-  <url>
-    <loc>https://your-domain.com/works/the-canvas-theory</loc>
-  </url>
-  <url>
-    <loc>https://your-domain.com/news/visual-brand-and-storytelling</loc>
-  </url>
-  <url>
-    <loc>https://your-domain.com/news/trends-shaping-the-future</loc>
-  </url>
-  <url>
-    <loc>https://your-domain.com/news/big-brands-that-truly-last-long</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

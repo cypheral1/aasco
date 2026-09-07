@@ -6,9 +6,12 @@ import "@/styles/theme.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Aasco Reality - Premier Real Estate Advisory | Navi Mumbai & Mumbai",
+  title: "AASCO Realty — Premier Real Estate Advisory | Navi Mumbai & Mumbai",
   description:
-    "Aasco Reality offers trusted real estate consulting, legal consultation, and home loan assistance across Kharghar, Taloja, Panvel, Dombivli, and Thane.",
+    "AASCO Realty offers trusted real estate consulting, verified property advisory, and home loan assistance across Panvel, Kharghar, Taloja, Dombivli, and Thane.",
+  verification: {
+    google: "googleb776d53e8f3ac7e4",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
